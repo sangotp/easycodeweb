@@ -1,0 +1,144 @@
+﻿:root {
+    --white: #ffffff;
+    --black: #000;
+    --blue: #4764bb;
+    --bright-blue: #0094ff;
+    --blue_purple: #6c4cd8;
+    --green: #3eca50;
+    --yellow: #e3c622;
+    --text-black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Century Gothic';
+    line-height: 1.5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*Begin: Common Use*/
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right!important;
+}
+
+.font-24 {
+    font-size: 24px !important;
+}
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;
+}
+
+.mt-64 {
+    margin-top: 64px !important;
+}
+
+.mt-96 {
+    margin-top: 96px !important;
+}
+
+.mt-128 {
+    margin-top: 128px !important;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.ml-8 {
+    margin-left: 8px !important;
+}
+
+.ml-16 {
+    margin-left: 16px !important;
+}
+
+.ml-32 {
+    margin-left: 32px !important;
+}
+
+.ml-64 {
+    margin-left: 64px !important;
+}
+
+.mr-8 {
+    margin-right: 8px !important;
+}
+
+.mr-16 {
+    margin-right: 16px !important;
+}
+
+.mb-8 {
+    margin-bottom: 8px !important;
+}
+
+.btn-restart {
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+    font-family: 'Century Gothic';
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.heading {
+    font-size: 36px;
+}
+
+.sub-heading {
+    font-size: 26px;
+}
+
+.text-heading {
+    font-size: 20px;
+}
+
+.text-medium {
+    font-size: 14px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+.disabled {
+    opacity: 0.4 !important;
+    cursor: initial !important;
+    background-color: transparent !important;
+}
+/*End: Common Use*/

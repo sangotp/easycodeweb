@@ -1,0 +1,699 @@
+﻿@page "/courses/details"
+@model EasyCodeAcademy.Web.Pages.Courses.DetailsModel
+@{
+}
+
+<div class="content__container">
+    <div class="breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__list__item">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item">
+                <a href="/courses" class="breadcrumb-link">Courses</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item breadcrumb-current">Unity 3D Development</li>
+        </ul>
+    </div>
+    
+    <div class="course-details-info">
+        <div class="course-info">
+            <div class="course-info__title sub-heading">Complete C# Unity Game Developer 3D</div>
+            <div class="course-info__author text-small">
+                Author: <a href="#" class="course-author">Thanh Sang</a>
+            </div>
+            <div class="course-info__vote text-small mt-8">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+                <a href="#" class="course-vote-total">(700 rating)</a>
+            </div>
+            <div class="course-info__language text-medium mt-8">
+                Language: <button type="button" class="course-language btn-restart">English</button>
+            </div>
+            <div class="course-info__total-time text-medium mt-8">
+                Complete Course: <a href="#" class="course-total-time">20 hours / total</a>
+            </div>
+            <div class="course-info__price mt-16">
+                <span class="course-price-normal text-heading">$32.5</span>
+                <span class="course-price-sales text-heading">$19.9</span>
+                <span class="course-price-status text-small">Best Sales</span>
+            </div>
+            <div class="course-info__action mt-32">
+                <button type="button" class="course-add-inventory btn-restart">+ Inventory</button>
+                <a href="#" class="course-purchase">Buy Now</a>
+            </div>
+        </div>
+        <div class="course-video">
+            <div class="course-video__container">
+                <img src="/Assets/img/unity.jpg" alt="Course Video" class="course-video-content" />
+                <button type="button" class="course-video-play btn-restart">
+                    <i class="fa-solid fa-circle-play"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="course-details-content">
+        <div class="course-overview">
+            <div class="course-section-title text-heading">Overview</div>
+            <div class="course-overview__content mt-16">
+                <p class="course-overview-text">
+                    This is the most complete certification training (+ 60 hours of videos)
+                    and the most recent on Udemy. 
+                    It will allow you to become a game developer 
+                    and master Unity as well as C# and through 10 projects.
+                </p>
+                <p class="course-overview-text">
+                    Want to learn Unity? To create games? 
+                    To migrate from another engine? To live from your passion?
+                </p>
+                <p class="course-overview-text">
+                    This training is for you ! No need for special knowledge, 
+                    we will see everything from A to Z! 
+                    We'll be using the latest version of Unity for this course, 
+                    so you'll have access to the most up-to-date training on the net!
+                </p>
+                <p class="course-overview-text">
+                    This complete training on Unity 3D will allow you to 
+                    learn how to create 3D games with the C# programming language.
+                </p>
+                <p class="course-overview-text">
+                    This training will allow you to learn how to use Unity 
+                    while putting your knowledge into practice immediately.
+                </p>
+                <p class="course-overview-text">
+                    Throughout this training, we will follow our common thread: 
+                    Create a 3D platform/adventure game to learn by doing. 
+                    There will then be 9 other projects to practice even more.
+                </p>
+                <p class="course-overview-text">
+                    We will discover everything from the beginning 
+                    (no need for knowledge to follow this training) 
+                    and we will go until the publication of our online game.
+                </p>
+                <p class="course-overview-text">
+                    Being a certified Unity expert , 
+                    I made sure to send you the best practices 
+                    to achieve a professional quality project.
+                </p>
+                <p class="course-overview-text">
+                    I have been teaching Unity for over 10 years 
+                    and have published many books on this software.
+                </p>
+                <p class="course-overview-text">
+                    After completing this training, 
+                    you will be comfortable with Unity 
+                    and you will be able to develop any type of game. 
+                    You will also get a certificate of achievement.
+                </p> 
+            </div>
+        </div>
+        <div class="course-include mt-64">
+            <div class="course-section-title text-heading">Course Include</div>
+            <div class="course-include__content mt-16">
+                <div class="course-include-item">
+                    <i class="fa-solid fa-play"></i>
+                    <span class="course-time">20 hours / total</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-file"></i>
+                    <span class="course-item">6 items</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-link"></i>
+                    <span class="course-resource">10 Reference Resources</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span class="course-chapters">24 chapters - 260 lessons</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-table-list"></i>
+                    <span lang="course-exercises">100 exercises / total</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-tv"></i>
+                    <span class="course-access">PC / Mobile / Tivi,etc... (unlimited access)</span>
+                </div>
+                <div class="course-include-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span class="course-certificate">Complete Course Certificate</span>
+                </div>
+            </div>
+        </div>
+        <div class="course-requirement mt-64">
+            <div class="course-section-title text-heading">Requirement</div>
+            <div class="course-requirement__content mt-16">
+                <ul class="course-requirement-list ml-16">
+                    <li class="course-requirement-list__item">A computer with internet access</li>
+                    <li class="course-requirement-list__item">Already using software before</li>
+                    <li class="course-requirement-list__item">Have basic knowledge about C#</li>
+                    <li class="course-requirement-list__item">Be patient, don't jump into advanced topic</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course-achievement mt-64">
+            <div class="course-section-title text-heading">What You Will Learn:</div>
+            <div class="course-achievement__content mt-16">
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Master Unity 3D through 10 projects</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Programming with the C# language</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Create 3D games (PC or Mobile)</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Use 3D models and animate them</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Code interactions and events</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Developing a 3D platform game</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Acquire best practices with an expert</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Get advice from a certified professional</span>
+                </div>
+                <div class="course-achievement-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="course-achievement-item-text">Practice with 10 complete projects</span>
+                </div>
+            </div>
+        </div>
+        <div class="course-content mt-64">
+            <div class="course-section-title text-heading">Content</div>
+            <div class="course-content__container mt-16">
+                <div class="course-content-summary">
+                    <div class="course-content-summary__all">
+                        <span class="course-summary-item">24 chapters</span>
+                        <span class="course-summary-item">260 lessons</span>
+                        <span class="course-summary-item">Duration: 20 hours</span>
+                    </div>
+                    <div class="course-content-summary__action">
+                        <button type="button" class="course-content-action btn-restart">Expand All Chapters</button>
+                    </div>
+                </div>
+                <div class="course-content-chapter">
+                    <ul class="course-chapter-list">
+                        <li class="course-chapter-list__item">
+                            <div class="courses-chapter-item-container">
+                                <div class="course-chapter-action">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <button type="button" class="course-chapter-btn btn-restart">
+                                        Chapter 1
+                                    </button>
+                                </div>
+                                <div class="course-chapter-info">
+                                    <span class="course-chapter-info__item">Ready</span>
+                                    <span class="course-chapter-info__item">3 Lessons</span>
+                                    <span class="course-chapter-info__item">59 Minutes 05 Seconds</span>
+                                </div>
+                            </div>
+                            <ul class="course-lesson-list">
+                                <li class="course-lesson-list__item">
+                                    <div class="course-lesson-item-container">
+                                        <div class="course-lesson-action">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 1</a>
+                                        </div>
+                                        <div class="course-lesson-info">
+                                            <span class="course-lesson-info__item">Ready</span>
+                                            <span class="course-lesson-info__item">21:27</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="course-lesson-list__item">
+                                    <div class="course-lesson-item-container">
+                                        <div class="course-lesson-action">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 2</a>
+                                        </div>
+                                        <div class="course-lesson-info">
+                                            <span class="course-lesson-info__item">Ready</span>
+                                            <span class="course-lesson-info__item">18:15</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="course-lesson-list__item">
+                                    <div class="course-lesson-item-container">
+                                        <div class="course-lesson-action">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 3</a>
+                                        </div>
+                                        <div class="course-lesson-info">
+                                            <span class="course-lesson-info__item">Ready</span>
+                                            <span class="course-lesson-info__item">19:23</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="course-chapter-list__item">
+                            <div class="courses-chapter-item-container">
+                                <div class="course-chapter-action">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <button type="button" class="course-chapter-btn btn-restart">
+                                        Chapter 2
+                                    </button>
+                                </div>
+                                <div class="course-chapter-info">
+                                    <span class="course-chapter-info__item">Ready</span>
+                                    <span class="course-chapter-info__item">3 Lessons</span>
+                                    <span class="course-chapter-info__item">1 Hours 06 Minutes</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="course-chapter-list__item">
+                            <div class="courses-chapter-item-container">
+                                <div class="course-chapter-action">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <button type="button" class="course-chapter-btn btn-restart">
+                                        Chapter 3
+                                    </button>
+                                </div>
+                                <div class="course-chapter-info">
+                                    <span class="course-chapter-info__item">Ready</span>
+                                    <span class="course-chapter-info__item">3 Lessons</span>
+                                    <span class="course-chapter-info__item">1 Hours 23 Minutes</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="course-contribute mt-64">
+            <div class="course-section-title text-heading">Contribute By:</div>
+            <div class="course-contribute__content mt-16">
+                <div class="course-contribute-member">
+                    <span class="course-contribute-member__title">Member: </span>
+                    <button type="button" id="author_member" class="contribute-member-btn btn-restart">Thanh Sang</button>
+                    <span class="contribute-member-comma">,</span>
+                    <button type="button" id="codex_member" class="contribute-member-btn btn-restart">Codex</button>
+                    <span class="contribute-member-comma">,</span>
+                    <button type="button" id="W3C_member" class="contribute-member-btn btn-restart">W3C</button>
+                </div>
+                <div class="course-contribute-info">
+                    <div class="course-contribute-info__container">
+                        <div class="contribute-info">
+                            <div class="member-contribute-info">
+                                <div class="member-contribute-info__img">
+                                    <img src="/Assets/img/athony_cardinal.jpg" alt="Contributor Image" class="contributor-img" />
+                                </div>
+                            </div>
+                            <div class="member-contribute-overview">
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-star"></i>
+                                        4.4 Trainer Quality
+                                </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-user-group"></i>
+                                    <span class="contributor-total-student">871,646 Students</span>
+                                 </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                    <span class="contributor-certificate">Bachelor Of IT Science, Master Degree</span>
+                                </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span class="contributor-total-courses">16 courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-contribute-name mt-8">
+                            <span class="member-contribute-name__text text-heading">Thanh Sang</span>
+                        </div>
+                        <div class="member-contribute-role text-heading">
+                            <span class="member-contribute-role__text text-heading">Author</span>
+                        </div>
+                        <div class="course-contribute-info__content mt-16">
+                            <p class="contributor-paragraph">
+                                Passionate about programming since always, 
+                                I also like to share my knowledge. 
+                                my specialty being game development and programming , 
+                                Udemy allows me to express myself and 
+                                share this passion with thousands of Internet users. 
+                                I am also the author of many books on the creation of video games.
+                                <span class="contributor-paragraph-dot" id="dots">...</span>
+                            </p>
+                            <div id="paragraph-more">
+                                <p class="contributor-paragraph-more mt-8">
+                                    In the professional context, I have to work with many technologies, 
+                                    I develop applications, websites , software , APIs , 
+                                    virtual/augmented reality experiences... 
+                                    My objective is to convey to you what is best 
+                                    in development and engineering.
+                                </p>
+                                <p class="contributor-paragraph-more mt-8">
+                                    I publish training courses on the main game engines 
+                                    and programming languages ​​on the 
+                                    market, namely Unreal Engine , Unity 3D, Godot , 
+                                    C# , WPF , ASP , Javascript , etc. 
+                                    I also offer tutorials on essential tools or 
+                                    frameworks to watch very closely. 
+                                    close if you don't want to be overwhelmed by technology.
+                                </p>
+                                <p class="contributor-paragraph-more mt-8">
+                                    I attach great importance to the quality of my training. 
+                                    For more than 10 years I have done 
+                                    my best to guarantee your satisfaction. 
+                                    If you have any questions or requests, 
+                                    do not hesitate to contact me, 
+                                    I can produce specific tutorials on request.
+                                </p>
+                            </div>
+                            <button type="button" class="show-paragraph-btn btn-restart" id="toggle-paragraph-btn">
+                                Read more<i class="fa-solid fa-angle-down ml-8"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="course-contribute-info__container mt-64">
+                        <div class="contribute-info">
+                            <div class="member-contribute-info">
+                                <div class="member-contribute-info__img">
+                                    <img src="/Assets/img/Formation-Facile.jpg" alt="Contributor Image" class="contributor-img" />
+                                </div>
+                            </div>
+                            <div class="member-contribute-overview">
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-star"></i>
+                                        4.7 Trainer Quality
+                                </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-user-group"></i>
+                                    <span class="contributor-total-student">12,572 Students</span>
+                                 </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                    <span class="contributor-certificate">Bachelor Of IT Science</span>
+                                </div>
+                                <div class="member-contribute-overview__item">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span class="contributor-total-courses">18 lessons</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-contribute-name mt-8">
+                            <span class="member-contribute-name__text text-heading">Codex</span>
+                        </div>
+                        <div class="member-contribute-role text-heading">
+                            <span class="member-contribute-role__text text-heading">Support</span>
+                        </div>
+                        <div class="course-contribute-info__content mt-16">
+                            <p class="contributor-paragraph">
+                                Formation-facile FR publishes video tutorials on Udemy 
+                                to help you learn how to develop video games easily .
+
+                                Discover the tutorials that will allow you to learn 
+                                how to use Unity , Unreal Engine , Godot or other frameworks.
+
+                                Learn the main programming languages ​​(C#, C++, Python, Blueprint), 
+                                3D modeling with Blender and game engines in order to 
+                                become an independent video game developer .
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="course-details-rate">
+        <div class="course-details-rate__overview">
+            <div class="course-rate-title text-heading">Total Rating</div>
+            <div class="course-rate-total mt-16">
+                <div class="course-rate-total__point">
+                    <span class="course-rate-point heading">4.7</span>
+                    <span class="course-rate-star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </span>
+                    <span class="rate-point-meaning">Course Quality</span>
+                </div>
+                <div class="course-rate-total__progress">
+                    <div class="rate-progress-bar">
+                        <div class="progress-bar">
+                            <div class="progress-bar__container">
+                                <span class="p-100"></span>
+                            </div>
+                            <div class="progress-value">
+                                <span class="progress-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <button type="button" class="progress-value__percent btn-restart">100%</button>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__container">
+                                <span class="p-75"></span>
+                            </div>
+                            <div class="progress-value">
+                                <span class="progress-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </span>
+                                <button type="button" class="progress-value__percent btn-restart">75%</button>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__container">
+                                <span class="p-50"></span>
+                            </div>
+
+                            <div class="progress-value">
+                                <span class="progress-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </span>
+                                <button type="button" class="progress-value__percent btn-restart">50%</button>
+                            </div>
+
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__container">
+                                <span class="p-25"></span>
+                            </div>
+                            <div class="progress-value">
+                                <span class="progress-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </span>
+                                <button type="button" class="progress-value__percent btn-restart">25%</button>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__container">
+                                <span class="p-0"></span>
+                            </div>
+                            <div class="progress-value">
+                                <span class="progress-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </span>
+                                <button type="button" class="progress-value__percent btn-restart">0%</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="course-details-rate__content">
+            <div class="course-rate-title text-heading">Comments By Trainee</div>
+            <div class="course-rate-content mt-16">
+                <div class="course-rate-content__search">
+                    <div class="rate-search-container">
+                        <form class="rate-search-form" method="post" action="">
+                            <input type="text" class="rate-search-input text-normal" placeholder="Search For Reviews" />
+                            <button type="submit" class="rate-search-btn btn-restart text-heading">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="course-rate-filter">
+                        <form class="course-rate-form" method="post" action="">
+                            <select class="course-rate-filter__select text-normal" name="rate-select">
+                                <option class="course-rate-filter__option text-normal" value="0">All</option>
+                                <option class="course-rate-filter__option text-normal" value="5">5 Stars</option>
+                                <option class="course-rate-filter__option text-normal" value="4">4 Stars</option>
+                                <option class="course-rate-filter__option text-normal" value="3">3 Stars</option>
+                                <option class="course-rate-filter__option text-normal" value="2">2 Stars</option>
+                                <option class="course-rate-filter__option text-normal" value="1">1 Stars</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="course-rate-content__container mt-16">
+                    <div class="course-rate-reviewer">
+                        <div class="course-rate-image">
+                            <span class="reviewer-img-text">
+                                TS
+                            </span>
+                        </div>
+                        <div class="course-rate-info">
+                            <span class="course-rate-info__fullname">Thanh Sang</span>
+                            <span class="course-rate-info__star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                            <span class="course-rate-info__content mt-8">
+                                Great course to get all the starting skills for Unity. 
+                                You clearly can build your own small game after each project of the course. 
+                                Well explained, interesting projects.
+                            </span>
+                            <div class="course-rate-info__action mt-8">
+                                <button type="button" class="course-rate-reaction btn-restart">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                </button>
+                                <button type="button" class="course-rate-reaction btn-restart ml-8">
+                                    <i class="fa-regular fa-thumbs-down"></i>
+                                </button>
+                                <div class="course-rate-report mt-16">
+                                    <div class="course-rate-report__container">
+                                        <button type="button" class="course-rate-report__btn btn-restart">
+                                            <i class="fa-regular fa-flag"></i>
+                                        </button>
+                                        <span class="course-rate-report__text">Report</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="course-rate-reviewer">
+                        <div class="course-rate-image">
+                            <span class="reviewer-img">
+                                <img src="/Assets/img/gamedevTV.jpg" class="reviewer-img__profile" alt="Reviewer Image" />
+                            </span>
+                        </div>
+                        <div class="course-rate-info">
+                            <span class="course-rate-info__fullname">Codex</span>
+                            <span class="course-rate-info__star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                            <span class="course-rate-info__content mt-8">
+                                I am totally new to this course 
+                                and barely worked on C# and Unity but 
+                                the knowledge that I got here helped 
+                                channel my thinking with regards to doing 
+                                things I haven't done before. I did enjoy the course . 
+                                Will have to practice a lot on my own to 
+                                make sure the concepts were fully grasped. 
+                                Thanks very much guys.
+                            </span>
+                            <div class="course-rate-info__action mt-8">
+                                <button type="button" class="course-rate-reaction btn-restart">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                </button>
+                                <button type="button" class="course-rate-reaction btn-restart ml-8">
+                                    <i class="fa-regular fa-thumbs-down"></i>
+                                </button>
+                                <div class="course-rate-report mt-16">
+                                    <div class="course-rate-report__container">
+                                        <button type="button" class="course-rate-report__btn btn-restart">
+                                            <i class="fa-regular fa-flag"></i>
+                                        </button>
+                                        <span class="course-rate-report__text">Report</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        // Toggle Show/ Hide Course Chapter
+        const chapterBtns = document.querySelectorAll(".course-chapter-btn");
+        
+        if(chapterBtns[0])
+        {
+            if (chapterBtns[0].parentElement.parentElement.nextElementSibling) {
+                if (!chapterBtns[0].parentElement.parentElement.nextElementSibling.classList.contains("show")) {
+                    chapterBtns[0].parentElement.parentElement.nextElementSibling.classList.add("show");
+                }
+            }
+        }
+
+        chapterBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                if (item.parentElement.parentElement.nextElementSibling) {
+                    item.parentElement.parentElement.nextElementSibling.classList.toggle("show");
+                }
+            });
+        });
+
+        // Toggle Show More/ Show less contributor paragraph
+        const dots = document.getElementById("dots");
+        const paragraphMore = document.getElementById("paragraph-more");
+        const toggleParagraphBtn = document.getElementById("toggle-paragraph-btn");
+
+        toggleParagraphBtn.addEventListener("click", function(){
+            if (dots.style.display == "none") {
+                dots.style.display = "inline";
+                paragraphMore.style.display = "none";
+                toggleParagraphBtn.innerHTML = "Read more" + "<i class='fa-solid fa-angle-up ml-8'></i>";
+                if (toggleParagraphBtn.lastElementChild.classList.contains("fa-angle-up")) {
+                    toggleParagraphBtn.lastElementChild.classList.replace("fa-angle-up", "fa-angle-down");
+                }
+                
+            } else {
+                dots.style.display = "none";
+                paragraphMore.style.display = "block";
+                toggleParagraphBtn.innerHTML = "Read less" + "<i class='fa-solid fa-angle-down ml-8'></i>";
+                if (toggleParagraphBtn.lastElementChild.classList.contains("fa-angle-down")) {
+                    toggleParagraphBtn.lastElementChild.classList.replace("fa-angle-down", "fa-angle-up");
+                }
+            }
+        });
+    </script>
+}

@@ -1,0 +1,127 @@
+﻿@page "/documentation"
+@model EasyCodeAcademy.Web.Pages.References.IndexModel
+@{
+}
+
+<div class="content__container">
+@*    <div class="breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__list__item">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item breadcrumb-current">Documentation</li>
+        </ul>
+    </div>*@
+    
+    <div class="documentation-wrapper">
+        <div class="sidebar">
+            <div class="sidebar__title text-heading">Topics</div>
+            <div class="sidebar-topic-list mt-32">
+                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">HTML - Structuring the web</a>
+                    <div class="sidebar-sub-topic">
+                        <i class="fa-solid fa-angle-down text-medium"></i>
+                        <button type="button" class="sidebar-sub-topic__btn btn-restart text-medium">
+                            Getting started with the web
+                        </button>
+                    </div>
+                    <ul class="sub-topic-list">
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">Getting started with the web overview</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">Installing basic software</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">What will your website look like?</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">Dealing with files</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">HTML basics</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">CSS basics</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">JavaScript basics</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">Publishing your website</a>
+                        </li>
+                        <li class="sub-topic-list__item">
+                            <a href="" class="sub-topic-link text-medium">How the web works</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">CSS - Styling the web</a>
+                </div>
+                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+                                <div class="sidebar-topic-list__item">
+                    <a href="" class="sidebar-topic-link">Javascript - Dynamic Client Side Scripting</a>
+                </div>
+            </div>
+        </div>
+        <div class="documentation-content ml-16 mr mt-32">
+            <div class="documentation-content__title sub-heading">Structuring the web with HTML</div>
+            <div class="documentation-content__container mt-16">
+                <p class="documentation-text">
+                    To build websites, you should know about <a href="">HTML</a> 
+                    — the fundamental technology used to define the structure 
+                    of a webpage. HTML is used to specify whether your web content 
+                    should be recognized as a paragraph, list, heading, link, image, 
+                    multimedia player, form, or one of many other available elements 
+                    or even a new element that you define.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        const subtopicBtns = document.querySelectorAll(".sidebar-sub-topic__btn");
+        
+        subtopicBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                if(item.parentElement.nextElementSibling) {
+                    if (item.parentElement.nextElementSibling.classList.contains("sub-topic-list")) {
+                        item.parentElement.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            });
+        });
+    </script>
+}

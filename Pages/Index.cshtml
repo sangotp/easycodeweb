@@ -1,0 +1,124 @@
+﻿@page
+@model EasyCodeAcademy.Web.Pages.IndexModel
+@{
+}
+
+<div class="content__container">
+    <div class="banner-join">
+        <div class="banner-join__title sub-heading">Hard To Find The Way To Learn Coding?_</div>
+        <div class="banner-join__content mt-8">
+            Join us now to take a roadmap that we
+            providing in details for variety courses 
+            like: "Programming Language, Web, Mobile App, Game Development and more."
+        </div>
+        <div class="banner-join__link mt-32">
+            <a href="" class="join-link">Join Now</a>
+        </div>
+    </div>
+
+    <div class="banner-courses">
+        <div class="banner-courses__title sub-heading">
+            We're provide various courses to learn how to coding in different field:
+        </div>
+        <div class="banner-courses__content">
+            <div class="course-field">
+                <a href="" class="course-field__link">Web Development</a>
+            </div>
+            <div class="course-field">
+                <a href="" class="course-field__link">Mobile Development</a>
+            </div>
+            <div class="course-field">
+                <a href="" class="course-field__link">Game Development</a>
+            </div>
+            <div class="course-field">
+                <a href="" class="course-field__link">More...</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner-activities">
+        <div class="banner-activities__title sub-heading">
+            Code Challenge activity is waiting for you to find out.
+        </div>
+        <div class="banner-activities__description">
+            This activity help you improve your coding skills 
+            also logical thinking about problem.
+        </div>
+        <div class="banner-activities__content mt-8">
+            <div class="challenge-field">
+                <button type="button" class="btn-restart challenge-field__btn text-heading">
+                    <i class="fa-solid fa-plus mr-8"></i>
+                    Programming Language
+                </button>
+                <div class="challenge-field__description">
+                    Programming Language is an important field 
+                    that developer need to focus on and have a lot of knowledge 
+                    . This programming language challenge help you try to solve 
+                    and understand all the problem that occurs when coding in 
+                    specific programming language such as:  C, C++, C#, Java, Python,etc...
+                </div>
+            </div>
+            <div class="challenge-field mt-8">
+                 <button type="button" class="btn-restart challenge-field__btn  text-heading">
+                     <i class="fa-solid fa-plus mr-8"></i>
+                     Problem Solving
+                 </button>
+            </div>
+            <div class="challenge-field mt-8">
+                 <button type="button" class="btn-restart challenge-field__btn text-heading">
+                     <i class="fa-solid fa-plus mr-8"></i>
+                     Data Structure & Algorithm
+                 </button>
+            </div>
+            <div class="challenge-field mt-8">
+                 <button type="button" class="btn-restart challenge-field__btn text-heading">
+                     <i class="fa-solid fa-plus mr-8"></i>
+                     Mathematics
+                 </button>
+            </div>
+            <div class="challenge-field mt-8">
+                <a href="" class="challenge-field__link text-heading">More...</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner-references">
+        <div class="banner-references__title">
+            <img src="/Assets/img/cloud.svg" alt="References Image" class="references-img" />
+        </div>
+        <div class="banner-references__content">
+            <span class="banner-references-desc text-heading">
+                References is the best place to store all 
+                needed information around the coding field, skills, documentation,etc...
+                Everyone can gather and understand the core knowledge from here.
+            </span>
+            <a href="" class="references-link mt-32">Find Out</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        // Toggle Display Challenge Field Button Description
+        const challengeBtns = document.querySelectorAll('.challenge-field__btn');
+        challengeBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                // if next element sibling of button not null
+                if(item.nextElementSibling)
+                {
+                    // if next element sibling contains class 'challenge-field__description'
+                    if (item.nextElementSibling.classList.contains('challenge-field__description')) {
+                        item.nextElementSibling.classList.toggle('show');
+                        // Replace icon class when contains 'fa-plus' or 'fa-minus'
+                        if (item.firstElementChild.classList.contains('fa-plus')) {
+                            item.firstElementChild.classList.replace("fa-plus", "fa-minus");
+                        }
+                        else {
+                            item.firstElementChild.classList.replace("fa-minus", "fa-plus");
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}

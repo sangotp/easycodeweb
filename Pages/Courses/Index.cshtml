@@ -1,0 +1,488 @@
+﻿@page "/courses"
+@model EasyCodeAcademy.Web.Pages.Courses.IndexModel
+@using EasyCodeAcademy.Web.Models;
+
+@{
+    var categories = ViewData["categories"] as List<Category>;
+}
+
+<div class="content__container">
+@*    <div class="breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__list__item">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item breadcrumb-current">Courses</li>
+        </ul>
+    </div>*@
+
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <div class="sidebar__title text-heading">Category</div>
+            <ul class="sidebar-category-list mt-16">
+@*                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Web</button>
+                    </div>
+                    <ul class="sub-category-list ml-16">
+                        <li class="sub-category-list__item">
+                            <a href="" class="sub-category-link text-medium">ASP.NET Core</a>
+                        </li>
+                        <li class="sub-category-list__item">
+                            <a href="" class="sub-category-link text-medium">PHP</a>
+                        </li>
+                        <li class="sub-category-list__item">
+                            <a href="" class="sub-category-link text-medium">React</a>
+                        </li>
+                        <li class="sub-category-list__item">
+                            <a href="" class="sub-category-link text-medium">NodeJS</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Programming Language</button>
+                    </div>
+                </li>
+                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>
+                                                <li class="sidebar-category-list__item">
+                    <div class="category-item-container">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <button type="button" class="sidebar-category-btn btn-restart">Game</button>
+                    </div>
+                </li>*@
+                @if(categories is not null)
+                {
+                    foreach(var category in categories)
+                    {
+                        <li class="sidebar-category-list__item">
+                            <div class="category-item-container">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <button type="button" class="sidebar-category-btn btn-restart">@category.CategoryName</button>
+                            </div>
+                            <ul class="sub-category-list ml-16">
+                                <li class="sub-category-list__item">
+                                    <a href="" class="sub-category-link text-medium">ASP.NET Core</a>
+                                </li>
+                                <li class="sub-category-list__item">
+                                    <a href="" class="sub-category-link text-medium">PHP</a>
+                                </li>
+                                <li class="sub-category-list__item">
+                                    <a href="" class="sub-category-link text-medium">React</a>
+                                </li>
+                                <li class="sub-category-list__item">
+                                    <a href="" class="sub-category-link text-medium">NodeJS</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="category-content ml-16">
+            <div class="category-content__filter">
+                <div class="category-filter-title sub-heading">All</div>
+                <div class="category-filter-action">
+                    <div class="filter-action-item">
+                        <div class="filter-action-item__container">
+                            <button type="button" id="filter-sort" class="filter-sort-btn btn-restart">Sort By:</button>
+                            <div class="filter-sort-text ml-8">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="sort-text">Popular</span>
+                                <i class="fa-solid fa-angle-down ml-16"></i>
+                            </div>
+                        </div>
+                        <ul class="filter-sort-list">
+                            <li class="filter-sort-list__item">
+                                <div class="sort-item-container">
+                                    <i class="fa-solid fa-star"></i>
+                                    <button type="button" class="sort-item-btn btn-restart">Popular</button>
+                                </div>
+                            </li>
+                            <li class="filter-sort-list__item">
+                                <div class="sort-item-container">
+                                    <i class="fa-solid fa-calendar-day"></i>
+                                    <button type="button" class="sort-item-btn btn-restart">Latest</button>
+                                </div>
+                            </li>
+                            <li class="filter-sort-list__item">
+                                <div class="sort-item-container">
+                                    <i class="fa-solid fa-arrow-down-1-9"></i>
+                                    <button type="button" class="sort-item-btn btn-restart">Price</button>
+                                </div>
+                            </li>
+                            <li class="filter-sort-list__item">
+                                <div class="sort-item-container">
+                                    <i class="fa-solid fa-arrow-down-a-z"></i>
+                                    <button type="button" class="sort-item-btn btn-restart">Name</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filter-action-item">
+                        <form class="filter-search-form" action="" method="get">
+                            <input type="text" class="filter-search-input text-normal" placeholder="Find Courses" />
+                            <button type="submit" class="filter-search-btn btn-restart">
+                                <i class="fa-solid fa-magnifying-glass text-heading"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <span class="filter-action-item">550 Results</span>
+                </div>
+            </div>
+            <div class="category-content__courses">
+                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="course-card">
+                    <div class="course-card__img">
+                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                    </div>
+                    <div class="course-card__container">
+                        <div class="course-card-title text-heading">Unity 3D Development</div>
+                        <div class="course-card-rating">
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                            <i class="fa-solid fa-star text-small"></i>
+                        </div>
+                        <div class="course-card-author text-medium">Thanh Sang</div>
+                        <div class="course-card-price">
+                            <span class="card-price-normal text-heading">18.99$</span>
+                            <span class="card-price-sales text-heading">8.99$</span>
+                            <span class="card-price-status text-small">Best Sales</span>
+                        </div>
+                        <div class="course-card-action">
+                            <div class="card-action-container card-action-container--btn">
+                                <i class="fa-solid fa-plus icon-btn"></i>
+                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                            </div>
+                            <div class="card-action-container card-action-container--link">
+                                <i class="fa-solid fa-info icon-link"></i>
+                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        // Dropdown Category List
+        const categoryBtns = document.querySelectorAll(".sidebar-category-btn");
+
+        categoryBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                if (item.parentElement.nextElementSibling) {
+                    if (item.parentElement.nextElementSibling.classList.contains("sub-category-list")) {
+                        item.parentElement.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            });
+        });
+
+        // Dropdown Sort Btn
+        const sortBtn = document.getElementById("filter-sort");
+
+        window.addEventListener("click",function(event){
+            if(!event.target.matches("#filter-sort"))
+            {
+                if(sortBtn.parentElement.nextElementSibling) {
+                    if (sortBtn.parentElement.nextElementSibling.classList.contains("filter-sort-list")) {
+                        if (sortBtn.parentElement.nextElementSibling.classList.contains("show")) {
+                            sortBtn.parentElement.nextElementSibling.classList.remove("show");
+                        }
+                    }
+                }
+            }
+        });
+
+        sortBtn.addEventListener("click", function(){
+            if(this.parentElement.nextElementSibling) {
+                if (this.parentElement.nextElementSibling.classList.contains("filter-sort-list")) {
+                    this.parentElement.nextElementSibling.classList.toggle("show");
+                }
+            }
+        });
+    </script>
+}
