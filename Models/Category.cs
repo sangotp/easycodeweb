@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EasyCodeAcademy.Web.Models
@@ -8,16 +9,18 @@ namespace EasyCodeAcademy.Web.Models
         [Key]
         public int CategoryId { get; set; }
 
-        [StringLength(255)]
-        [Required]
+        [StringLength(255, MinimumLength = 1, ErrorMessage = "{0} required {2} - {1} characters")]
+        [Required(ErrorMessage = "{0} Cannot Empty!")]
         [Column(TypeName = "nvarchar")]
+        [DisplayName("Category Name")]
         public string CategoryName { get; set; }
 
         [DataType(DataType.Date)]
-        [Required]
+        [DisplayName("Created Date")]
         public DateTime created_date { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayName("Updated Date")]
         public DateTime updated_date { get; set; }
     }
 }

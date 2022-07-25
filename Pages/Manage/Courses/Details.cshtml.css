@@ -1,0 +1,23 @@
+﻿.manage-details-content {
+
+}
+
+.manage-details-content .details-content-list {
+    list-style-type: none;
+}
+
+.manage-details-content .details-content-list .details-content-list__item {
+    margin-bottom: 32px;
+}
+
+.details-content-list .details-content-list__item .details-item-title {
+    min-width: 180px;
+    display: inline-block;
+}
+
+.details-content-list .details-content-list__item .details-item-content {
+    min-width: 240px;
+    max-width: 240px;
+    display: inline-block;
+    position: relative;
+}

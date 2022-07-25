@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var rulesList = ViewData["RulesList"] as String[];
+}
+
+<div class="manage-action">
+    <div class="manage-action__container">
+        <div class="action-title sub-heading">@ViewData["ContentTitle"]</div>
+        <div class="action-content">
+            <div class="action-content__form">
+                @RenderBody()
+            </div>
+
+            <div class="action-content__rules">
+                <div class="action-rules-container">
+                    <p class="action-rules-text text-bold">@ViewData["RulesTitle"]</p>
+                    <ul class="action-rules-list">
+@*                        <li class="action-rules-list__item">Category Name Must Have atleast 1 character and Maximum is 255</li>
+                        <li class="action-rules-list__item">Fill all the information required <span class="asterisk text-danger">*</span></li>
+                        <li class="action-rules-list__item">Category must clean, easy to read and have specific meaning</li>*@
+                        @{
+                            if(rulesList is not null)
+                            {
+                                foreach(var item in rulesList)
+                                {
+                                    <li class="action-rules-list__item">@Html.Raw(@item)</li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="action-rules-list__item">Read Only.</li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-return mt-128">
+            <a asp-page="Index" class="action-return__link link-basic link-restart">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@RenderSection("Scripts", required: false)

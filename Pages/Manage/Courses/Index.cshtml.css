@@ -1,0 +1,110 @@
+﻿.manage-container {
+}
+
+.manage-container .action-content .form-search-content {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+}
+
+.action-content .form-search-content .search-form {
+}
+
+.form-search-content .search-form .search-input {
+    padding: 8px 48px 8px 8px;
+    width: 100%;
+}
+
+.form-search-content .search-form .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    padding: 8px;
+    display: inline-flex;
+}
+
+.manage-container .action-content {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.manage-container .table-container {
+    max-height: 600px;
+    min-height: 600px;
+    overflow-y: auto;
+}
+
+.manage-container .table-container .content-table {
+    border-collapse: collapse;
+    background-color: var(--white);
+    width: 100%;
+    /*    border: 1px solid #bbbbbb;*/
+    box-shadow: 0px 0px 3px 0 #bbbbbb inset;
+}
+
+.table-container .content-table .content-thead {
+}
+
+.content-table .content-thead .content-tr {
+    text-align: left;
+    background-color: #add1f7;
+}
+
+.content-thead .content-tr .content-th {
+    padding: 8px 16px;
+}
+
+.content-thead .content-tr .content-th:last-child {
+    text-align: center;
+}
+
+.manage-container .content-table .content-tbody {
+}
+
+.content-table .content-tbody .content-tr {
+
+}
+
+.content-table .content-tbody .content-tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.content-tbody .content-tr .content-td {
+    padding: 8px 16px;
+}
+
+.content-tbody .content-tr .content-td:last-child {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

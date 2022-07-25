@@ -1,0 +1,22 @@
+﻿.manage-delete-content {
+}
+
+.manage-delete-content .delete-content-list {
+    list-style-type: none;
+}
+
+.manage-delete-content .delete-content-list .delete-content-list__item {
+    margin-bottom: 32px;
+}
+
+.delete-content-list .delete-content-list__item .delete-item-title {
+    min-width: 180px;
+    display: inline-block;
+}
+
+.delete-content-list .delete-content-list__item .delete-item-content {
+    min-width: 240px;
+    max-width: 240px;
+    display: inline-block;
+    position: relative;
+}
