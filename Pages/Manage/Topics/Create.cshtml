@@ -1,0 +1,99 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Topics.CreateModel
+
+@{
+    ViewData["ContentTitle"] = "Create Topic";
+    ViewData["Title"] = "EasyCode Manage - Create Topic";
+    ViewData["RulesTitle"] = "To Create Topic. They're have 3 rules";
+    ViewData["RulesList"] = new String[]
+    {
+        "Topic Name Must Have atleast 1 character and Maximum is 255",
+        "Fill all the information required <span class='asterisk text-danger'>*</span>",
+        "Topic must clean, easy to read and have specific meaning"
+    };
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Create</h1>
+
+<h4>Topic</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Topic.TopicName" class="control-label"></label>
+                <input asp-for="Topic.TopicName" class="form-control" />
+                <span asp-validation-for="Topic.TopicName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topic.created_date" class="control-label"></label>
+                <input asp-for="Topic.created_date" class="form-control" />
+                <span asp-validation-for="Topic.created_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topic.updated_date" class="control-label"></label>
+                <input asp-for="Topic.updated_date" class="form-control" />
+                <span asp-validation-for="Topic.updated_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topic.CateId" class="control-label"></label>
+                <select asp-for="Topic.CateId" class ="form-control" asp-items="ViewBag.CateId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>*@
+
+
+<form method="post" class="action-form">
+    <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+    <div class="form-group">
+        <span asp-validation-for="Topic.TopicName" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Topic.TopicName" class="control-label"></label>
+        <input asp-for="Topic.TopicName" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Topic.created_date" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Topic.created_date" class="control-label"></label>
+        <input asp-for="Topic.created_date" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Topic.updated_date" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Topic.updated_date" class="control-label"></label>
+        <input asp-for="Topic.updated_date" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Topic.CateId" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Topic.CateId" class="control-label"></label>
+        <select asp-for="Topic.CateId" class="form-control text-normal" asp-items="ViewBag.CateId"></select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
+    </div>
+</form>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EasyCodeAcademy.Web.Models;
 
-namespace EasyCodeAcademy.Web.Pages_Manage_Courses
+namespace EasyCodeAcademy.Web.Pages_Manage_Topics
 {
     public class DeleteModel : PageModel
     {
@@ -19,40 +19,40 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
         }
 
         [BindProperty]
-      public Category Category { get; set; } = default!;
+      public Topic Topic { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.categories == null)
+            if (id == null || _context.topics == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.categories.FirstOrDefaultAsync(m => m.CategoryId == id);
+            var topic = await _context.topics.Include(t => t.Category).FirstOrDefaultAsync(m => m.TopicId == id);
 
-            if (category == null)
+            if (topic == null)
             {
                 return NotFound();
             }
             else 
             {
-                Category = category;
+                Topic = topic;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.categories == null)
+            if (id == null || _context.topics == null)
             {
                 return NotFound();
             }
-            var category = await _context.categories.FindAsync(id);
+            var topic = await _context.topics.FindAsync(id);
 
-            if (category != null)
+            if (topic != null)
             {
-                Category = category;
-                _context.categories.Remove(Category);
+                Topic = topic;
+                _context.topics.Remove(Topic);
                 await _context.SaveChangesAsync();
             }
 

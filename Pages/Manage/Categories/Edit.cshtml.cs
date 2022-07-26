@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EasyCodeAcademy.Web.Models;
 
-namespace EasyCodeAcademy.Web.Pages_Manage_Courses
+namespace EasyCodeAcademy.Web.Pages_Manage_Categories
 {
     public class EditModel : PageModel
     {

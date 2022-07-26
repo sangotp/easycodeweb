@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using EasyCodeAcademy.Web.Models;
 
 namespace EasyCodeAcademy.Web.Models
 {
@@ -21,6 +22,8 @@ namespace EasyCodeAcademy.Web.Models
 
         // Table
         public DbSet<Category> categories { get; set; }
+
+        public DbSet<Topic> topics { get; set; }
 
 
     }

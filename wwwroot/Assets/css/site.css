@@ -116,6 +116,10 @@ body {
     display: none !important;
 }
 
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
 .heading {
     font-size: 36px;
 }

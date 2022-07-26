@@ -1,11 +1,14 @@
 @page
-@model EasyCodeAcademy.Web.Pages_Manage_Courses.DetailsModel
+@model EasyCodeAcademy.Web.Pages_Manage_Categories.DetailsModel
 
 @{
     ViewData["ContentTitle"] = "Details Category";
     ViewData["Title"] = "EasyCode Manage - Details Category";
     ViewData["RulesTitle"] = "Details Category Have One Rule";
-    ViewData["RulesList"] = null;
+    ViewData["RulesList"] = new String[]
+    {
+        "Read Only."
+    };
 
     Layout = "_CRUDLayout";
 }

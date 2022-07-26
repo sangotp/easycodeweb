@@ -3,7 +3,6 @@
 @using EasyCodeAcademy.Web.Models;
 
 @{
-    var categories = ViewData["categories"] as List<Category>;
 }
 
 <div class="content__container">
@@ -113,29 +112,36 @@
                         <button type="button" class="sidebar-category-btn btn-restart">Game</button>
                     </div>
                 </li>*@
-                @if(categories is not null)
+                @if(Model.Category is not null)
                 {
-                    foreach(var category in categories)
+                    foreach(var item in Model.Category)
                     {
                         <li class="sidebar-category-list__item">
                             <div class="category-item-container">
                                 <i class="fa-solid fa-angle-down"></i>
-                                <button type="button" class="sidebar-category-btn btn-restart">@category.CategoryName</button>
+                                <button type="button" class="sidebar-category-btn btn-restart">@Html.DisplayFor(modelItem => item.CategoryName)</button>
                             </div>
-                            <ul class="sub-category-list ml-16">
-                                <li class="sub-category-list__item">
-                                    <a href="" class="sub-category-link text-medium">ASP.NET Core</a>
-                                </li>
-                                <li class="sub-category-list__item">
-                                    <a href="" class="sub-category-link text-medium">PHP</a>
-                                </li>
-                                <li class="sub-category-list__item">
-                                    <a href="" class="sub-category-link text-medium">React</a>
-                                </li>
-                                <li class="sub-category-list__item">
-                                    <a href="" class="sub-category-link text-medium">NodeJS</a>
-                                </li>
-                            </ul>
+                            @if(item.Topics is not null)
+                            {
+                                <ul class="sub-category-list ml-16">
+                                    @foreach(var topic in item.Topics)
+                                    {
+                                        <li class="sub-category-list__item">
+                                            <a href="" class="sub-category-link text-medium">@topic.TopicName</a>
+                                        </li>
+@*                                        <li class="sub-category-list__item">ASP.NET Core
+                                            <a href="" class="sub-category-link text-medium">PHP</a>
+                                        </li>
+                                        <li class="sub-category-list__item">
+                                            <a href="" class="sub-category-link text-medium">React</a>
+                                        </li>
+                                        <li class="sub-category-list__item">
+                                            <a href="" class="sub-category-link text-medium">NodeJS</a>
+                                        </li>*@
+                                    }
+                                </ul>
+                            }
+
                         </li>
                     }
                 }

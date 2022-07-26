@@ -4,16 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EasyCodeAcademy.Web.Models
 {
-    public class Category
+    public class Topic
     {
         [Key]
-        public int CategoryId { get; set; }
+        public int TopicId { get; set; }
 
         [StringLength(255, MinimumLength = 1, ErrorMessage = "{0} required {2} - {1} characters")]
+        [DisplayName("Topic Name")]
         [Required(ErrorMessage = "{0} Cannot Empty!")]
-        [Column(TypeName = "nvarchar")]
-        [DisplayName("Category Name")]
-        public string? CategoryName { get; set; }
+        public string? TopicName { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayName("Created Date")]
@@ -23,7 +22,10 @@ namespace EasyCodeAcademy.Web.Models
         [DisplayName("Updated Date")]
         public DateTime updated_date { get; set; }
 
-        // Collection Navigation
-        public ICollection<Topic>? Topics { get; set; }
+        [DisplayName("Category")]
+        public int CateId { get; set; }
+
+        [ForeignKey("CateId")]
+        public Category? Category { get; set; }
     }
 }

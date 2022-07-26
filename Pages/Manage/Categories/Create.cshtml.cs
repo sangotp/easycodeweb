@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using EasyCodeAcademy.Web.Models;
 
-namespace EasyCodeAcademy.Web.Pages_Manage_Courses
+namespace EasyCodeAcademy.Web.Pages_Manage_Categories
 {
     public class CreateModel : PageModel
     {
