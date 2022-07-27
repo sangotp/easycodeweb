@@ -27,5 +27,8 @@ namespace EasyCodeAcademy.Web.Models
 
         [ForeignKey("CateId")]
         public Category? Category { get; set; }
+
+        // Collection Navigation
+        //public ICollection<Course>? Courses { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyCodeAcademy.Web.Migrations
 {
     [DbContext(typeof(EasyCodeContext))]
-    [Migration("20220726144044_topicstable")]
+    [Migration("20220727090935_topicstable")]
     partial class topicstable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
