@@ -1,0 +1,202 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.IndexModel
+
+@{
+    Layout = "_SubLayout";
+    ViewData["ContentTitle"] = "Course";
+    ViewData["Title"] = "EasyCode Manage - Course";
+    int orderNumber = 0;
+}
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CoursePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].created_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].updated_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].Topic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Course) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoursePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updated_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic.TopicName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CourseId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CourseId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CourseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+<div class="manage-container">
+    <div class="action-content">
+        <div class="action-content__create">
+            <a asp-page="Create" class="link-restart text-bold link-basic">Create New</a>
+        </div>
+
+        <div class="form-search-content">
+            <form method="get" asp-page="./Index" class="search-form">
+                <input type="text" name="SearchString" id="category-search-input" class="search-input text-normal" placeholder="Keyword" />
+                <button type="submit" class="search-btn btn-restart"><i class="fa-solid fa-magnifying-glass text-heading"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table class="content-table">
+            <thead class="content-thead">
+                <tr class="content-tr">
+                    <th class="content-th">Order</th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].CourseName)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].CoursePrice)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].CourseType)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].CourseStatus)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].CourseImage)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].created_date)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].updated_date)
+                    </th>
+                    <th class="content-th">
+                        @Html.DisplayNameFor(model => model.Course[0].Topic)
+                    </th>
+                    <th class="content-th">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="content-tbody">
+                @if (Model.Course is not null)
+                {
+                    @foreach (var item in Model.Course)
+                    {
+                        <tr class="content-tr">
+                            <td class="content-td">@(++orderNumber)</td>
+                            <td class="content-td">
+                                @Html.DisplayFor(modelItem => item.CourseName)
+                            </td>
+                            <td class="content-td">
+                                @Html.DisplayFor(modelItem => item.CoursePrice)$
+                            </td>
+                            <td class="content-td">
+                                @*@Html.DisplayFor(modelItem => item.CourseType)*@
+                                @if (item.CourseType == 1)
+                                {
+                                    <b>Course</b>
+                                }
+
+                                @if (item.CourseType == 2)
+                                {
+                                    <b>Tutorial</b>
+                                }
+                            </td>
+                            <td class="content-td">
+                                @*@Html.DisplayFor(modelItem => item.CourseStatus)*@
+                                @if (item.CourseStatus == 1)
+                                {
+                                    <b>Not Available</b>
+                                }
+
+                                @if (item.CourseStatus == 2)
+                                {
+                                    <b>Queue</b>
+                                }
+
+                                @if (item.CourseStatus == 3)
+                                {
+                                    <b>Available</b>
+                                }
+                            </td>
+                            <td class="content-td">
+                                <img src="/Assets/uploads/@item.CourseImage" alt="Course Image" class="content-img" width="140" />
+                            </td>
+                            <td class="content-td">
+                                @Html.DisplayFor(modelItem => item.created_date)
+                            </td>
+                            <td class="content-td">
+                                @Html.DisplayFor(modelItem => item.updated_date)
+                            </td>
+                            <td class="content-td">
+                                @Html.DisplayFor(modelItem => item.Topic.TopicName)
+                            </td>
+                            <td class="content-td">
+                                <a asp-page="./Edit" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Edit</a>
+                                <a asp-page="./Details" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Details</a>
+                                <a asp-page="./Delete" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

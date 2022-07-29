@@ -1,0 +1,180 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.CreateModel
+
+@{
+    ViewData["ContentTitle"] = "Create Course";
+    ViewData["Title"] = "EasyCode Manage - Create Course";
+    ViewData["RulesTitle"] = "To Create Course. They're have 3 rules";
+    ViewData["RulesList"] = new String[]
+    {
+        "Course Name Must Have atleast 1 character and Maximum is 255",
+        "Fill all the information required <span class='asterisk text-danger'>*</span>",
+        "Course must clean, easy to read and have specific meaning",
+        "Course must have reasonable price and image"
+    };
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Create</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Course.CourseName" class="control-label"></label>
+                <input asp-for="Course.CourseName" class="form-control" />
+                <span asp-validation-for="Course.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CourseDescription" class="control-label"></label>
+                <input asp-for="Course.CourseDescription" class="form-control" />
+                <span asp-validation-for="Course.CourseDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CoursePrice" class="control-label"></label>
+                <input asp-for="Course.CoursePrice" class="form-control" />
+                <span asp-validation-for="Course.CoursePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Course.CourseType" /> @Html.DisplayNameFor(model => model.Course.CourseType)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Course.CourseStatus" /> @Html.DisplayNameFor(model => model.Course.CourseStatus)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CourseImage" class="control-label"></label>
+                <input asp-for="Course.CourseImage" class="form-control" />
+                <span asp-validation-for="Course.CourseImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.created_date" class="control-label"></label>
+                <input asp-for="Course.created_date" class="form-control" />
+                <span asp-validation-for="Course.created_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.updated_date" class="control-label"></label>
+                <input asp-for="Course.updated_date" class="form-control" />
+                <span asp-validation-for="Course.updated_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.TopicId" class="control-label"></label>
+                <select asp-for="Course.TopicId" class ="form-control" asp-items="ViewBag.TopicId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>*@
+
+
+<form method="post" class="action-form" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+    <div class="form-group">
+        <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CourseName" class="control-label"></label>
+        <input asp-for="Course.CourseName" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CourseDescription" class="control-label"></label>
+@*        <input asp-for="Course.CourseDescription" class="form-control text-normal" />*@
+        <textarea asp-for="Course.CourseDescription" class="form-control text-normal" rows="6" placeholder="Description"></textarea>
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CoursePrice" class="control-label"></label>
+        <input asp-for="Course.CoursePrice" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        @*        <label class="form-check-label">
+        <input class="form-check-input" asp-for="Course.CourseType" /> @Html.DisplayNameFor(model => model.Course.CourseType)
+        </label>*@
+        <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CourseType" class="control-label"></label>
+        <select asp-for="Course.CourseType" class="form-control text-normal">
+            <option selected class="disabled">-- Select Type ---</option>
+            <option value="1">Course</option>
+            <option value="2">Tutorial</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+@*        <label class="form-check-label">
+            <input class="form-check-input" asp-for="Course.CourseStatus" /> @Html.DisplayNameFor(model => model.Course.CourseStatus)
+        </label>*@
+        <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CourseStatus" class="control-label"></label>
+        <select asp-for="Course.CourseStatus" class="form-control text-normal">
+            <option selected class="disabled">-- Select Status ---</option>
+            <option value="1">Not Available</option>
+            <option value="2">Queue</option>
+            <option value="3">Available</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        @*        <span asp-validation-for="Course.CourseImage" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.CourseImage" class="control-label"></label>*@
+        <input type="hidden" asp-for="Course.CourseImage" value="No Image Found" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="FileUpload" class="control-label"></label>
+        <input asp-for="FileUpload" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.created_date" class="control-label"></label>
+        <input asp-for="Course.created_date" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.updated_date" class="control-label"></label>
+        <input asp-for="Course.updated_date" class="form-control text-normal" />
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
+        <span class="asterisk text-danger">*</span>
+        <label asp-for="Course.TopicId" class="control-label"></label>
+        <select asp-for="Course.TopicId" class="form-control text-normal" asp-items="ViewBag.TopicId"></select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

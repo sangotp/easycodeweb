@@ -6,7 +6,9 @@
 }
 
 .content__container .manage-wrapper .sidebar {
-    flex: 1;
+/*    flex: 1;*/
+    flex: 20%;
+    max-width: 20%;
     padding: 48px 0px 0px 48px;
     background-color: #fbfbfb;
     min-height: calc(100vh - 80px);
@@ -37,7 +39,9 @@
 }
 
 .content__container .manage-wrapper .manage-main {
-    flex: 3.5;
+    /*    flex: 3.5;*/
+    flex: 80%;
+    max-width: 80%;
     padding: 48px 96px 48px 24px;
 }
 

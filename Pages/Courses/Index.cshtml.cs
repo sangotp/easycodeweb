@@ -16,12 +16,19 @@ namespace EasyCodeAcademy.Web.Pages.Courses
 
         public IList<Category> Category { get; set; } = default!;
 
+        public IList<Course> Course { get; set; } = default!;
+
         public async Task OnGetAsync()
         {
             var categories = (from c in easyCodeContext.categories
-                             orderby c.CategoryId descending
+                             orderby c.created_date descending
                              select c);
             Category = await categories.Include(c => c.Topics).ToListAsync();
+
+            var courses = (from c in easyCodeContext.courses
+                           orderby c.created_date descending
+                           select c);
+            Course = await courses.ToListAsync();
         }
     }
 }

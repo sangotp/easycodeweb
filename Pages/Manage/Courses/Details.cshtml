@@ -1,0 +1,152 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.DetailsModel
+
+@{
+    ViewData["ContentTitle"] = "Details Course";
+    ViewData["Title"] = "EasyCode Manage - Details Course";
+    ViewData["RulesTitle"] = "Details Course Have One Rule";
+    ViewData["RulesList"] = new String[]
+    {
+        "Read Only."
+    };
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CoursePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CoursePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.created_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.created_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.updated_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.updated_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.Topic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.Topic.TopicName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>*@
+
+
+<div class="manage-details-content">
+    <ul class="details-content-list">
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseName)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseName)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDescription)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseDescription)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CoursePrice)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CoursePrice)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseType)</span>
+@*            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseType)</span>*@
+            @if (Model.Course.CourseType == 1)
+            {
+                <b>Course</b>
+            }
+
+            @if (Model.Course.CourseType == 2)
+            {
+                <b>Tutorial</b>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseStatus)</span>
+@*            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseStatus)</span>*@
+            @if (Model.Course.CourseStatus == 1)
+            {
+                <b>Not Available</b>
+            }
+
+            @if (Model.Course.CourseStatus == 2)
+            {
+                <b>Queue</b>
+            }
+
+            @if (Model.Course.CourseStatus == 3)
+            {
+                <b>Available</b>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseImage)</span>
+@*            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseImage)</span>*@
+            <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Image" width="200" />
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.created_date)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.created_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.updated_date)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.updated_date)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.Topic)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.Topic.TopicName)
+                <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId" class="details-item-link link-basic link-restart absolute-top-full-left">Edit</a>
+            </span>
+        </li>
+    </ul>
+</div>

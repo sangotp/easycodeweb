@@ -29,6 +29,6 @@ namespace EasyCodeAcademy.Web.Models
         public Category? Category { get; set; }
 
         // Collection Navigation
-        //public ICollection<Course>? Courses { get; set; }
+        public ICollection<Course>? Courses { get; set; }
     }
 }

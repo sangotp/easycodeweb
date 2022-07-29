@@ -25,6 +25,6 @@ namespace EasyCodeAcademy.Web.Models
 
         public DbSet<Topic> topics { get; set; }
 
-
+        public DbSet<Course> courses { get; set; }
     }
 }
