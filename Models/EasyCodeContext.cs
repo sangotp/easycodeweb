@@ -18,6 +18,17 @@ namespace EasyCodeAcademy.Web.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Fluent API
+
+            // Course - CourseDetails (1 - 1)
+            modelBuilder.Entity<CourseDetails>(entity =>
+            {
+                entity.HasOne(d => d.Course)
+                .WithOne(d => d.CourseDetails)
+                .HasForeignKey<CourseDetails>(c => c.CourseDetailsId)
+                .OnDelete(DeleteBehavior.Cascade);
+            });
         }
 
         // Table
@@ -26,5 +37,7 @@ namespace EasyCodeAcademy.Web.Models
         public DbSet<Topic> topics { get; set; }
 
         public DbSet<Course> courses { get; set; }
+
+        public DbSet<CourseDetails> courseDetails { get; set; }
     }
 }

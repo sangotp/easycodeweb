@@ -1,45 +1,115 @@
 ﻿@{
     Layout = "_Layout.cshtml";
-    var rulesList = ViewData["RulesList"] as String[];
+    var guideList = ViewData["GuideList"] as String[];
 }
 
 <div class="manage-action">
     <div class="manage-action__container">
         <div class="action-title sub-heading">@ViewData["ContentTitle"]</div>
+        <div class="action-interactive">
+            <div class="action-return">
+                <a asp-page="Index" class="action-return__link link-basic link-restart">Back to List</a>
+            </div>
+
+            <div class="action-guide-info">
+                <span class="guide-info-text">Guide</span>
+                <button type="button" class="guide-info-btn btn-restart"><i class="fa-solid fa-question"></i></button>
+            </div>
+
+            @*Guide Modal*@
+            <div class="guide-modal-container">
+                <div class="guide-modal">
+                    <div class="guide-modal-header">
+                        <div class="guide-header-title sub-heading">Guide @ViewData["ManageSection"]</div>
+                        <span class="guide-header-action">
+                            <button type="button" class="guide-close-modal-btn btn-restart"><i class="fa-solid fa-xmark sub-heading"></i></button>
+                        </span>
+                    </div>
+                    <div class="guide-modal-body">
+                        <div class="guide-body-content">
+                            <div class="guide-body-title text-heading">@ViewData["GuideTitle"]</div>
+                            <div class="body-list-container">
+                                <ul class="guide-body-list ml-16">
+                                    @if (guideList is not null)
+                                    {
+                                        @foreach (var item in guideList)
+                                        {
+                                            <li class="guide-body-list__item">@Html.Raw(item)</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="guide-modal-footer">Footer</div>
+                </div>
+            </div>
+            
+        </div>
         <div class="action-content">
             <div class="action-content__form">
                 @RenderBody()
             </div>
 
-            <div class="action-content__rules">
-                <div class="action-rules-container">
-                    <p class="action-rules-text text-bold">@ViewData["RulesTitle"]</p>
-                    <ul class="action-rules-list">
-@*                        <li class="action-rules-list__item">Category Name Must Have atleast 1 character and Maximum is 255</li>
-                        <li class="action-rules-list__item">Fill all the information required <span class="asterisk text-danger">*</span></li>
-                        <li class="action-rules-list__item">Category must clean, easy to read and have specific meaning</li>*@
-                        @{
-                            if(rulesList is not null)
-                            {
-                                foreach(var item in rulesList)
-                                {
-                                    <li class="action-rules-list__item">@Html.Raw(@item)</li>
-                                }
-                            }
-                            else
-                            {
-                                <li class="action-rules-list__item">No Rule Found.</li>
-                            }
-                        }
-                    </ul>
-                </div>
+            @*            <div class="action-content__rules">
+            <div class="action-rules-container">
+            <p class="action-rules-text text-bold">@ViewData["RulesTitle"]</p>
+            <ul class="action-rules-list">*@
+            @*                        <li class="action-rules-list__item">Category Name Must Have atleast 1 character and Maximum is 255</li>
+            <li class="action-rules-list__item">Fill all the information required <span class="asterisk text-danger">*</span></li>
+            <li class="action-rules-list__item">Category must clean, easy to read and have specific meaning</li>*@
+            @*                        @{
+            if(rulesList is not null)
+            {
+            foreach(var item in rulesList)
+            {
+            <li class="action-rules-list__item">@Html.Raw(@item)</li>
+            }
+            }
+            else
+            {
+            <li class="action-rules-list__item">No Rule Found.</li>
+            }
+            }
+            </ul>
             </div>
-        </div>
-
-        <div class="action-return mt-128">
-            <a asp-page="Index" class="action-return__link link-basic link-restart">Back to List</a>
+            </div>*@
         </div>
     </div>
 </div>
 
 @RenderSection("Scripts", required: false)
+<script type="text/javascript">
+    const guideBtn = document.querySelector(".guide-info-btn");
+    const guidecloseBtn = document.querySelector(".guide-close-modal-btn");
+    const guideModal = document.querySelector(".guide-modal-container");
+
+    guideBtn.addEventListener("click", function(){
+        if(guideModal)
+        {
+            guideModal.classList.add("show-flex");
+
+            document.body.style.overflow = "hidden";
+            document.body.style.height = "100vh";
+        }
+    });
+
+    guidecloseBtn.addEventListener("click", function () {
+        if (guideModal) {
+            guideModal.classList.remove("show-flex");
+
+            document.body.style.overflow = "auto";
+            document.body.style.height = "auto";
+        }
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target.matches(".guide-modal-container"))
+        {
+            guideModal.classList.remove("show-flex");
+
+            document.body.style.overflow = "auto";
+            document.body.style.height = "auto";
+        }
+    });
+</script>

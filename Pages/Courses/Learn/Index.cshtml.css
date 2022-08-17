@@ -34,6 +34,8 @@
 .content__container .course-learn-content {
     padding: 16px 96px;
     display: flex;
+    align-items: flex-start;
+
 }
 
 .content__container .course-learn-content .course-learn-content__video {
@@ -42,27 +44,30 @@
 
 .course-learn-content .course-learn-content__video .course-learn-video {
     width: 100%;
-    height: 100%;
+    display: block;
 }
 
 .content__container .course-learn-content .course-learn-content__chapters {
     flex: 1;
-    border: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .course-learn-content .course-learn-content__chapters .course-chapters-title {
-    box-shadow: 0px 0px 6px 0 #bbbbbb;
+    box-shadow: 0px 0px 3px 0 #bbbbbb inset;
     padding: 8px;
+    
 }
 
 .course-learn-content .course-learn-content__chapters .course-chapters-content {
-
+    border: 1px solid #dbdbdb;
 }
 
 .course-learn-content__chapters .course-chapters-content .course-chapters-list {
     list-style-type: none;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 505px;
 }
 
 .course-chapters-content .course-chapters-list .course-chapters-list__item {
@@ -142,7 +147,9 @@
 }
 
 .course-learn-info .course-learn-info__lesson .course-lesson-content {
-    
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .content__container .course-learn-info .lesson-learn-info__achieve {
@@ -153,7 +160,9 @@
 }
 
 .course-learn-info .lesson-learn-info__achieve .lesson-achieve-content {
-
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .lesson-learn-info__achieve .lesson-achieve-content .lesson-achieve-list {
@@ -175,6 +184,9 @@
 }
 
 .course-learn-info .lesson-learn-info__resource .lesson-resource-content {
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .lesson-learn-info__resource .lesson-resource-content .lesson-resource-list {
@@ -293,7 +305,6 @@
 
 .give-feedback-content .give-feedback-form .give-feedback-select {
     padding: 12px;
-    border-left: 0px;
 }
 
 .give-feedback-content .give-feedback-form .give-feedback-btn {
@@ -307,6 +318,9 @@
 
 .lesson-learn-info__feedback .lesson-feedback-content .lesson-feedback-status {
     display: flex;
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .lesson-feedback-content .lesson-feedback-status .lesson-feedback-status__point {
@@ -393,6 +407,9 @@
 }
 
 .lesson-learn-info__feedback .lesson-feedback-content .lesson-feedback-contributor {
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .lesson-feedback-content .lesson-feedback-contributor .feedback-contributor__container {

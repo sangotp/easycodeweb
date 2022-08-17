@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Details Topic";
+    ViewData["ManageSection"] = "Topic";
     ViewData["Title"] = "EasyCode Manage - Details Topic";
-    ViewData["RulesTitle"] = "Details Topic Have One Rule";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Use Details Topic";
+    ViewData["GuideList"] = new String[]
     {
         "Read Only."
     };
@@ -50,7 +51,7 @@
     <a asp-page="./Index">Back to List</a>
 </div>*@
 
-<div class="manage-details-content">
+@*<div class="manage-details-content">
     <ul class="details-content-list">
         <li class="details-content-list__item">
             <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.TopicName)</span>
@@ -72,6 +73,44 @@
                 @Html.DisplayFor(model => model.Topic.Category.CategoryName)
                 <a asp-page="./Edit" asp-route-id="@Model.Topic?.TopicId" class="details-item-link link-basic link-restart absolute-top-full-left">Edit</a>
             </span>        
+        </li>
+    </ul>
+</div>*@
+
+
+
+
+
+
+
+
+
+
+<div class="manage-details-content">
+    <ul class="details-content-list">
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.TopicName)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.TopicName)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.created_date)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.created_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.updated_date)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.updated_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.Category)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Topic.Category.CategoryName)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title"></span>
+            <span class="details-item-content text-bold">
+                <a asp-page="./Edit" asp-route-id="@Model.Topic?.TopicId" class="details-item-link link-basic link-restart">Edit</a>
+            </span>
         </li>
     </ul>
 </div>

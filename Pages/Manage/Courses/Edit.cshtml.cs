@@ -45,7 +45,14 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             {
                 return NotFound();
             }
+
             Course = course;
+            var e = _context.Entry(Course);
+            if(e.Reference(d => d.CourseDetails) is not null)
+            {
+                await e.Reference(d => d.CourseDetails).LoadAsync();
+            }
+            
             ViewData["TopicId"] = new SelectList(_context.topics, "TopicId", "TopicName");
             return Page();
         }
@@ -79,6 +86,7 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             }
 
             _context.Attach(Course).State = EntityState.Modified;
+            _context.Attach(Course.CourseDetails).State = EntityState.Modified;
 
             try
             {

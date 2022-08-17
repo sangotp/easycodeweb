@@ -89,114 +89,346 @@
 <div class="manage-container">
     <div class="action-content">
         <div class="action-content__create">
-            <a asp-page="Create" class="link-restart text-bold link-basic">Create New</a>
+            <a asp-page="Create" class="link-restart text-bold link-basic-rgba">Create New</a>
         </div>
 
         <div class="form-search-content">
             <form method="get" asp-page="./Index" class="search-form">
-                <input type="text" name="SearchString" id="category-search-input" class="search-input text-normal" placeholder="Keyword" />
+                <input type="text" name="SearchString" id="search-input" class="search-input text-normal background-rgba-9" placeholder="Keyword" />
                 <button type="submit" class="search-btn btn-restart"><i class="fa-solid fa-magnifying-glass text-heading"></i></button>
             </form>
         </div>
     </div>
 
-    <div class="table-container">
-        <table class="content-table">
-            <thead class="content-thead">
-                <tr class="content-tr">
-                    <th class="content-th">Order</th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].CourseName)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].CoursePrice)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].CourseType)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].CourseStatus)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].CourseImage)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].created_date)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].updated_date)
-                    </th>
-                    <th class="content-th">
-                        @Html.DisplayNameFor(model => model.Course[0].Topic)
-                    </th>
-                    <th class="content-th">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="content-tbody">
-                @if (Model.Course is not null)
-                {
-                    @foreach (var item in Model.Course)
+    <div class="table-wrapper">
+        <div class="table-container">
+            <table class="content-table">
+                <thead class="content-thead">
+                    <tr class="content-tr">
+                        <th class="content-th">Order</th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].CourseName)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].CoursePrice)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].CourseType)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].CourseStatus)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].CourseImage)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].created_date)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].updated_date)
+                        </th>
+                        <th class="content-th">
+                            @Html.DisplayNameFor(model => model.Course[0].Topic)
+                        </th>
+                        <th class="content-th">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="content-tbody">
+                    @if (Model.Course is not null)
                     {
-                        <tr class="content-tr">
-                            <td class="content-td">@(++orderNumber)</td>
-                            <td class="content-td">
-                                @Html.DisplayFor(modelItem => item.CourseName)
-                            </td>
-                            <td class="content-td">
-                                @Html.DisplayFor(modelItem => item.CoursePrice)$
-                            </td>
-                            <td class="content-td">
-                                @*@Html.DisplayFor(modelItem => item.CourseType)*@
-                                @if (item.CourseType == 1)
-                                {
-                                    <b>Course</b>
-                                }
+                        @foreach (var item in Model.Course)
+                        {
+                            <tr class="content-tr">
+                                <td class="content-td hide">@item.CourseId</td>
+                                <td class="content-td">@(++orderNumber)</td>
+                                <td class="content-td">
+                                    @Html.DisplayFor(modelItem => item.CourseName)
+                                </td>
+                                <td class="content-td">
+                                    @Html.DisplayFor(modelItem => item.CoursePrice)$
+                                </td>
+                                <td class="content-td">
+                                    @*@Html.DisplayFor(modelItem => item.CourseType)*@
+                                    @if (item.CourseType == 1)
+                                    {
+                                        <b>Course</b>
+                                    }
 
-                                @if (item.CourseType == 2)
-                                {
-                                    <b>Tutorial</b>
-                                }
-                            </td>
-                            <td class="content-td">
-                                @*@Html.DisplayFor(modelItem => item.CourseStatus)*@
-                                @if (item.CourseStatus == 1)
-                                {
-                                    <b>Not Available</b>
-                                }
+                                    @if (item.CourseType == 2)
+                                    {
+                                        <b>Tutorial</b>
+                                    }
+                                </td>
+                                <td class="content-td">
+                                    @*@Html.DisplayFor(modelItem => item.CourseStatus)*@
+                                    @if (item.CourseStatus == 1)
+                                    {
+                                        <b>Not Available</b>
+                                    }
 
-                                @if (item.CourseStatus == 2)
-                                {
-                                    <b>Queue</b>
-                                }
+                                    @if (item.CourseStatus == 2)
+                                    {
+                                        <b>Queue</b>
+                                    }
 
-                                @if (item.CourseStatus == 3)
-                                {
-                                    <b>Available</b>
-                                }
-                            </td>
-                            <td class="content-td">
-                                <img src="/Assets/uploads/@item.CourseImage" alt="Course Image" class="content-img" width="140" />
-                            </td>
-                            <td class="content-td">
-                                @Html.DisplayFor(modelItem => item.created_date)
-                            </td>
-                            <td class="content-td">
-                                @Html.DisplayFor(modelItem => item.updated_date)
-                            </td>
-                            <td class="content-td">
-                                @Html.DisplayFor(modelItem => item.Topic.TopicName)
-                            </td>
-                            <td class="content-td">
-                                <a asp-page="./Edit" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Edit</a>
-                                <a asp-page="./Details" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Details</a>
-                                <a asp-page="./Delete" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic">Delete</a>
-                            </td>
-                        </tr>
+                                    @if (item.CourseStatus == 3)
+                                    {
+                                        <b>Available</b>
+                                    }
+                                </td>
+                                <td class="content-td">
+                                    <img src="/Assets/uploads/@item.CourseImage" alt="Course Image" class="content-img" width="140" />
+                                </td>
+                                <td class="content-td">
+                                    @Html.DisplayFor(modelItem => item.created_date)
+                                </td>
+                                <td class="content-td">
+                                    @Html.DisplayFor(modelItem => item.updated_date)
+                                </td>
+                                <td class="content-td">
+                                    @Html.DisplayFor(modelItem => item.Topic.TopicName)
+                                </td>
+                                <td class="content-td">
+                                    @*                                <a asp-page="./Edit" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic-rgba">Edit</a>
+                            <a asp-page="./Details" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic-rgba">Details</a>
+                            <a asp-page="./Delete" asp-route-id="@item.CourseId" class="link-restart text-bold link-basic-rgba">Delete</a>*@
+                                    <div class="content-td__container">
+                                        <div class="content-table-action">
+                                            <i class="fa-solid fa-gear mr-8"></i>
+                                            <button type="button" class="content-action-btn btn-restart" onclick="GetItemId(@item.CourseId); GetRowIndex(@orderNumber)">
+                                                Options
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        @*Config Option*@
+        <div class="config-options">
+            <div class="config-options__title text-heading">
+                <i class="fa-solid fa-gear mr-8"></i>
+                Options
+            </div>
+            <div class="config-options__content">
+                <ul class="config-options-list">
+                    <li class="config-options-list__item">
+                        <a asp-page="./Edit" asp-route-id="" class="route-item link-restart text-bold link-basic min-width-120">
+                            <i class="fa-solid fa-pen-to-square mr-8"></i>
+                            Edit
+                        </a>
+                    </li>
+                    <li class="config-options-list__item">
+                        <a asp-page="./Details" asp-route-id="" class="route-item link-restart text-bold link-basic min-width-120">
+                            <i class="fa-solid fa-circle-info mr-8"></i>
+                            Details
+                        </a>
+                    </li>
+                    <li class="config-options-list__item">
+                        <a asp-page="./Delete" asp-route-id="" class="route-item link-restart text-bold link-basic min-width-120">
+                            <i class="fa-solid fa-trash mr-8"></i>
+                            Delete
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @*Modal Config For Table*@
+    <div class="config-modal-focus">
+        @*        <div class="config-action">
+        <div class="config-action__title">Config Menu</div>
+        <div class="config-action__content">
+        <ul class="config-action-list">
+        <li class="config-action-list__item">
+        <a asp-page="./Edit" asp-route-id="" class="route-item link-restart text-bold link-basic-rgba">Edit</a>
+        </li>
+        <li class="config-action-list__item">
+        <a asp-page="./Details" asp-route-id="" class="route-item link-restart text-bold link-basic-rgba">Details</a>
+        </li>
+        <li class="config-action-list__item">
+        <a asp-page="./Delete" asp-route-id="" class="route-item link-restart text-bold link-basic-rgba">Delete</a>
+        </li>
+        <li class="config-action-list__item">Chapters & Lessons</li>
+        </ul>
+        </div>
+        </div>*@
+    </div>
+
+    @*Task Need To Complete*@
+    @*    1. Using Z-index(10000) for position sticky table row
+    2. Hidden Overflow-y to fixed scrollable
+    3. Add Config Action For Modal*@
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        const configBtns = document.querySelectorAll(".content-action-btn");
+        var itemId = "";
+        const routeActionBtns = document.querySelectorAll(".route-item");
+        var routeLink = "";
+        const configOptions = document.querySelector(".config-options");
+        const configModal = document.querySelector(".config-modal-focus");
+        const tableRows = document.querySelectorAll(".content-tr");
+        var tableRowsIndex = "";
+        const tableContainer = document.querySelector(".table-container");
+
+        configBtns.forEach(item => {
+            item.addEventListener("click", function (event) {
+                routeActionBtns.forEach(linkitem => {
+                    routeLink = linkitem.getAttribute("href");
+                    if (routeLink.indexOf("?") != -1) {
+                        routeLink = routeLink.slice(0, routeLink.indexOf("?"));
+                    }
+                    routeLink += "?id=" + itemId;
+                    linkitem.setAttribute("href", routeLink);
+                    //console.log(linkitem.getAttribute("href"));
+                });
+
+                if (configOptions && configModal) {
+                    if (!configOptions.classList.contains("show") && !configModal.classList.contains("show-flex")) {
+                        configModal.classList.add("show-flex");
+                        configOptions.classList.add("show");
+                        FocusConfigOptions();
+                        FocusTableRows();
+                        ScrollTableRow();
+                        TransformButtonOptions(item, event);
+                        LockScrollBrowser();
+                        LockScrollTable();
+                    }
+                    else {
+                        configModal.classList.remove("show-flex");
+                        configOptions.classList.remove("show");
+                        ReleaseConfigOptions();
+                        ReleaseTableRows();
+                        DefaultButtonOptions(item, event);
+                        ReleaseScrollBrowser();
+                        ReleaseScrollTable();
                     }
                 }
-            </tbody>
-        </table>
-    </div>
-</div>
+            });
+        });
+
+        function GetItemId(id) {
+            return itemId = id;
+        }
+
+        function FocusConfigOptions() {
+            configOptions.classList.add("z-index-10001");
+        }
+
+        function ReleaseConfigOptions() {
+            if (configOptions.classList.contains("z-index-10001")) {
+                configOptions.classList.remove("z-index-10001");
+            }
+        }
+
+        function FocusTableRows() {
+            tableRows.forEach(item => {
+                if (item.parentElement.classList.contains("content-thead")) {
+                    item.classList.add("sticky", "z-index-10001");
+                }
+                else if (item.parentElement.classList.contains("content-tbody") && Number.parseInt(item.firstElementChild.innerHTML) == itemId) {
+                    item.classList.add("sticky", "z-index-10000");
+                }
+            });
+        }
+
+        function ReleaseTableRows() {
+            tableRows.forEach(item => {
+                if (item.parentElement.classList.contains("content-thead")) {
+                    item.classList.remove("sticky", "z-index-10001");
+                }
+                else if (item.parentElement.classList.contains("content-tbody") && Number.parseInt(item.firstElementChild.innerHTML) == itemId) {
+                    item.classList.remove("sticky", "z-index-10000");
+                }
+            });
+        }
+
+        function LockScrollBrowser() {
+            //document.body.style.overflow = "hidden";
+            //document.body.style.height = "100vh";
+
+            // To get the scroll position of current webpage
+            let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
+            let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+
+            // if scroll happens, set it to the previous value
+            window.onscroll = function () {
+                window.scrollTo(LeftScroll, TopScroll);
+            };
+        }
+
+        function ReleaseScrollBrowser() {
+            //document.body.style.overflow = "auto";
+            //document.body.style.height = "auto";
+            window.onscroll = function () { };
+        }
+
+        function LockScrollTable()
+        {
+            // To get the scroll position of current webpage
+            let TopScroll = tableContainer.pageYOffset || tableContainer.scrollTop;
+            let LeftScroll = tableContainer.pageXOffset || tableContainer.scrollLeft;
+
+            // if scroll happens, set it to the previous value
+            tableContainer.onscroll = function () {
+                tableContainer.scrollTo(LeftScroll, TopScroll);
+            };
+        }
+
+        function ReleaseScrollTable()
+        {
+            tableContainer.onscroll = function () { };
+        }
+
+        function GetRowIndex(index) {
+            return tableRowsIndex = index;
+        }
+
+        function ScrollTableRow() {
+            if (tableRowsIndex != null) {
+                //console.log(typeof tableRowsIndex);
+                //console.log(tableRowsIndex);
+                tableRows[tableRowsIndex].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // Problem: Div Not Padding
+                tableContainer.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end'
+                });
+            }
+        }
+
+        function TransformButtonOptions(configBtn, btnEvent) {
+            //<i class="fa-solid fa-xmark  mr-8" > </i>
+            configBtn.innerHTML = "Close";
+            if (configBtn.previousElementSibling.classList.contains("fa-gear")) {
+                configBtn.previousElementSibling.classList.replace("fa-gear", "fa-xmark");
+                configBtn.parentElement.style.backgroundColor = "#ff0000";
+                configBtn.parentElement.style.color = "var(--white)";
+                btnEvent.target.style.color = "var(--white)";
+            }
+        }
+
+        function DefaultButtonOptions(configBtn, btnEvent) {
+            configBtn.innerHTML = "Options";
+            if (configBtn.previousElementSibling.classList.contains("fa-xmark")) {
+                configBtn.previousElementSibling.classList.replace("fa-xmark", "fa-gear");
+                configBtn.parentElement.style.backgroundColor = "var(--white)";
+                configBtn.parentElement.style.color = "var(--black)";
+                btnEvent.target.style.color = "var(--black)";
+            }
+        }
+    </script>
+}

@@ -32,22 +32,32 @@
 }
 
 .content__container .course-details-info {
-/*    margin-top: 24px;*/
+    /*    margin-top: 24px;*/
     padding: 24px 96px;
     /*    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 9px, rgba(9, 30, 66, 0.13) 0px 0px 9px 1px;*/
     /*    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;*/
-/*    border-top: 1px solid #f8ff2821;
+    /*    border-top: 1px solid #f8ff2821;
     border-bottom: 1px solid #f8ff2821;*/
     display: flex;
     justify-content: space-between;
-    background-color: #f8ff2821;
+    /*    background-color: #f8ff2821;*/
+    /*    background-image: linear-gradient(45deg, #e7f1fc, transparent);*/
+    background-image: url("/Assets/img/mountain_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
 }
 
 .content__container .course-details-info .course-info {
-    flex: 3;
+    flex: 5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgba(245,245,245, 0.9);
+    padding: 32px 16px;
+    box-shadow: 0px 0px 6px 0 #bbbbbb inset;
+    border-radius: 8px;
 }
 
 .course-details-info .course-info .course-info__title {
@@ -158,6 +168,8 @@
     position: relative;
     width: 100%;
     display: flex;
+    background-color: rgba(245,245,245, 0.9);
+    border-radius: 8px;
 }
 
 .course-video .course-video__container .course-video-content {
@@ -173,6 +185,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.2);
     min-width: 200px;
+    border-radius: 8px;
 }
 
 .course-video__container .course-video-play i {
@@ -188,7 +201,6 @@
 }
 
 .content__container .course-details-content .course-overview {
-
 }
 
 .course-details-content .course-section-title {
@@ -199,6 +211,10 @@
 }
 
 .course-details-content .course-overview .course-overview__content {
+    border: 1px solid #bbbbbb;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: var(--white);
 }
 
 .course-overview .course-overview__content .course-overview-text {
@@ -221,6 +237,7 @@
     gap: 24px;
     min-width: 200px;
     background-color: var(--white);
+    border-radius: 16px;
 }
 
 .course-include .course-include__content .course-include-item {
@@ -243,7 +260,10 @@
 }
 
 .course-details-content .course-requirement .course-requirement__content {
-    
+    background-color: var(--white);
+    border: 1px solid #bbbbbb;
+    border-radius: 16px;
+    padding: 16px;
 }
 
 .course-requirement__content .course-requirement-list .course-requirement-list__item + .course-requirement-list__item {
@@ -262,6 +282,7 @@
     gap: 24px;
     min-width: 200px;
     background-color: var(--white);
+    border-radius: 16px;
 }
 
 .course-achievement .course-achievement__content .course-achievement-item {
@@ -483,6 +504,11 @@
     justify-content: space-between;
 }
 
+.course-contribute__content .course-contribute-info .course-contribute-info__container + .course-contribute-info__container {
+    border-top: 1px solid #d6d6d6;
+    padding-top: 32px;
+}
+
 .course-contribute-info .course-contribute-info__container .contribute-info {
     display: flex;
 }
@@ -562,6 +588,9 @@
 
 .content__container .course-details-rate .course-rate-total {
     display: flex;
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid #bbbbbb;
 }
 
 .course-details-rate .course-rate-total .course-rate-total__point {
@@ -610,7 +639,7 @@
     height: 15px;
     display: flex;
     background-color: rgba(182, 182, 182, 0.25);
-    flex: 3;
+    flex: 2.5;
 }
 
 .progress-bar .progress-bar__container .p-100 {
@@ -707,7 +736,9 @@
 }
 
 .course-details-rate__content .course-rate-content .course-rate-content__container {
-
+    background-color: var(--white);
+    border: 1px solid #bbbbbb;
+    padding: 16px;
 }
 
 .course-rate-content .course-rate-content__container .course-rate-reviewer {
@@ -766,7 +797,7 @@
 }
 
 .course-rate-reviewer .course-rate-info .course-rate-info__content {
-    width: 60%;
+/*    width: 60%;*/
     text-align: justify;
 }
 
@@ -917,7 +948,7 @@
     }
 
     .course-rate-reviewer .course-rate-info .course-rate-info__content {
-        width: 90%;
+/*        width: 90%;*/
     }
 }
 

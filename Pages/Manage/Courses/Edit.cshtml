@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Edit Course";
+    ViewData["ManageSection"] = "Course";
     ViewData["Title"] = "EasyCode Manage - Edit Course";
-    ViewData["RulesTitle"] = "To Edit Course. They're have 3 rules";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Edit Course";
+    ViewData["GuideList"] = new String[]
     {
         "Course Name Must Have atleast 1 character and Maximum is 255",
         "Fill all the information required <span class='asterisk text-danger'>*</span>",
@@ -83,144 +84,346 @@
 </div>*@
 
 
-<form method="post" class="action-form" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
-    <input type="hidden" asp-for="Course.CourseId" />
-    <div class="form-group">
-        <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseName" class="control-label"></label>
-        <input asp-for="Course.CourseName" class="form-control text-normal" />
-    </div>
-
-    <div class="form-group">
-        <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseDescription" class="control-label"></label>
-        @*        <input asp-for="Course.CourseDescription" class="form-control text-normal" />*@
-        <textarea asp-for="Course.CourseDescription" class="form-control text-normal" rows="6" placeholder="Description"></textarea>
-    </div>
-
-    <div class="form-group">
-        <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CoursePrice" class="control-label"></label>
-        <input asp-for="Course.CoursePrice" class="form-control text-normal" />
-    </div>
-
-    <div class="form-group">
-        @*        <label class="form-check-label">
-        <input class="form-check-input" asp-for="Course.CourseType" /> @Html.DisplayNameFor(model => model.Course.CourseType)
-        </label>*@
-        <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseType" class="control-label"></label>
-        <select asp-for="Course.CourseType" class="form-control text-normal">
-            <option class="disabled">-- Select Type ---</option>
-            @{
-                if (Model.Course.CourseType == 1)
-                {
-                    <option value="1" selected>Course</option>
-                }
-                else
-                {
-                    <option value="1">Course</option>
-                }
 
 
-                if (Model.Course.CourseType == 2)
-                {
-                    <option value="2" selected>Tutorial</option>
-                }
-                else
-                {
-                    <option value="2">Tutorial</option>
-                }
-            }
-        </select>
-    </div>
+<div class="form-item">
+    <form method="post" class="action-form full-width" enctype="multipart/form-data">
+        <div class="form-item__main">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+            <input type="hidden" asp-for="Course.CourseId" />
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseName" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CourseName" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: ASP.NET For Beginner" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        @*        <label class="form-check-label">
-        <input class="form-check-input" asp-for="Course.CourseStatus" /> @Html.DisplayNameFor(model => model.Course.CourseStatus)
-        </label>*@
-        <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseStatus" class="control-label"></label>
-        <select asp-for="Course.CourseStatus" class="form-control text-normal">
-            <option class="disabled">-- Select Status ---</option>
-            @{
-                if (Model.Course.CourseStatus == 1)
-                {
-                    <option value="1" selected>Not Available</option>
-                }
-                else
-                {
-                    <option value="1">Not Available</option>
-                }
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDescription" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDescription" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CoursePrice" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CoursePrice" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: 19.00$" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseType" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseType" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option class="disabled">-- Select Type ---</option>
+                            @{
+                                if (Model.Course.CourseType == 1)
+                                {
+                                    <option value="1" selected>Course</option>
+                                }
+                                else
+                                {
+                                    <option value="1">Course</option>
+                                }
 
 
-                if (Model.Course.CourseType == 2)
-                {
-                    <option value="2" selected>Queue</option>
-                }
-                else
-                {
-                    <option value="2">Queue</option>
-                }
+                                if (Model.Course.CourseType == 2)
+                                {
+                                    <option value="2" selected>Tutorial</option>
+                                }
+                                else
+                                {
+                                    <option value="2">Tutorial</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-                if (Model.Course.CourseType == 3)
-                {
-                    <option value="3" selected>Available</option>
-                }
-                else
-                {
-                    <option value="3">Available</option>
-                }
-            }
-        </select>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseStatus" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseStatus" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option class="disabled">-- Select Status ---</option>
+                            @{
+                                if (Model.Course.CourseStatus == 1)
+                                {
+                                    <option value="1" selected>Not Available</option>
+                                }
+                                else
+                                {
+                                    <option value="1">Not Available</option>
+                                }
 
-    <div class="form-group">
-@*        <span asp-validation-for="Course.CourseImage" class="text-danger text-medium block mb-8"></span>*@
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseImage" class="control-label"></label>
-        <input type="hidden" asp-for="Course.CourseImage" class="form-control text-normal" />
-        <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Image" width="200" />
-    </div>
 
-    <div class="form-group">
-        <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="FileUpload" class="control-label"></label>
-        <input asp-for="FileUpload" class="form-control text-normal" />
-    </div>
+                                if (Model.Course.CourseType == 2)
+                                {
+                                    <option value="2" selected>Queue</option>
+                                }
+                                else
+                                {
+                                    <option value="2">Queue</option>
+                                }
 
-    <div class="form-group">
-        <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.created_date" class="control-label"></label>
-        <input asp-for="Course.created_date" class="form-control text-normal" />
-    </div>
+                                if (Model.Course.CourseType == 3)
+                                {
+                                    <option value="3" selected>Available</option>
+                                }
+                                else
+                                {
+                                    <option value="3">Available</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.updated_date" class="control-label"></label>
-        <input asp-for="Course.updated_date" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseImage" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <label asp-for="Course.CourseImage" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input type="hidden" asp-for="Course.CourseImage" class="form-control text-normal" />
+                        <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Image" width="200" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.TopicId" class="control-label"></label>
-        <select asp-for="Course.TopicId" class="form-control text-normal" asp-items="ViewBag.TopicId"></select>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="FileUpload" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="FileUpload" class="form-control text-normal" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <input type="submit" value="Save" class="form-btn btn-basic btn-restart" />
-    </div>
-</form>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.created_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.created_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.updated_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.updated_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.TopicId" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.TopicId" class="form-control text-normal remove-outline border-primary-1 full-width" asp-items="ViewBag.TopicId"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Course.CourseDetails is not null)
+        {
+            <div class="form-item__sub">
+                <div class="sub-form-title">Course Details</div>
+                <div class="form-group">
+                    <div class="form-group__alert">
+                        <span asp-validation-for="Course.CourseDetails.CourseLanguage" class="text-danger text-medium block mb-8"></span>
+                    </div>
+                    <div class="form-group__content">
+                        @*                    <div class="label-container">
+                    <span class="asterisk text-danger">*</span>
+                    <label asp-for="CourseDetails.CourseLanguage" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                    <input asp-for="CourseDetails.CourseLanguage" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: English" />
+                    </div>*@
+                        <div class="label-container">
+                            <span class="asterisk text-danger">*</span>
+                            <label asp-for="Course.CourseDetails.CourseLanguage" class="control-label"></label>
+                        </div>
+                        <div class="input-container">
+                            <select asp-for="Course.CourseDetails.CourseLanguage" class="form-control text-normal remove-outline border-primary-1 full-width">
+
+                                <option class="disabled" value="">-- Select Language ---</option>
+                                @{
+                                    if (Model.Course.CourseDetails.CourseLanguage == "English")
+                                    {
+                                        <option value="English" selected>English</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="English">English</option>
+                                    }
+
+
+                                    if (Model.Course.CourseDetails.CourseLanguage == "French")
+                                    {
+                                        <option value="French" selected>French</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="French">French</option>
+                                    }
+
+                                    if (Model.Course.CourseDetails.CourseLanguage == "Vietnamese")
+                                    {
+                                        <option value="Vietnamese" selected>Vietnamese</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Vietnamese">Vietnamese</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group__alert">
+                        <span asp-validation-for="Course.CourseDetails.CourseOverview" class="text-danger text-medium block mb-8"></span>
+                    </div>
+                    <div class="form-group__content">
+                        <div class="label-container">
+                            <span class="asterisk text-danger">*</span>
+                            <label asp-for="Course.CourseDetails.CourseOverview" class="control-label"></label>
+                        </div>
+                        <div class="input-container">
+                            <textarea asp-for="Course.CourseDetails.CourseOverview" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group__alert">
+                        <span asp-validation-for="Course.CourseDetails.CourseInclude" class="text-danger text-medium block mb-8"></span>
+                    </div>
+                    <div class="form-group__content">
+                        <div class="label-container">
+                            <span class="asterisk text-danger">*</span>
+                            <label asp-for="Course.CourseDetails.CourseInclude" class="control-label"></label>
+                        </div>
+                        <div class="input-container">
+                            <textarea asp-for="Course.CourseDetails.CourseInclude" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group__alert">
+                        <span asp-validation-for="Course.CourseDetails.CourseRequirement" class="text-danger text-medium block mb-8"></span>
+                    </div>
+                    <div class="form-group__content">
+                        <div class="label-container">
+                            <span class="asterisk text-danger">*</span>
+                            <label asp-for="Course.CourseDetails.CourseRequirement" class="control-label"></label>
+                        </div>
+                        <div class="input-container">
+                            <textarea asp-for="Course.CourseDetails.CourseRequirement" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group__alert">
+                        <span asp-validation-for="Course.CourseDetails.CourseGain" class="text-danger text-medium block mb-8"></span>
+                    </div>
+                    <div class="form-group__content">
+                        <div class="label-container">
+                            <span class="asterisk text-danger">*</span>
+                            <label asp-for="Course.CourseDetails.CourseGain" class="control-label"></label>
+                        </div>
+                        <div class="input-container">
+                            <textarea asp-for="Course.CourseDetails.CourseGain" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="form-submit">
+                <input type="submit" value="Save" class="form-btn btn-basic btn-restart" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
 
 
 

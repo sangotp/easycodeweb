@@ -3,6 +3,12 @@
 
 .content__container .manage-wrapper {
     display: flex;
+    background-image: url("/Assets/img/forest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
 }
 
 .content__container .manage-wrapper .sidebar {
@@ -10,7 +16,6 @@
     flex: 20%;
     max-width: 20%;
     padding: 48px 0px 0px 48px;
-    background-color: #fbfbfb;
     min-height: calc(100vh - 80px);
     max-height: calc(100vh - 80px);
     overflow-y: auto;
@@ -31,7 +36,12 @@
 }
 
 .sidebar__content .manage-list .manage-list__item {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    background-color: rgba(245,245,245,0.9);
+    padding: 0px 16px;
+    box-shadow: 0px 0px 3px 0 #bbbbbb inset;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
 }
 
 .sidebar__content .manage-list .manage-list__item:last-child {
@@ -42,11 +52,15 @@
     /*    flex: 3.5;*/
     flex: 80%;
     max-width: 80%;
-    padding: 48px 96px 48px 24px;
+    /*    padding: 48px 96px 48px 24px;*/
+    padding: 48px 24px 48px 24px;
 }
 
 .manage-wrapper .manage-main .manage-main__title {
     margin-bottom: 32px;
+    color: var(--white);
+    font-weight: bold;
+    text-align: justify;
 }
 
 .manage-wrapper .manage-main .manage-main__content {

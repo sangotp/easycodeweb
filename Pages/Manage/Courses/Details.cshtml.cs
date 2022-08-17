@@ -35,6 +35,8 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             else 
             {
                 Course = course;
+                var e = _context.Entry(Course);
+                await e.Reference(d => d.CourseDetails).LoadAsync();
             }
             return Page();
         }

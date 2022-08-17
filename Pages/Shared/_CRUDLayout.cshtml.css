@@ -55,10 +55,124 @@
         margin-bottom: 0px;
 }
 
-.manage-action .manage-action__container .action-return {
+.manage-action .manage-action__container .action-interactive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0px 16px 24px 16px;
+    margin-bottom: 32px;
 }
 
+.manage-action__container .action-interactive .action-return {
+
+}
+
+.manage-action__container .action-interactive .action-guide-info {
+    padding: 8px 16px;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 3px 0 #bbbbbb;
+    border-radius: 4px;
+    position: relative;
+}
+
+.action-interactive .action-guide-info .guide-info-btn {
+}
+
+.action-interactive .action-guide-info .guide-info-btn::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.manage-action__container .action-interactive .guide-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-interactive .guide-modal-container .guide-modal {
+    background-color: var(--white);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.guide-modal-container .guide-modal .guide-modal-header {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.guide-modal .guide-modal-header .guide-header-title {
+    text-align: center;
+}
+
+.guide-modal .guide-modal-header .guide-header-action {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 16px;
+    display: inline-flex;
+}
+
+.guide-modal-header .guide-header-action .guide-close-modal-btn {
+    display: inline-flex;
+}
+
+.guide-modal-header .guide-header-action .guide-close-modal-btn::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.guide-modal-container .guide-modal .guide-modal-body {
+    width: 100%;
+    padding: 16px;
+}
+
+.guide-modal .guide-modal-body .guide-body-content {
+
+}
+
+.guide-modal-body .guide-body-content .guide-body-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.guide-modal-body .guide-body-content .body-list-container {
+
+}
+
+.guide-body-content .body-list-container .guide-body-list {
+
+}
+
+.body-list-container .guide-body-list .guide-body-list__item {
+    margin-bottom: 8px;
+}
+
+.guide-modal-container .guide-modal .guide-modal-footer {
+    width: 100%;
+    display: none;
+    padding: 16px;
+}
 
 
 

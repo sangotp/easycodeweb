@@ -7,16 +7,19 @@
 
 .manage-details-content .details-content-list .details-content-list__item {
     margin-bottom: 32px;
+    display: flex;
+    align-items: center;
 }
 
 .details-content-list .details-content-list__item .details-item-title {
+    width: 20%;
     min-width: 180px;
     display: inline-block;
 }
 
 .details-content-list .details-content-list__item .details-item-content {
+    width: 80%;
     min-width: 240px;
-    max-width: 240px;
     display: inline-block;
     position: relative;
 }

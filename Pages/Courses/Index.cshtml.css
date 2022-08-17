@@ -1,8 +1,7 @@
 ﻿.content__container {
-    
 }
 
-/*.breadcrumb {
+    /*.breadcrumb {
     padding: 8px 96px;
     background-color: #f3f3f3;
 }
@@ -32,11 +31,11 @@
     margin: 0 8px;
 }*/
 
-.content__container .content-wrapper {
-    padding: 0px 96px;
-    display: flex;
-    align-items: flex-start;
-}
+    .content__container .content-wrapper {
+        padding: 48px 96px;
+        display: flex;
+        align-items: stretch;
+    }
 
 
 .content__container .content-wrapper .sidebar {
@@ -47,11 +46,12 @@
     overflow-y: auto;
     position: sticky;
     top: 80px;
-    padding: 32px 0px 0px 0px;
+    padding: 32px 0px 0px 16px;
+    border: 1px solid #dddddd;
+    background-color: var(--white);
 }
 
 .content-wrapper .sidebar .sidebar__title {
-
 }
 
 .content-wrapper .sidebar .sidebar-category-list {
@@ -95,9 +95,9 @@
     margin-bottom: 8px;
 }
 
-.sidebar-category-list__item .sub-category-list .sub-category-list__item:last-child {
-    margin-bottom: 0px;
-}
+    .sidebar-category-list__item .sub-category-list .sub-category-list__item:last-child {
+        margin-bottom: 0px;
+    }
 
 .sub-category-list .sub-category-list__item .sub-category-link {
     text-decoration: none;
@@ -110,19 +110,24 @@
 
 
 .content__container .content-wrapper .category-content {
-    flex: 3.5;
-    margin-bottom: 32px;
+    flex: 4;
+    padding-top: 0px;
+    border: 1px solid #dddddd;
+    border-left: 0px;
 }
 
 .content-wrapper .category-content .category-content__filter {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 32px 0px;
+    padding: 32px 16px;
+    position: sticky;
+    top: 80px;
+    background-color: var(--white);
+    z-index: 1;
 }
 
 .category-content .category-content__filter .category-filter-title {
-
 }
 
 .category-content .category-content__filter .category-filter-action {
@@ -144,19 +149,17 @@
 }
 
 .filter-action-item .filter-action-item__container .filter-sort-btn {
-    
 }
 
-.filter-action-item .filter-action-item__container .filter-sort-btn::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
-}
+    .filter-action-item .filter-action-item__container .filter-sort-btn::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
 .category-filter-action .filter-action-item .filter-sort-list {
     list-style-type: none;
@@ -171,7 +174,6 @@
 }
 
 .filter-action-item .filter-sort-list .filter-sort-list__item {
-    
 }
 
 .filter-sort-list .filter-sort-list__item .sort-item-container {
@@ -188,15 +190,15 @@
 .filter-sort-list__item .sort-item-container .sort-item-btn {
 }
 
-.filter-sort-list__item .sort-item-container .sort-item-btn::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
+    .filter-sort-list__item .sort-item-container .sort-item-btn::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
 .category-filter-action .filter-action-item .filter-search-form {
     position: relative;
@@ -224,6 +226,8 @@
     gap: 48px 5%;
     justify-content: flex-start;
     flex-wrap: wrap;
+    padding: 32px 16px;
+    background-color: var(--white);
 }
 
 .category-content .category-content__courses .course-card {
@@ -262,9 +266,9 @@
     color: var(--yellow);
 }
 
-.course-card__container .course-card-rating i + i {
-    margin-left: 8px;
-}
+    .course-card__container .course-card-rating i + i {
+        margin-left: 8px;
+    }
 
 .course-card .course-card__container .course-card-author {
     margin-bottom: 8px;
@@ -338,15 +342,15 @@
     color: var(--white);
 }
 
-.course-card-action .card-action-container .card-action-link::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
+    .course-card-action .card-action-container .card-action-link::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
 
 
@@ -361,19 +365,18 @@
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
-/*    .content__container .breadcrumb {
+    /*    .content__container .breadcrumb {
         padding: 8px 48px;
     }*/
 
     .content__container .content-wrapper {
         padding: 0px 48px;
     }
-
 }
 
 /*Mobile*/
 @media (max-width: 46.1875em) {
-/*    .content__container .breadcrumb {
+    /*    .content__container .breadcrumb {
         padding: 8px 12px;
     }*/
 

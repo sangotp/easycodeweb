@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Edit Topic";
+    ViewData["ManageSection"] = "Topic";
     ViewData["Title"] = "EasyCode Manage - Edit Topic";
-    ViewData["RulesTitle"] = "To Edit Topic. They're have 3 rules";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Edit Topic";
+    ViewData["GuideList"] = new String[]
     {
         "Topic Name Must Have atleast 1 character and Maximum is 255",
         "Fill all the information required <span class='asterisk text-danger'>*</span>",
@@ -56,7 +57,7 @@
 </div>*@
 
 
-<form method="post" class="action-form">
+@*<form method="post" class="action-form">
     <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
     <input type="hidden" asp-for="Topic.TopicId" />
     <div class="form-group">
@@ -90,8 +91,84 @@
     <div class="form-group">
         <input type="submit" value="Save" class="form-btn btn-basic btn-restart" />
     </div>
-</form>
+</form>*@
 
+
+<div class="form-item">
+    <form method="post" class="action-form full-width" enctype="multipart/form-data">
+        <div class="form-item__main">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+            <input type="hidden" asp-for="Topic.TopicId" />
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Topic.TopicName" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Topic.TopicName" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Topic.TopicName" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: ASP.NET For Beginner" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Topic.created_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Topic.created_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Topic.created_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Topic.updated_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Topic.updated_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Topic.updated_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__alert">
+                <span asp-validation-for="Topic.CateId" class="text-danger text-medium block mb-8"></span>
+            </div>
+            <div class="form-group__content">
+                <div class="label-container">
+                    <span class="asterisk text-danger">*</span>
+                    <label asp-for="Topic.CateId" class="control-label"></label>
+                </div>
+                <div class="input-container">
+                    <select asp-for="Topic.CateId" class="form-control text-normal remove-outline border-primary-1 full-width" asp-items="ViewBag.CateId">
+                        <option class="disabled">-- Select Category ---</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-submit">
+                <input type="submit" value="Save" class="form-btn btn-basic btn-restart" />
+            </div>
+        </div>
+    </form>
+</div>
 
 
 

@@ -1,3 +1,50 @@
-﻿.action-form .form-btn {
-    float: right;
+﻿.form-item {
+}
+
+.form-item .action-form .form-group {
+}
+
+.action-form .form-group .form-group__alert {
+    width: 100%;
+}
+
+.action-form .form-group .form-group__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.form-group .form-group__content .label-container {
+    width: 15%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group .form-group__content .input-container {
+    width: 85%;
+}
+
+.form-group__content .label-container .asterisk {
+    width: 20px;
+    height: 20px;
+    min-width: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.form-group .form-submit {
+    text-align: right;
+}
+
+    .form-group .form-submit .form-btn {
+        width: 240px;
+        min-width: 200px;
+    }
+
+.form-item .action-form .form-item__main {
+    margin-bottom: 64px;
+}
+
+.form-item .action-form .form-item__sub {
+    margin-bottom: 32px;
 }

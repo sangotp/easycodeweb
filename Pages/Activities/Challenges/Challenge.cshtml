@@ -1,0 +1,398 @@
+﻿@page "/activities/challenge"
+@model EasyCodeAcademy.Web.Pages.Activities.Challenges.ChallengeModel
+@{
+}
+
+<div class="content__container">
+    <div class="code-challenge">
+        <div class="code-challenge__title">
+            <div class="code-challenge-title-text sub-heading">Code Challenge</div>
+            <div class="code-challenge-title-content">Content</div>
+        </div>
+        <div class="code-challenge__content">
+            <div class="challenge-wrapper">
+                <div class="challenge-filter">
+                    <div class="challenge-filter__item">
+                        <div class="filter-item-action">
+                            <button class="filter-item-btn btn-restart">Topic:</button>
+                            <div class="filter-item-select ml-8">
+                                <i class="fa-solid fa-box-archive"></i>
+                                <span class="filter-item-text">All</span>
+                                <i class="fa-solid fa-angle-down ml-16"></i>
+                            </div>
+                        </div>
+
+                        <ul class="filter-list">
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <i class="fa-solid fa-code"></i>
+                                    <button class="filter-item-btn btn-restart ml-8">Programming Language</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <i class="fa-solid fa-question"></i>
+                                    <button class="filter-item-btn btn-restart ml-8">Problem Solving</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <i class="fa-solid fa-folder-tree"></i>
+                                    <button class="filter-item-btn btn-restart ml-8">Data Structure & Algorithm</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <i class="fa-solid fa-square-root-variable"></i>
+                                    <button class="filter-item-btn btn-restart ml-8">Mathematics</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <i class="fa-solid fa-database"></i>
+                                    <button class="filter-item-btn btn-restart ml-8">Database</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="challenge-filter__item">
+                        <div class="filter-item-action">
+                            <button class="filter-item-btn btn-restart">Levels</button>
+                            <div class="filter-item-select ml-8">
+                                <i class="fa-solid fa-angle-down ml-16"></i>
+                            </div>
+                        </div>
+
+                        <ul class="filter-list">
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Easy</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Medium</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Hard</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="challenge-filter__item">
+                        <div class="filter-item-action">
+                            <button class="filter-item-btn btn-restart">Status</button>
+                            <div class="filter-item-select ml-8">
+                                <i class="fa-solid fa-angle-down ml-16"></i>
+                            </div>
+                        </div>
+
+                        <ul class="filter-list">
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">UnSolve</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Solved</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Unlocked</button>
+                                </div>
+                            </li>
+                            <li class="filter-list__item">
+                                <div class="filter-item-container">
+                                    <button class="filter-item-btn btn-restart ml-8">Locked</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="challenge-filter__search ml-auto">
+                        <form class="challenge-search-form" method="get" action="">
+                            <input type="text" class="challenge-search-input text-normal" placeholder="Keyword" />
+                            <button type="submit" class="challenge-search-submit btn-restart">
+                                <i class="fa-solid fa-magnifying-glass text-heading"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="challenge-filter-tags">
+                    <div class="filter-tags">
+                        <ul class="filter-tags-list">
+                            <li class="filter-tags-list__item">
+                                <span class="filter-tags-item-text text-medium">Easy</span>
+                                <button class="filter-tags-remove btn-restart ml-8"><i class="fa-solid fa-xmark text-medium"></i></button>
+                            </li>
+                            <li class="filter-tags-list__item">
+                                <span class="filter-tags-item-text text-medium">Programming Language</span>
+                                <button class="filter-tags-remove btn-restart ml-8"><i class="fa-solid fa-xmark text-medium"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-tags__clear">
+                        <i class="fa-solid fa-arrow-rotate-left text-medium"></i>
+                        <button class="filter-tags-clear__btn btn-restart text-medium ml-8">Clear</button>
+                    </div>
+                </div>
+                <div class="challenge-list">
+                    <table class="challenge-table">
+                        <thead class="challenge-thead">
+                            <tr class="challenge-tr">
+                                <td class="challenge-td">Id</td>
+                                <td class="challenge-td">Title</td>
+                                <td class="challenge-td">Levels</td>
+                                <td class="challenge-td">Point</td>
+                                <td class="challenge-td">Pass</td>
+                                <td class="challenge-td text-center">Status</td>
+                            </tr>
+                        </thead>
+                        <tbody class="challenge-tbody">
+                            <tr class="challenge-tr">
+                                <td class="challenge-td">#1</td>
+                                <td class="challenge-td">
+                                    <div class="challenge-td-container">
+                                        <a asp-page="./Solve" class="link-restart">
+                                            Get Started With EasyCode Challenge System
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="challenge-td">Easy</td>
+                                <td class="challenge-td">1</td>
+                                <td class="challenge-td">100%</td>
+                                <td class="challenge-td text-center"><i class="fa-solid fa-unlock"></i></td>
+                            </tr>
+                            <tr class="challenge-tr disabled">
+                                <td class="challenge-td">#2</td>
+                                <td class="challenge-td">
+                                    <div class="challenge-td-container">
+                                        <a asp-page="" class="link-restart link-disabled">
+                                            Sum of two number
+                                        </a>
+                                        <div class="challenge-td-tags">
+                                            <span class="tag_item text-small">Sum Number</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="challenge-td">Easy</td>
+                                <td class="challenge-td">2</td>
+                                <td class="challenge-td">100%</td>
+                                <td class="challenge-td text-center"><i class="fa-solid fa-lock"></i></td>
+                            </tr>
+                            <tr class="challenge-tr disabled">
+                                <td class="challenge-td">#3</td>
+                                <td class="challenge-td">
+                                    <div class="challenge-td-container">
+                                        <a asp-page="" class="link-restart link-disabled">
+                                            Min, Max of Array
+                                        </a>
+                                        <div class="challenge-td-tags">
+                                            <span class="tag_item text-small">Min Max</span>
+                                            <span class="tag_item text-small">Min Max</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="challenge-td">Easy</td>
+                                <td class="challenge-td">2</td>
+                                <td class="challenge-td">100%</td>
+                                <td class="challenge-td text-center"><i class="fa-solid fa-lock"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="challenge-aside">
+                <div class="challenge-aside__tags">
+                    <div class="challenge-aside-title text-heading">
+                        <i class="fa-solid fa-tag"></i>
+                        <span class="challenge-aside-title__text ml-8">Tags</span>
+                    </div>
+                    <div class="challenge-tags-container">
+                        <div class="challenge-tag">
+                            <button type="button" class="challenge-tags-btn btn-restart text-medium">Sort Array</button>
+                        </div>
+                        <div class="challenge-tag">
+                            <button type="button" class="challenge-tags-btn btn-restart text-medium">Sum Number</button>
+                        </div>
+                        <div class="challenge-tag">
+                            <button type="button" class="challenge-tags-btn btn-restart text-medium">Binary Tree</button>
+                        </div>
+                        <div class="challenge-tag">
+                            <button type="button" class="challenge-tags-btn btn-restart text-medium">Min Max</button>
+                        </div>
+                        <div class="challenge-tag">
+                            <button type="button" class="challenge-tags-btn btn-restart text-medium">Search Item</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-aside__settings">
+                        <div class="challenge-settings-container">
+                            <button type="button" class="challenge-settings-btn btn-restart">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                            <ul class="challenge-settings-list">
+                                <li class="challenge-settings-list__item">
+                                    <div class="settings-item-container">
+                                        <span class="setting-item-checkbox">
+                                            <i class="fa-solid fa-check"></i>
+                                        </span>
+                                        <button class="setting-item-btn btn-restart ml-8">Show Challenge Tags</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="challenge-aside__rank">
+                    <div class="challenge-aside-title text-heading">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span class="challenge-aside-title__text ml-8">Rank</span>
+                    </div>
+                    <div class="challenge-rank-list">
+                        <table class="challenge-rank-table">
+                            <thead class="challenge-rank-thead">
+                                <tr class="challenge-rank-tr">
+                                    <td class="challenge-rank-td">Rank</td>
+                                    <td class="challenge-rank-td">Name</td>
+                                    <td class="challenge-rank-td">Points</td>
+                                </tr>
+                            </thead>
+                            <tbody class="challenge-rank-tbody">
+                                <tr class="challenge-rank-tr">
+                                    <td class="challenge-rank-td">1</td>
+                                    <td class="challenge-rank-td">Thanh Sang</td>
+                                    <td class="challenge-rank-td">10000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="challenge-aside__contributor">
+                    <div class="challenge-aside-title text-heading">
+                        <i class="fa-solid fa-award"></i>
+                        <span class="challenge-aside-title__text ml-8">Challenge Creator</span>
+                    </div>
+                    <div class="challenge-contributor-list">
+                        <table class="challenge-contributor-table">
+                            <thead class="challenge-contributor-thead">
+                                <tr class="challenge-contributor-tr">
+                                    <td class="challenge-contributor-td">No.</td>
+                                    <td class="challenge-contributor-td">Creator</td>
+                                    <td class="challenge-contributor-td">Created</td>
+                                </tr>
+                            </thead>
+                            <tbody class="challenge-contributor-tbody">
+                                <tr class="challenge-contributor-tr">
+                                    <td class="challenge-contributor-td">1</td>
+                                    <td class="challenge-contributor-td">Thanh Sang</td>
+                                    <td class="challenge-contributor-td">10000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        // Challenge Filter Dropdown
+        const filterBtns = document.querySelectorAll(".filter-item-btn");
+        const filterLists = document.querySelectorAll(".filter-list");
+
+        filterBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                if (item.parentElement.nextElementSibling) {
+                    const filterDropdowns = document.getElementsByClassName(item.parentElement.nextElementSibling.className);
+                    if (item.parentElement.nextElementSibling.classList.contains("filter-list")) {
+                        if (!item.parentElement.nextElementSibling.classList.contains("show")) {
+                            for (var i = 0; i < filterDropdowns.length; i++) {
+                                filterDropdowns[i].classList.remove("show");
+                            }
+                        }
+                        item.parentElement.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            });
+        });
+
+        window.addEventListener("click", function(event) {
+            if (!event.target.matches(".filter-item-btn")) {
+                filterLists.forEach(item => {
+                    if (item.classList.contains("show")) {
+                        item.classList.remove("show");
+                    }
+                });
+            }
+        });
+
+        window.addEventListener("contextmenu", function(event) {
+            if (!event.target.matches(".filter-item-btn")) {
+                filterLists.forEach(item => {
+                    if (item.classList.contains("show")) {
+                        item.classList.remove("show");
+                    }
+                });
+            }
+        });
+
+        // Challenge Tags Setting
+        const tagsSetting = document.querySelector(".challenge-settings-btn");
+
+        const itemSetting = document.querySelector(".challenge-settings-list__item");
+        itemSetting.onclick = function(event) {
+            event.stopPropagation();
+        }
+        
+        itemSetting.oncontextmenu = function(event) {
+            event.stopPropagation();
+        }
+
+        const settingBtn = document.querySelector(".setting-item-btn");
+        settingBtn.onclick = function(event) {
+            event.stopPropagation();
+        }
+
+        settingBtn.oncontextmenu = function(event) {
+            event.stopPropagation();
+        }
+
+        tagsSetting.addEventListener("click", function() {
+            if (tagsSetting.nextElementSibling) {
+                if (tagsSetting.nextElementSibling.classList.contains("challenge-settings-list")) {
+                    tagsSetting.nextElementSibling.classList.toggle("show");
+                }
+            }
+        });
+
+        window.addEventListener("click", function(event) {
+            if (!event.target.matches(".challenge-settings-btn")) {
+                if (tagsSetting.nextElementSibling) {
+                    if (tagsSetting.nextElementSibling.classList.contains("show")) {
+                        tagsSetting.nextElementSibling.classList.remove("show");
+                    }
+                }
+            }
+        });
+
+        window.addEventListener("contextmenu", function(event) {
+            if (!event.target.matches(".challenge-settings-btn")) {
+                if (tagsSetting.nextElementSibling) {
+                    if (tagsSetting.nextElementSibling.classList.contains("show")) {
+                        tagsSetting.nextElementSibling.classList.remove("show");
+                    }
+                }
+            }
+        });
+    </script>
+}

@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Create Course";
+    ViewData["ManageSection"] = "Course";
     ViewData["Title"] = "EasyCode Manage - Create Course";
-    ViewData["RulesTitle"] = "To Create Course. They're have 3 rules";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Create Course";
+    ViewData["GuideList"] = new String[]
     {
         "Course Name Must Have atleast 1 character and Maximum is 255",
         "Fill all the information required <span class='asterisk text-danger'>*</span>",
@@ -80,98 +81,249 @@
 </div>*@
 
 
-<form method="post" class="action-form" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
-    <div class="form-group">
-        <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseName" class="control-label"></label>
-        <input asp-for="Course.CourseName" class="form-control text-normal" />
-    </div>
+<div class="form-item">
+    <form method="post" class="action-form full-width" enctype="multipart/form-data">
+        <div class="form-item__main">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseName" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CourseName" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: ASP.NET For Beginner" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseDescription" class="control-label"></label>
-@*        <input asp-for="Course.CourseDescription" class="form-control text-normal" />*@
-        <textarea asp-for="Course.CourseDescription" class="form-control text-normal" rows="6" placeholder="Description"></textarea>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDescription" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDescription" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CoursePrice" class="control-label"></label>
-        <input asp-for="Course.CoursePrice" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CoursePrice" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CoursePrice" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: 19.00$" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        @*        <label class="form-check-label">
-        <input class="form-check-input" asp-for="Course.CourseType" /> @Html.DisplayNameFor(model => model.Course.CourseType)
-        </label>*@
-        <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseType" class="control-label"></label>
-        <select asp-for="Course.CourseType" class="form-control text-normal">
-            <option selected class="disabled">-- Select Type ---</option>
-            <option value="1">Course</option>
-            <option value="2">Tutorial</option>
-        </select>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseType" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseType" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled">-- Select Type ---</option>
+                            <option value="1">Course</option>
+                            <option value="2">Tutorial</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-@*        <label class="form-check-label">
-            <input class="form-check-input" asp-for="Course.CourseStatus" /> @Html.DisplayNameFor(model => model.Course.CourseStatus)
-        </label>*@
-        <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseStatus" class="control-label"></label>
-        <select asp-for="Course.CourseStatus" class="form-control text-normal">
-            <option selected class="disabled">-- Select Status ---</option>
-            <option value="1">Not Available</option>
-            <option value="2">Queue</option>
-            <option value="3">Available</option>
-        </select>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseStatus" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseStatus" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled">-- Select Status ---</option>
+                            <option value="1">Not Available</option>
+                            <option value="2">Queue</option>
+                            <option value="3">Available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        @*        <span asp-validation-for="Course.CourseImage" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.CourseImage" class="control-label"></label>*@
-        <input type="hidden" asp-for="Course.CourseImage" value="No Image Found" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Course.CourseImage" value="No Image Found" class="form-control text-normal" />
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="FileUpload" class="control-label"></label>
-        <input asp-for="FileUpload" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="FileUpload" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="FileUpload" class="form-control text-normal" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.created_date" class="control-label"></label>
-        <input asp-for="Course.created_date" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.created_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.created_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.updated_date" class="control-label"></label>
-        <input asp-for="Course.updated_date" class="form-control text-normal" />
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.updated_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.updated_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Course.TopicId" class="control-label"></label>
-        <select asp-for="Course.TopicId" class="form-control text-normal" asp-items="ViewBag.TopicId"></select>
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.TopicId" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.TopicId" class="form-control text-normal remove-outline border-primary-1 full-width" asp-items="ViewBag.TopicId"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
-    </div>
-</form>
+        <div class="form-item__sub">
+            <div class="sub-form-title">Course Details</div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseLanguage" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseLanguage" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseDetails.CourseLanguage" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled" value="">-- Select Language ---</option>
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseOverview" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseOverview" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDetails.CourseOverview" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseInclude" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseInclude" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDetails.CourseInclude" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseRequirement" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseRequirement" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDetails.CourseRequirement" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseGain" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseGain" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDetails.CourseGain" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-submit">
+                <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
+            </div>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     @{

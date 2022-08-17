@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Delete Topic";
+    ViewData["ManageSection"] = "Topic";
     ViewData["Title"] = "EasyCode Manage - Delete Topic";
-    ViewData["RulesTitle"] = "Delete Topic Have One Rule";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Delete Topic";
+    ViewData["GuideList"] = new String[]
     {
         "Double Check Your Delete Topic"
     };
@@ -54,7 +55,7 @@
 </div>*@
 
 
-<div class="manage-delete-content">
+@*<div class="manage-delete-content">
     <ul class="delete-content-list">
         <li class="delete-content-list__item">
             <span class="delete-item-title">@Html.DisplayNameFor(model => model.Topic.TopicName)</span>
@@ -77,6 +78,44 @@
                 <form method="post">
                     <input type="hidden" asp-for="Topic.TopicId" />
                     <input type="submit" value="Delete" class="delete-form-btn link-basic link-restart absolute-top-full-left border-restart cursor-pointer text-bold text-normal" />
+                </form>
+            </span>
+        </li>
+    </ul>
+</div>*@
+
+
+
+
+
+
+
+<div class="manage-details-content">
+    <ul class="details-content-list">
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.TopicName)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.TopicName)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.created_date)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.created_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.updated_date)</span>
+            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Topic.updated_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Topic.Category)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Topic.Category.CategoryName)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title"></span>
+            <span class="details-item-content text-bold">
+                <form method="post">
+                    <input type="hidden" asp-for="Topic.TopicId" />
+                    <input type="submit" value="Delete" class="delete-form-btn link-basic link-restart border-restart cursor-pointer text-bold text-normal" />
                 </form>
             </span>
         </li>

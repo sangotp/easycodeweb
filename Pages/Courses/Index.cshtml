@@ -147,7 +147,7 @@
                 }
             </ul>
         </div>
-        <div class="category-content ml-16">
+        <div class="category-content">
             <div class="category-content__filter">
                 <div class="category-filter-title sub-heading">All</div>
                 <div class="category-filter-action">
@@ -260,7 +260,7 @@
                                     </div>
                                     <div class="card-action-container card-action-container--link">
                                         <i class="fa-solid fa-info icon-link"></i>
-                                        <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                                        <a href="/course/details/@item.CourseId" class="card-action-link btn-restart">Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -274,6 +274,16 @@
 
 @section Scripts {
     <script type="text/javascript">
+        // Remove Border When Scroll
+        const sideBar = document.querySelector(".sidebar");
+        const categoryContent = document.querySelector(".category-content");
+
+        window.addEventListener("scroll", function(){
+            sideBar.classList.toggle("remove-shadow-t", window.scrollY > 48); // if Window Scroll > 48px (48px => margin-top)
+            categoryContent.classList.toggle("remove-shadow-t", window.scrollY > 48); // if Window Scroll > 48px (48px => margin-top)
+        });
+
+
         // Dropdown Category List
         const categoryBtns = document.querySelectorAll(".sidebar-category-btn");
 

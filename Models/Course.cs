@@ -49,5 +49,8 @@ namespace EasyCodeAcademy.Web.Models
         public int TopicId { get; set; }
 
         public Topic? Topic { get; set; }
+
+        // Course - CourseDetails (1 - 1)
+        public CourseDetails? CourseDetails { get; set; }
     }
 }

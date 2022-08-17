@@ -1,4 +1,4 @@
-﻿@page "/courses/details"
+﻿@page "/course/details/{id:int?}"
 @model EasyCodeAcademy.Web.Pages.Courses.DetailsModel
 @{
 }
@@ -14,13 +14,54 @@
                 <a href="/courses" class="breadcrumb-link">Courses</a>
                 <i class="fa-solid fa-angle-right"></i>
             </li>
-            <li class="breadcrumb__list__item breadcrumb-current">Unity 3D Development</li>
+@*            <li class="breadcrumb__list__item breadcrumb-current">Unity 3D Development</li>*@
+            <li class="breadcrumb__list__item breadcrumb-current">@Model.Course.CourseName</li>
         </ul>
     </div>
-    
+
+    @*    <div class="course-details-info">
+    <div class="course-info">
+    <div class="course-info__title sub-heading">Complete C# Unity Game Developer 3D</div>
+    <div class="course-info__author text-small">
+    Author: <a href="#" class="course-author">Thanh Sang</a>
+    </div>
+    <div class="course-info__vote text-small mt-8">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half"></i>
+    <a href="#" class="course-vote-total">(700 rating)</a>
+    </div>
+    <div class="course-info__language text-medium mt-8">
+    Language: <button type="button" class="course-language btn-restart">English</button>
+    </div>
+    <div class="course-info__total-time text-medium mt-8">
+    Complete Course: <a href="#" class="course-total-time">20 hours / total</a>
+    </div>
+    <div class="course-info__price mt-16">
+    <span class="course-price-normal text-heading">$32.5</span>
+    <span class="course-price-sales text-heading">$19.9</span>
+    <span class="course-price-status text-small">Best Sales</span>
+    </div>
+    <div class="course-info__action mt-32">
+    <button type="button" class="course-add-inventory btn-restart">+ Inventory</button>
+    <a href="#" class="course-purchase">Buy Now</a>
+    </div>
+    </div>
+    <div class="course-video">
+    <div class="course-video__container">
+    <img src="/Assets/img/unity.jpg" alt="Course Video" class="course-video-content" />
+    <button type="button" class="course-video-play btn-restart">
+    <i class="fa-solid fa-circle-play"></i>
+    </button>
+    </div>
+    </div>
+    </div>*@
+
     <div class="course-details-info">
         <div class="course-info">
-            <div class="course-info__title sub-heading">Complete C# Unity Game Developer 3D</div>
+            <div class="course-info__title sub-heading">@Model.Course.CourseName</div>
             <div class="course-info__author text-small">
                 Author: <a href="#" class="course-author">Thanh Sang</a>
             </div>
@@ -33,14 +74,14 @@
                 <a href="#" class="course-vote-total">(700 rating)</a>
             </div>
             <div class="course-info__language text-medium mt-8">
-                Language: <button type="button" class="course-language btn-restart">English</button>
+                Language: <button type="button" class="course-language btn-restart">@Model.Course.CourseDetails.CourseLanguage</button>
             </div>
             <div class="course-info__total-time text-medium mt-8">
                 Complete Course: <a href="#" class="course-total-time">20 hours / total</a>
             </div>
             <div class="course-info__price mt-16">
-                <span class="course-price-normal text-heading">$32.5</span>
-                <span class="course-price-sales text-heading">$19.9</span>
+                <span class="course-price-normal text-heading">@Html.DisplayFor(modelItem => Model.Course.CoursePrice)$</span>
+                <span class="course-price-sales text-heading">8.99$</span>
                 <span class="course-price-status text-small">Best Sales</span>
             </div>
             <div class="course-info__action mt-32">
@@ -50,66 +91,68 @@
         </div>
         <div class="course-video">
             <div class="course-video__container">
-                <img src="/Assets/img/unity.jpg" alt="Course Video" class="course-video-content" />
+                <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Video" class="course-video-content" />
                 <button type="button" class="course-video-play btn-restart">
                     <i class="fa-solid fa-circle-play"></i>
                 </button>
             </div>
         </div>
     </div>
+
+
     <div class="course-details-content">
         <div class="course-overview">
             <div class="course-section-title text-heading">Overview</div>
             <div class="course-overview__content mt-16">
                 <p class="course-overview-text">
                     This is the most complete certification training (+ 60 hours of videos)
-                    and the most recent on Udemy. 
-                    It will allow you to become a game developer 
+                    and the most recent on Udemy.
+                    It will allow you to become a game developer
                     and master Unity as well as C# and through 10 projects.
                 </p>
                 <p class="course-overview-text">
-                    Want to learn Unity? To create games? 
+                    Want to learn Unity? To create games?
                     To migrate from another engine? To live from your passion?
                 </p>
                 <p class="course-overview-text">
-                    This training is for you ! No need for special knowledge, 
-                    we will see everything from A to Z! 
-                    We'll be using the latest version of Unity for this course, 
+                    This training is for you ! No need for special knowledge,
+                    we will see everything from A to Z!
+                    We'll be using the latest version of Unity for this course,
                     so you'll have access to the most up-to-date training on the net!
                 </p>
                 <p class="course-overview-text">
-                    This complete training on Unity 3D will allow you to 
+                    This complete training on Unity 3D will allow you to
                     learn how to create 3D games with the C# programming language.
                 </p>
                 <p class="course-overview-text">
-                    This training will allow you to learn how to use Unity 
+                    This training will allow you to learn how to use Unity
                     while putting your knowledge into practice immediately.
                 </p>
                 <p class="course-overview-text">
-                    Throughout this training, we will follow our common thread: 
-                    Create a 3D platform/adventure game to learn by doing. 
+                    Throughout this training, we will follow our common thread:
+                    Create a 3D platform/adventure game to learn by doing.
                     There will then be 9 other projects to practice even more.
                 </p>
                 <p class="course-overview-text">
-                    We will discover everything from the beginning 
-                    (no need for knowledge to follow this training) 
+                    We will discover everything from the beginning
+                    (no need for knowledge to follow this training)
                     and we will go until the publication of our online game.
                 </p>
                 <p class="course-overview-text">
-                    Being a certified Unity expert , 
-                    I made sure to send you the best practices 
+                    Being a certified Unity expert ,
+                    I made sure to send you the best practices
                     to achieve a professional quality project.
                 </p>
                 <p class="course-overview-text">
-                    I have been teaching Unity for over 10 years 
+                    I have been teaching Unity for over 10 years
                     and have published many books on this software.
                 </p>
                 <p class="course-overview-text">
-                    After completing this training, 
-                    you will be comfortable with Unity 
-                    and you will be able to develop any type of game. 
+                    After completing this training,
+                    you will be comfortable with Unity
+                    and you will be able to develop any type of game.
                     You will also get a certificate of achievement.
-                </p> 
+                </p>
             </div>
         </div>
         <div class="course-include mt-64">
@@ -231,7 +274,7 @@
                                     <div class="course-lesson-item-container">
                                         <div class="course-lesson-action">
                                             <i class="fa-regular fa-circle-play"></i>
-                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 1</a>
+                                            <a href="/course/@Model.Course.CourseId/learn" class="course-lesson-link">Lesson 1</a>
                                         </div>
                                         <div class="course-lesson-info">
                                             <span class="course-lesson-info__item">Ready</span>
@@ -243,7 +286,7 @@
                                     <div class="course-lesson-item-container">
                                         <div class="course-lesson-action">
                                             <i class="fa-regular fa-circle-play"></i>
-                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 2</a>
+                                            <a href="/course/@Model.Course.CourseId/learn" class="course-lesson-link">Lesson 2</a>
                                         </div>
                                         <div class="course-lesson-info">
                                             <span class="course-lesson-info__item">Ready</span>
@@ -255,7 +298,7 @@
                                     <div class="course-lesson-item-container">
                                         <div class="course-lesson-action">
                                             <i class="fa-regular fa-circle-play"></i>
-                                            <a href="/course/Unity3DDevelopment/learn" class="course-lesson-link">Lesson 3</a>
+                                            <a href="/course/@Model.Course.CourseId/learn" class="course-lesson-link">Lesson 3</a>
                                         </div>
                                         <div class="course-lesson-info">
                                             <span class="course-lesson-info__item">Ready</span>
@@ -315,18 +358,18 @@
                         <div class="contribute-info">
                             <div class="member-contribute-info">
                                 <div class="member-contribute-info__img">
-                                    <img src="/Assets/img/athony_cardinal.jpg" alt="Contributor Image" class="contributor-img" />
+                                    <img src="/Assets/img/gamedevTV.jpg" alt="Contributor Image" class="contributor-img" />
                                 </div>
                             </div>
                             <div class="member-contribute-overview">
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-star"></i>
-                                        4.4 Trainer Quality
+                                    4.4 Trainer Quality
                                 </div>
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-user-group"></i>
                                     <span class="contributor-total-student">871,646 Students</span>
-                                 </div>
+                                </div>
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-user-graduate"></i>
                                     <span class="contributor-certificate">Bachelor Of IT Science, Master Degree</span>
@@ -345,37 +388,37 @@
                         </div>
                         <div class="course-contribute-info__content mt-16">
                             <p class="contributor-paragraph">
-                                Passionate about programming since always, 
-                                I also like to share my knowledge. 
-                                my specialty being game development and programming , 
-                                Udemy allows me to express myself and 
-                                share this passion with thousands of Internet users. 
+                                Passionate about programming since always,
+                                I also like to share my knowledge.
+                                my specialty being game development and programming ,
+                                Udemy allows me to express myself and
+                                share this passion with thousands of Internet users.
                                 I am also the author of many books on the creation of video games.
                                 <span class="contributor-paragraph-dot" id="dots">...</span>
                             </p>
                             <div id="paragraph-more">
                                 <p class="contributor-paragraph-more mt-8">
-                                    In the professional context, I have to work with many technologies, 
-                                    I develop applications, websites , software , APIs , 
-                                    virtual/augmented reality experiences... 
-                                    My objective is to convey to you what is best 
+                                    In the professional context, I have to work with many technologies,
+                                    I develop applications, websites , software , APIs ,
+                                    virtual/augmented reality experiences...
+                                    My objective is to convey to you what is best
                                     in development and engineering.
                                 </p>
                                 <p class="contributor-paragraph-more mt-8">
-                                    I publish training courses on the main game engines 
-                                    and programming languages ​​on the 
-                                    market, namely Unreal Engine , Unity 3D, Godot , 
-                                    C# , WPF , ASP , Javascript , etc. 
-                                    I also offer tutorials on essential tools or 
-                                    frameworks to watch very closely. 
+                                    I publish training courses on the main game engines
+                                    and programming languages ​​on the
+                                    market, namely Unreal Engine , Unity 3D, Godot ,
+                                    C# , WPF , ASP , Javascript , etc.
+                                    I also offer tutorials on essential tools or
+                                    frameworks to watch very closely.
                                     close if you don't want to be overwhelmed by technology.
                                 </p>
                                 <p class="contributor-paragraph-more mt-8">
-                                    I attach great importance to the quality of my training. 
-                                    For more than 10 years I have done 
-                                    my best to guarantee your satisfaction. 
-                                    If you have any questions or requests, 
-                                    do not hesitate to contact me, 
+                                    I attach great importance to the quality of my training.
+                                    For more than 10 years I have done
+                                    my best to guarantee your satisfaction.
+                                    If you have any questions or requests,
+                                    do not hesitate to contact me,
                                     I can produce specific tutorials on request.
                                 </p>
                             </div>
@@ -396,12 +439,12 @@
                             <div class="member-contribute-overview">
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-star"></i>
-                                        4.7 Trainer Quality
+                                    4.7 Trainer Quality
                                 </div>
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-user-group"></i>
                                     <span class="contributor-total-student">12,572 Students</span>
-                                 </div>
+                                </div>
                                 <div class="member-contribute-overview__item">
                                     <i class="fa-solid fa-user-graduate"></i>
                                     <span class="contributor-certificate">Bachelor Of IT Science</span>
@@ -420,14 +463,14 @@
                         </div>
                         <div class="course-contribute-info__content mt-16">
                             <p class="contributor-paragraph">
-                                Formation-facile FR publishes video tutorials on Udemy 
+                                Formation-facile FR publishes video tutorials on Udemy
                                 to help you learn how to develop video games easily .
 
-                                Discover the tutorials that will allow you to learn 
+                                Discover the tutorials that will allow you to learn
                                 how to use Unity , Unreal Engine , Godot or other frameworks.
 
-                                Learn the main programming languages ​​(C#, C++, Python, Blueprint), 
-                                3D modeling with Blender and game engines in order to 
+                                Learn the main programming languages ​​(C#, C++, Python, Blueprint),
+                                3D modeling with Blender and game engines in order to
                                 become an independent video game developer .
                             </p>
                         </div>
@@ -576,8 +619,8 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             <span class="course-rate-info__content mt-8">
-                                Great course to get all the starting skills for Unity. 
-                                You clearly can build your own small game after each project of the course. 
+                                Great course to get all the starting skills for Unity.
+                                You clearly can build your own small game after each project of the course.
                                 Well explained, interesting projects.
                             </span>
                             <div class="course-rate-info__action mt-8">
@@ -617,13 +660,13 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             <span class="course-rate-info__content mt-8">
-                                I am totally new to this course 
-                                and barely worked on C# and Unity but 
-                                the knowledge that I got here helped 
-                                channel my thinking with regards to doing 
-                                things I haven't done before. I did enjoy the course . 
-                                Will have to practice a lot on my own to 
-                                make sure the concepts were fully grasped. 
+                                I am totally new to this course
+                                and barely worked on C# and Unity but
+                                the knowledge that I got here helped
+                                channel my thinking with regards to doing
+                                things I haven't done before. I did enjoy the course .
+                                Will have to practice a lot on my own to
+                                make sure the concepts were fully grasped.
                                 Thanks very much guys.
                             </span>
                             <div class="course-rate-info__action mt-8">
@@ -654,9 +697,8 @@
     <script type="text/javascript">
         // Toggle Show/ Hide Course Chapter
         const chapterBtns = document.querySelectorAll(".course-chapter-btn");
-        
-        if(chapterBtns[0])
-        {
+
+        if (chapterBtns[0]) {
             if (chapterBtns[0].parentElement.parentElement.nextElementSibling) {
                 if (!chapterBtns[0].parentElement.parentElement.nextElementSibling.classList.contains("show")) {
                     chapterBtns[0].parentElement.parentElement.nextElementSibling.classList.add("show");
@@ -677,7 +719,7 @@
         const paragraphMore = document.getElementById("paragraph-more");
         const toggleParagraphBtn = document.getElementById("toggle-paragraph-btn");
 
-        toggleParagraphBtn.addEventListener("click", function(){
+        toggleParagraphBtn.addEventListener("click", function() {
             if (dots.style.display == "none") {
                 dots.style.display = "inline";
                 paragraphMore.style.display = "none";
@@ -685,7 +727,7 @@
                 if (toggleParagraphBtn.lastElementChild.classList.contains("fa-angle-up")) {
                     toggleParagraphBtn.lastElementChild.classList.replace("fa-angle-up", "fa-angle-down");
                 }
-                
+
             } else {
                 dots.style.display = "none";
                 paragraphMore.style.display = "block";

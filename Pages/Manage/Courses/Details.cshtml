@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Details Course";
+    ViewData["ManageSection"] = "Course";
     ViewData["Title"] = "EasyCode Manage - Details Course";
-    ViewData["RulesTitle"] = "Details Course Have One Rule";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Use Details Course";
+    ViewData["GuideList"] = new String[]
     {
         "Read Only."
     };
@@ -100,12 +101,12 @@
 @*            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseType)</span>*@
             @if (Model.Course.CourseType == 1)
             {
-                <b>Course</b>
+                <span class="details-item-content text-bold">Course</span>
             }
 
             @if (Model.Course.CourseType == 2)
             {
-                <b>Tutorial</b>
+                <span class="details-item-content text-bold">Tutorial</span>
             }
         </li>
         <li class="details-content-list__item">
@@ -113,17 +114,17 @@
 @*            <span class="details-item-content text-bold">@Html.DisplayFor(model => model.Course.CourseStatus)</span>*@
             @if (Model.Course.CourseStatus == 1)
             {
-                <b>Not Available</b>
+                <span class="details-item-content text-bold">Not Available</span>
             }
 
             @if (Model.Course.CourseStatus == 2)
             {
-                <b>Queue</b>
+                <span class="details-item-content text-bold">Queue</span>
             }
 
             @if (Model.Course.CourseStatus == 3)
             {
-                <b>Available</b>
+                <span class="details-item-content text-bold">Available</span>
             }
         </li>
         <li class="details-content-list__item">
@@ -145,7 +146,42 @@
             <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.Topic)</span>
             <span class="details-item-content text-bold">
                 @Html.DisplayFor(model => model.Course.Topic.TopicName)
-                <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId" class="details-item-link link-basic link-restart absolute-top-full-left">Edit</a>
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseLanguage)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseLanguage)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseOverview)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseOverview)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseInclude)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseInclude)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseRequirement)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseRequirement)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseGain)</span>
+            <span class="details-item-content text-bold">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseGain)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title"></span>
+            <span class="details-item-content text-bold">
+                <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId" class="details-item-link link-basic link-restart">Edit</a>
             </span>
         </li>
     </ul>

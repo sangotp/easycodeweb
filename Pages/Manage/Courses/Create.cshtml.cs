@@ -39,7 +39,6 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
         [BindProperty]
         public Course Course { get; set; } = default!;
 
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -58,6 +57,8 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             }
 
             _context.courses.Add(Course);
+            _context.courseDetails.Add(Course.CourseDetails);
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -3,9 +3,10 @@
 
 @{
     ViewData["ContentTitle"] = "Create Category";
+    ViewData["ManageSection"] = "Category";
     ViewData["Title"] = "EasyCode Manage - Create Category";
-    ViewData["RulesTitle"] = "To Create Category. They're have 3 rules";
-    ViewData["RulesList"] = new String[]
+    ViewData["GuideTitle"] = "How To Create Category";
+    ViewData["GuideList"] = new String[]
     {
         "Category Name Must Have atleast 1 character and Maximum is 255",
         "Fill all the information required <span class='asterisk text-danger'>*</span>",
@@ -15,35 +16,63 @@
     Layout = "_CRUDLayout";
 }
 
-<form method="post" class="action-form">
-    <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
-    <div class="form-group">
-        <span asp-validation-for="Category.CategoryName" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Category.CategoryName" class="control-label"></label>
-        <input asp-for="Category.CategoryName" class="form-control text-normal" />
-    </div>
+<div class="form-item">
+    <form method="post" class="action-form full-width" enctype="multipart/form-data">
+        <div class="form-item__main">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Category.CategoryName" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Category.CategoryName" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Category.CategoryName" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: ASP.NET For Beginner" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Category.created_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Category.created_date" class="control-label"></label>
-        <input asp-for="Category.created_date" class="form-control text-normal" />
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Category.created_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Category.created_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Category.created_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
 
-    </div>
+            <div class="form-group">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Category.updated_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Category.updated_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Category.updated_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <span asp-validation-for="Category.updated_date" class="text-danger text-medium block mb-8"></span>
-        <span class="asterisk text-danger">*</span>
-        <label asp-for="Category.updated_date" class="control-label"></label>
-        <input asp-for="Category.updated_date" class="form-control text-normal" />
-
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
-    </div>
-</form>
+        <div class="form-group">
+            <div class="form-submit">
+                <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
+            </div>
+        </div>
+    </form>
+</div>
 
 @*<h1>Create</h1>
 

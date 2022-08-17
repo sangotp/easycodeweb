@@ -1,4 +1,4 @@
-﻿@page "/course/Unity3DDevelopment/learn"
+﻿@page "/course/{id:int?}/learn"
 @model EasyCodeAcademy.Web.Pages.Courses.Learn.IndexModel
 @{
 }
@@ -14,8 +14,12 @@
                 <a href="/courses" class="breadcrumb-link">Courses</a>
                 <i class="fa-solid fa-angle-right"></i>
             </li>
+            @*            <li class="breadcrumb__list__item">
+            <a href="/courses/details" class="breadcrumb-link">Unity 3D Development</a>
+            <i class="fa-solid fa-angle-right"></i>
+            </li>*@
             <li class="breadcrumb__list__item">
-                <a href="/courses/details" class="breadcrumb-link">Unity 3D Development</a>
+                <a href="/course/details/@Model.Course.CourseId" class="breadcrumb-link">@Model.Course.CourseName</a>
                 <i class="fa-solid fa-angle-right"></i>
             </li>
             <li class="breadcrumb__list__item breadcrumb-current">Learn</li>
@@ -40,13 +44,13 @@
                             </span>
                         </div>
                         <ul class="course-lesson-list">
-                            <li  class="course-lesson-list__item">
+                            <li class="course-lesson-list__item">
                                 <a href="" class="course-lesson-link">Lesson 1</a>
                             </li>
-                            <li  class="course-lesson-list__item">
+                            <li class="course-lesson-list__item">
                                 <a href="" class="course-lesson-link">Lesson 2</a>
                             </li>
-                            <li  class="course-lesson-list__item">
+                            <li class="course-lesson-list__item">
                                 <a href="" class="course-lesson-link">Lesson 3</a>
                             </li>
                         </ul>
@@ -67,7 +71,7 @@
                             </span>
                         </div>
                     </li>
-                                        <li class="course-chapters-list__item">
+                    <li class="course-chapters-list__item">
                         <div class="course-chapter-container">
                             <button type="button" class="course-chapter-btn btn-restart">Chapter 3</button>
                             <span class="course-chapter-more-icon">
@@ -75,7 +79,7 @@
                             </span>
                         </div>
                     </li>
-                                        <li class="course-chapters-list__item">
+                    <li class="course-chapters-list__item">
                         <div class="course-chapter-container">
                             <button type="button" class="course-chapter-btn btn-restart">Chapter 3</button>
                             <span class="course-chapter-more-icon">
@@ -83,7 +87,7 @@
                             </span>
                         </div>
                     </li>
-                                        <li class="course-chapters-list__item">
+                    <li class="course-chapters-list__item">
                         <div class="course-chapter-container">
                             <button type="button" class="course-chapter-btn btn-restart">Chapter 3</button>
                             <span class="course-chapter-more-icon">
@@ -91,7 +95,7 @@
                             </span>
                         </div>
                     </li>
-                                        <li class="course-chapters-list__item">
+                    <li class="course-chapters-list__item">
                         <div class="course-chapter-container">
                             <button type="button" class="course-chapter-btn btn-restart">Chapter 3</button>
                             <span class="course-chapter-more-icon">
@@ -99,7 +103,7 @@
                             </span>
                         </div>
                     </li>
-                                        <li class="course-chapters-list__item">
+                    <li class="course-chapters-list__item">
                         <div class="course-chapter-container">
                             <button type="button" class="course-chapter-btn btn-restart">Chapter 3</button>
                             <span class="course-chapter-more-icon">
@@ -116,9 +120,9 @@
             <div class="course-lesson-title text-heading">Lesson 1</div>
             <div class="course-lesson-content mt-8">
                 <p class="course-lesson-content__text">
-                    This lesson aim to 
-                    show how to install unity engine and explore 
-                    how unity engine work by extract 
+                    This lesson aim to
+                    show how to install unity engine and explore
+                    how unity engine work by extract
                     some basic component, layout, object,etc...
                 </p>
             </div>
@@ -170,7 +174,7 @@
                     <div class="lesson-give-feedback__container">
                         <div class="give-feedback-profile">
                             <img src="/Assets/img/gamedevTV.jpg" alt="User Image" class="user-profile-img" />
-                             <span class="user-profile-text">TS</span>
+                            <span class="user-profile-text">TS</span>
                         </div>
                         <div class="give-feedback-content">
                             <form class="give-feedback-form" action="" method="post">
@@ -272,17 +276,14 @@
     <script type="text/javascript">
         const chapterBtns = document.querySelectorAll(".course-chapter-btn");
 
-        if(chapterBtns[0].parentElement.nextElementSibling)
-        {
+        if (chapterBtns[0].parentElement.nextElementSibling) {
             chapterBtns[0].parentElement.nextElementSibling.classList.add("show");
         }
 
         chapterBtns.forEach(item => {
             item.addEventListener("click", function() {
-                if (item.parentElement.nextElementSibling) 
-                {
-                    if(item.parentElement.nextElementSibling.classList.contains("course-lesson-list"))
-                    {
+                if (item.parentElement.nextElementSibling) {
+                    if (item.parentElement.nextElementSibling.classList.contains("course-lesson-list")) {
                         item.parentElement.nextElementSibling.classList.toggle("show");
                     }
                 }

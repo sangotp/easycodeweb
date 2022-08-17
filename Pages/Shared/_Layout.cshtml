@@ -32,7 +32,7 @@
                                 <button type="button" class="action-btn btn-restart">Activities</button>
                                 <ul class="subnav-list">
                                     <li class="subnav-list__item">
-                                        <a href="/challenges" class="subnav-link">Challenges</a>
+                                        <a href="/activities/challenge" class="subnav-link">Challenges</a>
                                     </li>
                                 </ul>
                             </li>
@@ -110,7 +110,7 @@
                                 <h1 class="submenu-header mt-16">Activities</h1>
                                 <ul class="submenu-list mt-8">
                                     <li class="submenu-list__item">
-                                        <a href="/challenges" class="submenu-link">Challenges</a>
+                                        <a href="/activities/challenge" class="submenu-link">Challenges</a>
                                     </li>
                                 </ul>
                             </div>
@@ -165,7 +165,7 @@
         window.addEventListener("scroll", function() {
             const navbar = document.querySelector('.nav-bar');
             // if scroll Y Direction > 0, then we trigger 'sticky' class
-            navbar.classList.toggle('sticky', window.scrollY > 0);
+            navbar.classList.toggle('sticky-box-shadow', window.scrollY > 0);
         });
 
         // Dropdown navbar
