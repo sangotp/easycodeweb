@@ -54,6 +54,18 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             }
             
             ViewData["TopicId"] = new SelectList(_context.topics, "TopicId", "TopicName");
+            if(Course.CourseDetails != null)
+            {
+                if (Course.CourseDetails.CourseRequirement is not null)
+                {
+                    ViewData["CourseRequirements"] = Course.CourseDetails.CourseRequirement.Split(",");
+                }
+
+                if (Course.CourseDetails.CourseGain is not null)
+                {
+                    ViewData["CourseGains"] = Course.CourseDetails.CourseGain.Split(",");
+                }
+            }
             return Page();
         }
 

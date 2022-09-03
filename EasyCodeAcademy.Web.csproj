@@ -21,7 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Assets\lib\" />
     <Folder Include="wwwroot\Assets\uploads\" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <None Update="Pages/Manage/Courses/Create.cshtml.css" CssScope="custom-course-create" />
+    <None Update="Pages/Manage/Courses/Edit.cshtml.css" CssScope="custom-course-edit" />
+  </ItemGroup>
 </Project>

@@ -229,6 +229,10 @@
 }
 
 .course-details-content .course-include .course-include__content {
+}
+
+.course-include .course-include__content .course-include-list {
+    list-style-type: none;
     border: 1px solid #bbbbbb;
     padding: 16px;
     display: flex;
@@ -240,20 +244,19 @@
     border-radius: 16px;
 }
 
-.course-include .course-include__content .course-include-item {
+.course-include__content .course-include-list .course-include-list__item {
     width: calc(90% / 2);
     display: flex;
     align-items: center;
 }
 
-.course-include__content .course-include-item i {
+.course-include-list .course-include-list__item i {
     margin-right: 20px;
     width: 20px;
     min-width: 16px;
 }
 
-.course-include__content .course-include-item .course-time {
-    
+.course-include-list .course-include-list__item .course-time {
 }
 
 .content__container .course-details-content .course-requirement {
@@ -274,6 +277,9 @@
 }
 
 .course-details-content .course-achievement .course-achievement__content {
+}
+
+.course-achievement .course-achievement__content .course-achievement-list {
     border: 1px solid #bbbbbb;
     padding: 16px;
     display: flex;
@@ -283,13 +289,14 @@
     min-width: 200px;
     background-color: var(--white);
     border-radius: 16px;
+    list-style-type: none;
 }
 
-.course-achievement .course-achievement__content .course-achievement-item {
+.course-achievement__content .course-achievement-list .course-achievement-list__item {
     width: calc(90% / 2);
 }
 
-.course-achievement__content .course-achievement-item i {
+.course-achievement-list .course-achievement-list__item i {
     margin-right: 20px;
     width: 20px;
     min-width: 16px;
@@ -987,7 +994,7 @@
         flex-direction: column;
     }
 
-    .course-include .course-include__content .course-include-item {
+    .course-include__content .course-include-list .course-include-list__item {
         width: 100%;
     }
 
@@ -995,7 +1002,7 @@
         flex-direction: column;
     }
 
-    .course-achievement .course-achievement__content .course-achievement-item {
+    .course-achievement__content .course-achievement-list .course-achievement-list__item {
         width: 100%;
     }
 

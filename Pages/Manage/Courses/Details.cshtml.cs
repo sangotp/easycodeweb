@@ -18,7 +18,7 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             _context = context;
         }
 
-      public Course Course { get; set; } = default!; 
+        public Course Course { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,11 +32,24 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Courses
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Course = course;
                 var e = _context.Entry(Course);
                 await e.Reference(d => d.CourseDetails).LoadAsync();
+
+                if (Course.CourseDetails.CourseInclude is not null)
+                {
+                    ViewData["CourseIncludes"] = Course.CourseDetails.CourseInclude.Split(',');
+                }
+                if (Course.CourseDetails.CourseRequirement is not null)
+                {
+                    ViewData["CourseRequirements"] = Course.CourseDetails.CourseRequirement.Split(',');
+                }
+                if (Course.CourseDetails.CourseGain is not null)
+                {
+                    ViewData["CourseGains"] = Course.CourseDetails.CourseGain.Split(',');
+                }
             }
             return Page();
         }

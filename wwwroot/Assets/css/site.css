@@ -95,6 +95,10 @@ body {
     margin-bottom: 8px !important;
 }
 
+.mb-16 {
+    margin-bottom: 16px !important;
+}
+
 .color-white {
     color: var(--white) !important;
 }
@@ -152,6 +156,10 @@ body {
     font-size: 12px;
 }
 
+.text-tiny {
+    font-size: 5px;
+}
+
 .text-normal {
     font-size: 16px;
 }
@@ -172,6 +180,40 @@ body {
     opacity: 0.4 !important;
     cursor: default !important;
     background-color: transparent !important;
+}
+
+.pad-l-16 {
+    padding-left: 16px !important;
+}
+
+.pad-r-48 {
+    padding-right: 48px !important;
+}
+
+.add-list-style-type {
+    list-style-type: disc !important;
+}
+
+.remove-list-style-type {
+    list-style-type: none !important;
+}
+
+.list-item-content-group {
+    position: relative;
+}
+
+.list-item-remove-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    margin-right: 16px;
+}
+
+.standard-icon {
+    width: 20px;
+    min-width: 16px;
 }
 
 .border-restart {
@@ -293,6 +335,17 @@ body {
 
 .z-index-10001 {
     z-index: 10001 !important;
+}
+
+/* For summernote override unordered and order list */
+.note-editable ul {
+    list-style: disc !important;
+    list-style-position: inside !important;
+}
+
+.note-editable ol {
+    list-style: decimal !important;
+    list-style-position: inside !important;
 }
 
 /*.flex-column-td {
