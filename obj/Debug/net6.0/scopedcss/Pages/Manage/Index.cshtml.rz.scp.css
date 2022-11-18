@@ -1,0 +1,36 @@
+.manage-container[b-vkapxu9y4a] {
+}
+
+.manage-container .home-overview[b-vkapxu9y4a] {
+    background-color: rgba(245,245,245,0.9);
+    padding: 32px;
+    border-radius: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

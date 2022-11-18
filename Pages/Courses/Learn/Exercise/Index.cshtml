@@ -1,0 +1,142 @@
+﻿@page "/course/{id:int?}/learn/{lessonId:int?}/exercises"
+@model EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise.IndexModel
+@{
+}
+
+<div class="content__container">
+    <div class="breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__list__item">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item">
+                <a href="/courses" class="breadcrumb-link">Courses</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item">
+                <a href="/course/details/@Model.Course.CourseId" class="breadcrumb-link">@Model.Course.CourseName</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item">
+                <a href="/course/@Model.Course.CourseId/learn?lessonId=@Model.CourseLesson.LessonId" class="breadcrumb-link">@Model.CourseLesson.Title</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item breadcrumb-current">Exercises</li>
+
+        </ul>
+    </div>
+
+    <div class="exercises-content">
+        <div class="exercises-content__container">
+            <div class="exercises-main-field">
+                <div class="exercises-main-field__tab">
+                    <button type="button" class="exercises-tab-btn btn-restart" id="exercise-tab-requirements">Exercise Requirements</button>
+                    <button type="button" class="exercises-tab-btn btn-restart" id="exercise-tab-work-place">Work Place & Submission</button>
+                </div>
+                <div class="exercises-main-field__content mt-16">
+                    <div class="exercises-tab-content" id="exercise-content-tab-requirements">
+                        @if (Model.CourseExercise is not null)
+                        {
+                            <div class="exercise-requirements">@Html.Raw(@Model.CourseExercise.Content)</div>
+                            <div class="exercise-description">
+                                <div class="exercise-description__title text-bold mt-8">Description</div>
+                                <div class="exercise-description__content mt-8">@Html.Raw(@Model.CourseExercise.Description)</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="exercise-requirements">Requirements</div>
+                            <div class="exercise-description">
+                                <div class="exercise-description__title text-bold mt-8">Description</div>
+                                <div class="exercise-description__content mt-8">Desc Content</div>
+                            </div>
+                        }
+                    </div>
+                    <div class="exercises-tab-content" id="exercise-content-tab-work-place">Content For Work Place & Submission</div>
+                </div>
+            </div>
+            <div class="exercises-list-field">
+                <div class="exercises-list-content">
+                    <div class="exercises-list-content__title text-bold">Exercises For Lesson</div>
+                    <ul class="exercises-list">
+                        @if (Model.CourseLesson.CourseExerises is not null)
+                        {
+                            int countExercise = 0;
+                            foreach (var courseExercise in Model.CourseLesson.CourseExerises.OrderBy(m => m.ExerciseId))
+                            {
+                                if(Model.CourseExercise is not null)
+                                {
+                                    if(courseExercise.ExerciseId == Model.CourseExercise.ExerciseId)
+                                    {
+                                        <li class="exercises-list__item">
+                                            <a href="/course/@Model.Course.CourseId/learn/@Model.CourseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="exercise-item-link exercise-item-link-active">@courseExercise.Title</a>
+                                        </li>
+                                    } else {
+                                        <li class="exercises-list__item">
+                                            <a href="/course/@Model.Course.CourseId/learn/@Model.CourseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="exercise-item-link">@courseExercise.Title</a>
+                                        </li>
+                                    }
+                                } else {
+                                    if (countExercise == 0)
+                                    {
+                                        ++countExercise;
+                                    }
+
+                                    @if (countExercise == 1)
+                                    {
+                                        <li class="exercises-list__item">
+                                            <a href="/course/@Model.Course.CourseId/learn/@Model.CourseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="exercise-item-link exercise-item-link-active">@courseExercise.Title</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="exercises-list__item">
+                                            <a href="/course/@Model.Course.CourseId/learn/@Model.CourseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="exercise-item-link">@courseExercise.Title</a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        const tabRequirementsContent = document.getElementById("exercise-content-tab-requirements");
+        const tabWorkPlaceContent = document.getElementById("exercise-content-tab-work-place");
+        const tabBtns = document.querySelectorAll(".exercises-tab-btn");
+        tabBtns.forEach(item => {
+            if (item.id == "exercise-tab-requirements") {
+                item.classList.add("exercises-tab-active");
+                tabRequirementsContent.style.display = "block";
+            }
+
+            item.addEventListener("click", function () {
+                if (item.id == "exercise-tab-requirements") {
+                    if (document.getElementById("exercise-tab-work-place").classList.contains("exercises-tab-active")) {
+                        document.getElementById("exercise-tab-work-place").classList.remove("exercises-tab-active");
+                        tabWorkPlaceContent.style.display = "none";
+
+                    }
+
+                    item.classList.add("exercises-tab-active");
+                    tabRequirementsContent.style.display = "block";
+                } else if (item.id == "exercise-tab-work-place") {
+                    if (document.getElementById("exercise-tab-requirements").classList.contains("exercises-tab-active")) {
+                        document.getElementById("exercise-tab-requirements").classList.remove("exercises-tab-active");
+                        tabRequirementsContent.style.display = "none";
+
+                    }
+
+                    item.classList.add("exercises-tab-active");
+                    tabWorkPlaceContent.style.display = "block";
+                }
+            });
+        });
+    </script>
+}

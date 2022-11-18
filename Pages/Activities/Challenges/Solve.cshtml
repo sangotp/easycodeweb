@@ -1,0 +1,193 @@
+﻿@page "activities/challenge/solve"
+@model EasyCodeAcademy.Web.Pages.Activities.Challenges.SolveModel
+@{
+}
+
+<div class="content__container">
+    <div class="breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__list__item">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item">
+                <a href="/activities/challenge" class="breadcrumb-link">Challenges</a>
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li class="breadcrumb__list__item breadcrumb-current">Solve Challenge #1</li>
+        </ul>
+    </div>
+
+    <div class="challenge-topic-title">
+        <h1 class="challenge-topic-title__text">Print Out The Console Text "Hello World!"</h1>
+    </div>
+
+    <div class="challenge-topic-content mt-16">
+        <div class="challenge-topic-content__info">
+            <div class="challenge-info-question">
+                <div class="challenge-info-question__content">
+                    <div class="challenge-question-title text-heading">Question</div>
+                    <div class="challenge-question-text mt-8">
+                        <p class="question-text">
+                            This challenge create with purporse to help all 
+                            participant get used to our "EasyCode Academy" System
+                        </p>
+                    </div>
+                    <div class="challenge-question-attention mt-8">
+                        <div class="question-attention-title">Attention!</div>
+                        <ul class="question-attention-list mt-8">
+                            <li class="question-attention-list__item">String must not have unicode character</li>
+                            <li class="question-attention-list__item">String Output have an exclamation mark at the end</li>
+                            <li class="question-attention-list__item">
+                                After finish you can test 
+                                your code again and then click 
+                                <button type="button" class="question-attention-btn btn-restart">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>Submit</button> 
+                                    button to submit your code.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="challenge-info-question__input mt-16">
+                    <div class="challenge-input-title text-heading">Input</div>
+                    <div class="challenge-input-content mt-8">None</div>
+                </div>
+                <div class="challenge-info-question__output mt-16">
+                    <div class="challenge-output-title text-heading">Output</div>
+                    <div class="challenge-output-content mt-8">Hello World!</div>
+                </div>
+                <div class="challenge-info-question__hint mt-16">
+                    <div class="challenge-hint-title text-heading">Hint</div>
+                    <div class="challenge-hint-content mt-8">This Challenge Don't have any hint!</div>
+                </div>
+            </div>
+        </div>
+        <div class="challenge-topic-content__overview">
+            <div class="challenge-overview-specification">
+                <div class="challenge-specification-title text-heading">Challenge Info</div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-id-title">Id</span>
+                    <span class="challenge-id-content">#1</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-author-title">Author</span>
+                    <span class="challenge-author-content">Thanh Sang</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-level-title">Level</span>
+                    <span class="challenge-level-content">Easy</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-point-title">Points</span>
+                    <span class="challenge-point-content">3</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-standard-title">IDE Standard</span>
+                    <span class="challenge-standard-content">IO</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-compile-title">Compilation Time Limit</span>
+                    <span class="challenge-compile-content">1000 ms</span>
+                </div>
+                <div class="challenge-specification-item">
+                    <span class="challenge-memory-title">Memory Limit</span>
+                    <span class="challenge-memory-content">256 MB</span>
+                </div>
+            </div>
+            <div class="challenge-overview-submit mt-16">
+                <div class="challenge-submit-title text-heading">Challenge Submit</div>
+                <div class="challenge-submit-content">
+                    <a href="" class="challenge-submit-content__link"><i class="fa-solid fa-list"></i>Participants Submit</a>
+                </div>
+            </div>
+            <div class="challenge-overview-statistics mt-16">
+                <div class="challenge-statistics-title text-heading">Statistics</div>
+                <div class="challenge-statistics-content">
+                    <div class="challenge-statistics-item">
+                        <span class="challenge-success-title">Success</span>
+                        <span class="challenge-success-content">90%</span>
+                    </div>
+                    <div class="challenge-statistics-item">
+                        <span class="challenge-failed-title">Failed</span>
+                        <span class="challenge-failed-content">10%</span>
+                    </div>
+                </div>
+                <div class="challenge-statistics-reason">
+                    <a href="" class="challenge-statistics-reason__link"><i class="fa-solid fa-question"></i>Reason</a>
+                </div>
+            </div>
+            <div class="challenge-overview-rating mt-16">
+                <div class="challenge-rating-title text-heading">Challenge Rating</div>
+                <div class="challenge-rating-content">
+                    <button type="button" class="challenge-rating-btn challenge-rating-btn--green btn-restart">Easy</button>
+                    <button type="button" class="challenge-rating-btn challenge-rating-btn--yellow btn-restart">Medium</button>
+                    <button type="button" class="challenge-rating-btn challenge-rating-btn--red btn-restart">Hard</button>
+                </div>
+                <div class="challenge-rating-action">
+                    <button type="button" class="challenge-help-btn btn-restart">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <span class="challenge-help-text">Challenge Help</span>
+                    </button>
+                    <button type="button" class="challenge-report-btn btn-restart ml-16">
+                        <i class="fa-solid fa-bug"></i>
+                        <span class="challenge-bug-text">Bug</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="challenge-topic-ide mt-16">
+        <div class="live-code-ide">Live Code</div>
+        <div class="live-code-output">Output</div>
+    </div>
+
+    <div class="relative-topics mt-16">
+        <div class="relative-topics__container">
+            <div class="relative-topics-title text-heading">Relative Topics</div>
+            <div class="relative-topics-content">
+                <ul class="relative-topics-list">
+                    <li class="relative-topics-list__item">
+                        <a href="" class="topic-item-title-link">
+                            <i class="fa-solid fa-circle-exclamation"></i>Print Triangle
+                            <span class="topic-item-level topic-item-level--green text-small">Easy</span>
+                        </a>
+                        
+                    </li>
+                    <li class="relative-topics-list__item">
+                        <a href="" class="topic-item-title-link">
+                            <i class="fa-solid fa-circle-exclamation"></i>Print Square
+                            <span class="topic-item-level topic-item-level--green text-small">Easy</span>
+                        </a>
+                    </li>
+                    <li class="relative-topics-list__item">
+                        <a href="" class="topic-item-title-link">
+                            <i class="fa-solid fa-circle-exclamation"></i>Print Rectangle
+                            <span class="topic-item-level topic-item-level--green text-small">Easy</span>
+                        </a>
+                    </li>
+                    <li class="relative-topics-list__item">
+                        <a href="" class="topic-item-title-link">
+                            <i class="fa-solid fa-circle-exclamation"></i>Print Hexagon
+                            <span class="topic-item-level topic-item-level--yellow text-small">Medium</span>
+                        </a>
+                        
+                    </li>
+                    <li class="relative-topics-list__item">
+                        <a href="" class="topic-item-title-link">
+                            <i class="fa-solid fa-circle-exclamation"></i>Print Circle
+                            <span class="topic-item-level topic-item-level--yellow text-small">Medium</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d4d17ec1-6e19-416c-a264-4aa5e1eb215b</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\lib\" />
+    <Folder Include="wwwroot\Assets\uploads\video\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Pages/Manage/Courses/Create.cshtml.css" CssScope="custom-course-create" />
+    <None Update="Pages/Manage/Courses/Edit.cshtml.css" CssScope="custom-course-edit" />
+    <None Update="Pages/Manage/Courses/Details.cshtml.css" CssScope="custom-course-details" />
+    <None Update="Pages/Manage/Courses/Chapters/Index.cshtml.css" CssScope="custom-chapter-index" />
+
+    <!--Course Details-->
+    <None Update="Pages/Courses/Details.cshtml.css" CssScope="custom-page-course-details" />
+    <!--Course Lesson Learn-->
+    <None Update="Pages/Courses/Learn/Index.cshtml.css" CssScope="custom-page-course-details" />
+  </ItemGroup>
+</Project>

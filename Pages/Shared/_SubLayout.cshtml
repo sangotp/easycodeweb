@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="content__container">
+    <div class="manage-wrapper">
+        @*<h4><a asp-page="Manage/Courses/Index">Category</a></h4>*@
+        <div class="sidebar">
+            <div class="sidebar__title text-heading">
+                <a asp-page="/Manage/Index" class="full-width link-restart color-white">EasyCode Manage</a>
+            </div>
+            <div class="sidebar__content">
+                <ul class="manage-list">
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Categories/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Topics/Index" class="padding-item-link full-width link-restart text-bold">Topic</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Course</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                    <li class="manage-list__item">
+                        <a asp-page="/Manage/Courses/Index" class="padding-item-link full-width link-restart text-bold">Category</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="manage-main">
+            <div class="manage-main__title sub-heading">@ViewData["ContentTitle"]</div>
+            <div class="manage-main__content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+@RenderSection("Scripts", required: false)

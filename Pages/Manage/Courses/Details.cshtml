@@ -1,0 +1,426 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.DetailsModel
+
+@{
+    ViewData["ContentTitle"] = "Details Course";
+    ViewData["ManageSection"] = "Course";
+    ViewData["Title"] = "EasyCode Manage - Details Course";
+    ViewData["GuideTitle"] = "How To Use Details Course";
+    ViewData["GuideList"] = new String[]
+    {
+        "Read Only."
+    };
+
+    var courseIncludesList = ViewData["CourseIncludes"] as String[];
+    var courseRequirementsList = ViewData["CourseRequirements"] as String[];
+    var courseGainsList = ViewData["CourseGains"] as String[];
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CoursePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CoursePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.created_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.created_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.updated_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.updated_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.Topic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.Topic.TopicName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>*@
+
+
+<div class="manage-details-content">
+    <ul class="details-content-list">
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseName)</span>
+            <div class="details-item-content">@Html.DisplayFor(model => model.Course.CourseName)</div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDescription)</span>
+            <div class="details-item-content details-item-content-rich-text">@Html.Raw(Model.Course.CourseDescription)</div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CoursePrice)</span>
+            <div class="details-item-content">@Html.DisplayFor(model => model.Course.CoursePrice)</div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseType)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseType)</span>*@
+            @if (Model.Course.CourseType == 1)
+            {
+                <div class="details-item-content">Course</div>
+            }
+
+            @if (Model.Course.CourseType == 2)
+            {
+                <div class="details-item-content">Tutorial</div>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseStatus)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseStatus)</span>*@
+            @if (Model.Course.CourseStatus == 1)
+            {
+                <div class="details-item-content">Not Available</div>
+            }
+
+            @if (Model.Course.CourseStatus == 2)
+            {
+                <div class="details-item-content">Queue</div>
+            }
+
+            @if (Model.Course.CourseStatus == 3)
+            {
+                <div class="details-item-content">Available</div>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseImage)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseImage)</span>*@
+            <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Image" width="200" />
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.created_date)</span>
+            <div class="details-item-content">@Html.DisplayFor(model => model.Course.created_date)</div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.updated_date)</span>
+            <div class="details-item-content">
+                @Html.DisplayFor(model => model.Course.updated_date)
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.Topic)</span>
+            <div class="details-item-content">
+                @Html.DisplayFor(model => model.Course.Topic.TopicName)
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseLanguage)</span>
+            <div class="details-item-content">
+                @Html.DisplayFor(model => model.Course.CourseDetails.CourseLanguage)
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseOverview)</span>
+            <div class="details-item-content details-item-content-rich-text">
+                @Html.Raw(Model.Course.CourseDetails.CourseOverview)
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseInclude)</span>
+            <div class="details-item-content">
+                @*                @Html.Raw(Model.Course.CourseDetails.CourseInclude)*@
+                <ul class="form-list">
+                    @if (courseIncludesList is not null)
+                    {
+                        int countChapAndLesson = 0;
+
+                        int totalChap = 0;
+
+                        int totalLesson = 0;
+                        foreach (var include in courseIncludesList)
+                        {
+
+                            @if (include.Substring(0, include.IndexOf(':')) == "totalHours")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-play"></i>
+                                        <span class="form-list-content__text">@include.Substring(include.IndexOf(':') + 1) hours / total</span>
+                                    </div>
+                                </li>
+                            }
+                            else if (include.Substring(0, include.IndexOf(':')) == "files")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-file"></i>
+                                        <span class="form-list-content__text">@include.Substring(include.IndexOf(':') + 1) items</span>
+                                    </div>
+                                </li>
+                            }
+                            else if (include.Substring(0, include.IndexOf(':')) == "referencesLink")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-link"></i>
+                                        <span class="form-list-content__text">@include.Substring(include.IndexOf(':') + 1) Reference Resources</span>
+                                    </div>
+                                </li>
+                            }
+                            else if (include.Substring(0, include.IndexOf(':')) == "chapters" || include.Substring(0, include.IndexOf(':')) == "lessons")
+                            {
+                                ++countChapAndLesson;
+                                if (include.Substring(0, include.IndexOf(':')) == "chapters")
+                                {
+                                    Int32.TryParse(include, out totalChap);
+                                }
+                                else
+                                {
+                                    Int32.TryParse(include, out totalLesson);
+                                }
+
+                                if (countChapAndLesson == 2)
+                                {
+                                    <li class="form-list__item">
+                                        <div class="form-list-content">
+                                            <i class="fa-solid fa-list-ol"></i>
+                                            <span class="form-list-content__text">@totalChap chapters - @totalLesson lessons</span>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                            @*                                    else if (include.Substring(0, include.IndexOf(':')) == "lessons")
+                    {
+
+                    }*@
+                            else if (include.Substring(0, include.IndexOf(':')) == "exercises")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-table-list"></i>
+                                        <span class="form-list-content__text">@include.Substring(include.IndexOf(':') + 1) exercises / total</span>
+                                    </div>
+                                </li>
+                            }
+                            else if (include.Substring(0, include.IndexOf(':')) == "crossplatAccess")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-tv"></i>
+                                        @if (include.Substring(include.IndexOf(':') + 1) == "all")
+                                        {
+                                        <span class="form-list-content__text">PC / Mobile / Tivi,etc... (unlimited access)</span>
+                                        }
+                                        else
+                                        {
+                                        <span class="form-list-content__text">PC (unlimited access)</span>
+                                        }
+                                    </div>
+                                </li>
+                            }
+                            else if (include.Substring(0, include.IndexOf(':')) == "completeCertificate")
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-trophy"></i>
+                                        @if (include.Substring(include.IndexOf(':') + 1) == "yes")
+                                        {
+                                        <span class="form-list-content__text">Complete Course Certificate</span>
+                                        }
+                                        else
+                                        {
+                                        <span class="form-list-content__text">No Complete Course Certificate</span>
+                                        }
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="form-list__item">
+                                    <div class="form-list-content">
+                                        <i class="fa-solid fa-question"></i>
+                                        <span class="form-list-content__text">@include</span>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <li class="form-list__item">
+                            <div class="form-list-content">
+                                <span class="form-list-content__text">No Course Include Found. You Need To Add Atleast 1 Course Include.</span>
+                            </div>
+                        </li>
+                    }
+                    @*                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-play"></i>
+                    <span class="form-list-content__text">0 hours / total</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-file"></i>
+                    <span class="form-list-content__text">0 items</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-link"></i>
+                    <span class="form-list-content__text">0 Reference Resources</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span class="form-list-content__text">0 chapters - 0 lessons</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-table-list"></i>
+                    <span class="form-list-content__text">0 exercises / total</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-tv"></i>
+                    <span class="form-list-content__text">PC / Mobile / Tivi,etc... (unlimited access)</span>
+                    </div>
+                    </li>
+                    <li class="form-list__item">
+                    <div class="form-list-content">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span class="form-list-content__text">Complete Course Certificate</span>
+                    </div>
+                    </li>*@
+                </ul>
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseRequirement)</span>
+            <div class="details-item-content">
+                @*                @Html.Raw(Model.Course.CourseDetails.CourseRequirement)*@
+                <ul class="form-list">
+                    @if (courseRequirementsList is not null)
+                    {
+                        foreach (var requirement in courseRequirementsList)
+                        {
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-circle text-tiny"></i>
+                                    <span class="form-list-content__text">@requirement</span>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="form-list__item">
+                            <div class="form-list-content">
+                                <span class="form-list-content__text">No Requirement Found.You Need To Add Atleast 1 Requirement.</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDetails.CourseGain)</span>
+            <div class="details-item-content">
+                @*@Html.Raw(Model.Course.CourseDetails.CourseGain)*@
+                <ul class="form-list">
+                    @if (courseGainsList is not null)
+                    {
+                        foreach (var gain in courseGainsList)
+                        {
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    <span class="form-list-content__text">@gain</span>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="form-list__item">
+                            <div class="form-list-content">
+                                <span class="form-list-content__text">No Course Gain Found.You Need To Add Atleast 1 Course Gain.</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title"></span>
+            <div class="details-item-action">
+                <a asp-page="./Edit" asp-route-id="@Model.Course?.CourseId" class="details-item-link link-basic link-restart">Edit</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        // ol, li list padding-left: 16px; for course overview
+        const courseOverviewOL = document.querySelector(".details-item-content-rich-text ol");
+        const courseOverviewUL = document.querySelector(".details-item-content-rich-text ul");
+        if (courseOverviewOL) {
+            courseOverviewOL.style.paddingLeft = "16px";
+        }
+        if (courseOverviewUL) {
+            courseOverviewUL.style.paddingLeft = "16px";
+        }
+
+        // Set CssScope For Course Overview "p" element
+        const containerParagraphElements = document.querySelectorAll(".details-item-content-rich-text");
+        containerParagraphElements.forEach(item => {
+            for(let i = 0; i < item.children.length; i++)
+            {
+                item.children[i].setAttribute("custom-course-details", "");
+            }
+        });
+    </script>
+}

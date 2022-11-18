@@ -1,0 +1,1760 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.CreateModel
+
+@{
+    ViewData["ContentTitle"] = "Create Course";
+    ViewData["ManageSection"] = "Course";
+    ViewData["Title"] = "EasyCode Manage - Create Course";
+    ViewData["GuideTitle"] = "How To Create Course";
+    ViewData["GuideList"] = new String[]
+    {
+        "Course Name Must Have atleast 1 character and Maximum is 255",
+        "Fill all the information required <span class='asterisk text-danger'>*</span>",
+        "Course must clean, easy to read and have specific meaning",
+        "Course must have reasonable price and image"
+    };
+
+    var courseRequirements = ViewData["CourseRequirements"] as String[];
+    var courseGains = ViewData["CourseGains"] as String[];
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Create</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Course.CourseName" class="control-label"></label>
+                <input asp-for="Course.CourseName" class="form-control" />
+                <span asp-validation-for="Course.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CourseDescription" class="control-label"></label>
+                <input asp-for="Course.CourseDescription" class="form-control" />
+                <span asp-validation-for="Course.CourseDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CoursePrice" class="control-label"></label>
+                <input asp-for="Course.CoursePrice" class="form-control" />
+                <span asp-validation-for="Course.CoursePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Course.CourseType" /> @Html.DisplayNameFor(model => model.Course.CourseType)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Course.CourseStatus" /> @Html.DisplayNameFor(model => model.Course.CourseStatus)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.CourseImage" class="control-label"></label>
+                <input asp-for="Course.CourseImage" class="form-control" />
+                <span asp-validation-for="Course.CourseImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.created_date" class="control-label"></label>
+                <input asp-for="Course.created_date" class="form-control" />
+                <span asp-validation-for="Course.created_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.updated_date" class="control-label"></label>
+                <input asp-for="Course.updated_date" class="form-control" />
+                <span asp-validation-for="Course.updated_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course.TopicId" class="control-label"></label>
+                <select asp-for="Course.TopicId" class ="form-control" asp-items="ViewBag.TopicId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>*@
+
+
+<div class="form-item">
+    <form method="post" class="action-form full-width" enctype="multipart/form-data">
+        <div class="form-item__main">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseName" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseName" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CourseName" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: ASP.NET For Beginner" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDescription" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDescription" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <textarea asp-for="Course.CourseDescription" class="summernoteEditor"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CoursePrice" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CoursePrice" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.CoursePrice" class="form-control text-normal remove-outline border-primary-1 full-width" placeholder="Example: 19.00$" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseType" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseType" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseType" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled">-- Select Type ---</option>
+                            <option value="1">Course</option>
+                            <option value="2">Tutorial</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseStatus" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseStatus" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseStatus" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled">-- Select Status ---</option>
+                            <option value="1">Not Available</option>
+                            <option value="2">Queue</option>
+                            <option value="3">Available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <input type="hidden" asp-for="Course.CourseImage" value="No Image Found" class="form-control text-normal" />
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="FileUpload" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="FileUpload" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="FileUpload" class="form-control text-normal" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.created_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.created_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.created_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.updated_date" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.updated_date" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <input asp-for="Course.updated_date" class="form-control text-normal remove-outline border-primary-1 full-width" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.TopicId" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.TopicId" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.TopicId" class="form-control text-normal remove-outline border-primary-1 full-width" asp-items="ViewBag.TopicId"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item__sub">
+            <div class="sub-form-title">Course Details</div>
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseLanguage" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseLanguage" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        <select asp-for="Course.CourseDetails.CourseLanguage" class="form-control text-normal remove-outline border-primary-1 full-width">
+                            <option selected class="disabled" value="">-- Select Language ---</option>
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseOverview" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseOverview" class="control-label"></label>
+                    </div>
+                    <div class="input-container">
+                        @*<textarea asp-for="Course.CourseDetails.CourseOverview" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>*@
+                        <textarea asp-for="Course.CourseDetails.CourseOverview" class="summernoteEditor"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseInclude" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseInclude" class="control-label"></label>
+                    </div>
+                    <div class="list-container">
+                        @*<textarea asp-for="Course.CourseDetails.CourseInclude" class="form-control text-normal remove-outline border-primary-1 full-width" rows="6" placeholder="Description"></textarea>*@
+                        <input type="hidden" asp-for="Course.CourseDetails.CourseInclude" class="form-control text-normal remove-outline border-primary-1 full-width" value="totalHours:0,files:0,referencesLink:0,chapters:0,lessons:0,exercises:0,crossplatAccess:all,completeCertificate:yes" />
+                        <ul class="form-list">
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span class="form-list-content__text">0 hours / total</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span class="form-list-content__text">0 items</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-link"></i>
+                                    <span class="form-list-content__text">0 Reference Resources</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                    <span class="form-list-content__text">0 chapters - 0 lessons</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-table-list"></i>
+                                    <span class="form-list-content__text">0 exercises / total</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-tv"></i>
+                                    <span class="form-list-content__text">PC / Mobile / Tivi,etc... (unlimited access)</span>
+                                </div>
+                            </li>
+                            <li class="form-list__item">
+                                <div class="form-list-content">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <span class="form-list-content__text">Complete Course Certificate</span>
+                                </div>
+                            </li>
+                            @*Add Course Include Feature Will Working Soon*@
+@*                            <li class="form-list__item">
+                                <div class="form-list-action">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <button type="button" class="form-list-action__btn btn-restart" id="btn-include">Add</button>
+                                </div>
+                            </li>*@
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group__modal" id="modal-include">
+                    <div class="form-modal-container">
+                        <div class="form-modal-header">
+                            <div class="modal-header-content">
+                                <div class="modal-header-title sub-heading">Course Includes</div>
+                                <div class="modal-header-close">
+                                    <button type="button" class="modal-header-close__btn btn-restart" id="modal-close-include"><i class="fa-solid fa-xmark sub-heading"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-body">
+                            <div class="modal-body-content">
+                                <ul class="modal-body-list">
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-play"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item__text">0 hours / total</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-file"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">0 items</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-link"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">0 Reference Resources</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-list-ol"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">0 chapters - 0 lessons</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-table-list"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">0 exercises / total</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-tv"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">PC / Mobile / Tivi,etc... (unlimited access)</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                    <li class="modal-body-list__item">
+                                        <div class="item-content">
+                                            <i class="fa-solid fa-trophy"></i>
+                                            <div class="item-content__group">
+                                                <span class="modal-item-text">Complete Course Certificate</span>
+                                            </div>
+                                            <span class="item-content__status hide">Not Set</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="modal-body-action">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <button type="button" class="modal-body-action__btn btn-restart">New</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-footer">
+                            <div class="modal-footer-content">
+                                <div class="save-form-modal">
+                                    <button type="button" class="save-form-modal__btn btn-restart">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseRequirement" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseRequirement" class="control-label"></label>
+                    </div>
+                    <div class="list-container">
+                        <ul class="form-list" id="list-requirements">
+                            @*                            <li class="form-list__item full-width">
+                            <div class="form-list-content">
+                            <i class="fa-solid fa-circle text-tiny"></i>
+                            <span class="form-list-content__text">A computer with internet access</span>
+                            </div>
+                            </li>
+                            <li class="form-list__item full-width">
+                            <div class="form-list-content">
+                            <i class="fa-solid fa-circle text-tiny"></i>
+                            <span class="form-list-content__text">Already using software before</span>
+                            </div>
+                            </li>
+                            <li class="form-list__item">
+                            <div class="form-list-action">
+                            <i class="fa-solid fa-plus"></i>
+                            <button type="button" class="form-list-action__btn btn-restart" id="btn-requirement">Add</button>
+                            </div>
+                            </li>*@
+                            @if (courseRequirements is not null)
+                            {
+                                foreach (var requirement in courseRequirements)
+                                {
+                                    <li class="form-list__item full-width">
+                                        <div class="form-list-content">
+                                            <i class="fa-solid fa-circle text-tiny"></i>
+                                            <span class="form-list-content__text">@requirement</span>
+                                        </div>
+                                    </li>
+                                }
+                                <li class="form-list__item">
+                                    <div class="form-list-action">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <button type="button" class="form-list-action__btn btn-restart" id="btn-requirement">Add</button>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="form-list__item full-width">
+                                    <div class="form-list-content">
+                                        @*                                        <i class="fa-solid fa-circle text-tiny"></i>*@
+                                        <span class="form-list-content__text">No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course.</span>
+                                    </div>
+                                </li>
+                                <li class="form-list__item">
+                                    <div class="form-list-action">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <button type="button" class="form-list-action__btn btn-restart" id="btn-requirement">Add</button>
+                                    </div>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group__modal" id="modal-requirement">
+                    <div class="form-modal-container">
+                        <div class="form-modal-header">
+                            <div class="modal-header-content">
+                                <div class="modal-header-title sub-heading">Course Requirements</div>
+                                <div class="modal-header-close">
+                                    <button type="button" class="modal-header-close__btn btn-restart" id="modal-close-requirement"><i class="fa-solid fa-xmark sub-heading"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-body">
+                            <div class="modal-body-content">
+                                <input type="hidden" id="course-requirement-input" asp-for="Course.CourseDetails.CourseRequirement" class="form-control text-normal remove-outline border-primary-1 full-width mb-16" />
+                                <ul class="modal-body-list add-list-style-type" id="modal-list-requirement">
+                                    @if (courseRequirements is not null)
+                                    {
+                                        for (int i = 0; i < courseRequirements.Length; i++)
+                                        {
+                                            <li class="modal-body-list__item" id="course-requirement-item-@(i + 1)">
+                                                <div class="item-content">
+                                                    <div class="item-content__group full-width">
+                                                        @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                        <input type="text" id="course-requirement-@(i + 1)" class="form-control text-normal remove-outline border-primary-1 full-width pad-r-48 input-requirement-item" value="@courseRequirements[i]" />
+                                                        <button type="button" class="item-remove-btn item-requirement-remove-btn btn-restart" id="course-requirement-btn-@(i + 1)">
+                                                            <i class="fa-solid fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <span class="item-content__status hide">Not Set</span>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li class="modal-body-list__item" id="course-requirement-item-1">
+                                            <div class="item-content">
+                                                <div class="item-content__group full-width">
+                                                    @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                    <input type="text" id="course-requirement-1" class="form-control text-normal remove-outline border-primary-1 full-width pad-r-48 input-requirement-item" />
+                                                    <button type="button" class="item-remove-btn item-requirement-remove-btn btn-restart" id="course-requirement-btn-1">
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <span class="item-content__status hide">Not Set</span>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="modal-body-action">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <button type="button" class="modal-body-action__btn btn-restart" id="new-requirement-btn">New</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-footer">
+                            <div class="modal-footer-content">
+                                <div class="save-form-modal">
+                                    <button type="button" class="save-form-modal__btn btn-restart" id="save-requirements-btn">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-32">
+                <div class="form-group__alert">
+                    <span asp-validation-for="Course.CourseDetails.CourseGain" class="text-danger text-medium block mb-8"></span>
+                </div>
+                <div class="form-group__content">
+                    <div class="label-container">
+                        <span class="asterisk text-danger">*</span>
+                        <label asp-for="Course.CourseDetails.CourseGain" class="control-label"></label>
+                    </div>
+                    <div class="list-container">
+                        <ul class="form-list" id="list-gains">
+                            @if (courseGains is not null)
+                            {
+                                foreach (var gain in courseGains)
+                                {
+                                    <li class="form-list__item">
+                                        <div class="form-list-content">
+                                            <i class="fa-regular fa-circle-check"></i>
+                                            <span class="form-list-content__text">@gain</span>
+                                        </div>
+                                    </li>
+                                }
+                                <li class="form-list__item">
+                                    <div class="form-list-action">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <button type="button" class="form-list-action__btn btn-restart" id="btn-gain">Add</button>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="form-list__item full-width">
+                                    <div class="form-list-content">
+                                        @*<i class="fa-regular fa-circle-check"></i>*@
+                                        <span class="form-list-content__text">No Course Gain Found. You Need To Add Atleast 1 Course Gain To Create Course.</span>
+                                    </div>
+                                </li>
+                                <li class="form-list__item">
+                                    <div class="form-list-action">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <button type="button" class="form-list-action__btn btn-restart" id="btn-gain">Add</button>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group__modal" id="modal-gain">
+                    <div class="form-modal-container">
+                        <div class="form-modal-header">
+                            <div class="modal-header-content">
+                                <div class="modal-header-title sub-heading">Course Gains</div>
+                                <div class="modal-header-close">
+                                    <button type="button" class="modal-header-close__btn btn-restart" id="modal-close-gain"><i class="fa-solid fa-xmark sub-heading"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-body">
+                            <div class="modal-body-content">
+                                <input type="hidden" id="course-gain-input" asp-for="Course.CourseDetails.CourseGain" class="form-control text-normal remove-outline border-primary-1 full-width mb-16" />
+                                <ul class="modal-body-list" id="modal-list-gain">
+                                    @if (courseGains is not null)
+                                    {
+                                        for (int i = 0; i < courseGains.Length; i++)
+                                        {
+                                            <li class="modal-body-list__item" id="course-gain-item-@(i + 1)">
+                                                <div class="item-content custom-item">
+                                                    <div class="item-content__group full-width">
+                                                        @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                        <input type="text" id="course-gain-@(i + 1)" class="form-control text-normal remove-outline border-primary-1 full-width input-gain-item" value="@courseGains[i]" />
+                                                        <button type="button" class="item-remove-btn item-gain-remove-btn btn-restart" id="course-gain-btn-@(i + 1)">
+                                                            <i class="fa-solid fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <span class="item-content__status hide">Not Set</span>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li class="modal-body-list__item" id="course-gain-item-1">
+                                            <div class="item-content custom-item">
+                                                <div class="item-content__group full-width">
+                                                    @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                    <input type="text" id="course-gain-1" class="form-control text-normal remove-outline border-primary-1 full-width input-gain-item" />
+                                                    <button type="button" class="item-remove-btn item-gain-remove-btn btn-restart" id="course-gain-btn-1">
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <span class="item-content__status hide">Not Set</span>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="modal-body-action">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <button type="button" class="modal-body-action__btn btn-restart" id="new-gain-btn">New</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-modal-footer">
+                            <div class="modal-footer-content">
+                                <div class="save-form-modal">
+                                    <button type="button" class="save-form-modal__btn btn-restart" id="save-gains-btn">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mb-32">
+            <div class="form-submit">
+                <input type="submit" value="Create" class="form-btn btn-basic btn-restart" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+        // After Initial Javascript, HTML, CSS Done
+        // SummerNote Editor
+        $(document).ready(function () {
+            $(".summernoteEditor").each(function () {
+                $(this).summernote({
+                    placeholder: 'Description',
+                    tabsize: 2,
+                    height: 200,
+                    minHeight: 100,
+                    maxHeight: 300,
+                    focus: true,
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                        ['font', ['strikethrough', 'superscript', 'subscript']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']]
+                    ],
+                    popover: {
+                        image: [
+                            ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                            ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                            ['remove', ['removeMedia']]
+                        ],
+                        link: [
+                            ['link', ['linkDialogShow', 'unlink']]
+                        ],
+                        table: [
+                            ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+                            ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+                        ],
+                        air: [
+                            ['color', ['color']],
+                            ['font', ['bold', 'underline', 'clear']],
+                            ['para', ['ul', 'paragraph']],
+                            ['table', ['table']],
+                            ['insert', ['link', 'picture']]
+                        ]
+                    },
+                    codemirror: {
+                        theme: 'monokai'
+                    }
+                });
+            });
+        });
+
+        // Form Modal
+        const formModalBtns = document.querySelectorAll(".form-list-action__btn");
+        const closeBtns = document.querySelectorAll(".modal-header-close__btn");
+
+        formModalBtns.forEach(item => {
+            item.addEventListener("click", function (event) {
+                if (item.getAttribute("id").indexOf("include") != -1) {
+                    const formModal = document.getElementById("modal-include");
+                    if (formModal) {
+                        // To get the scroll position of current webpage
+                        let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
+                        let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+
+                        window.onscroll = function () {
+                            window.scrollTo(LeftScroll, TopScroll);
+                        };
+
+                        formModal.classList.add("show-flex");
+                    }
+                    return;
+                }
+
+                if (item.getAttribute("id").indexOf("requirement") != -1) {
+                    const formModal = document.getElementById("modal-requirement");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                    return;
+                }
+
+                if (item.getAttribute("id").indexOf("gain") != -1) {
+                    const formModal = document.getElementById("modal-gain");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                    return;
+                }
+            });
+        });
+
+
+        closeBtns.forEach(item => {
+            item.addEventListener("click", function (event) {
+                if (item.getAttribute("id").indexOf("include") != -1) {
+                    const formModal = document.getElementById("modal-include");
+                    if (formModal) {
+                        window.onscroll = function () { };
+
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+
+                if (item.getAttribute("id").indexOf("requirement") != -1) {
+                    const formModal = document.getElementById("modal-requirement");
+                    if (formModal) {
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+
+                if (item.getAttribute("id").indexOf("gain") != -1) {
+                    const formModal = document.getElementById("modal-gain");
+                    if (formModal) {
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+            });
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target.matches(".form-group__modal")) {
+                if (event.target.getAttribute("id").indexOf("include") != -1) {
+                    const formModal = document.getElementById("modal-include");
+                    if (formModal) {
+                        window.onscroll = function () { };
+
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+
+                if (event.target.getAttribute("id").indexOf("requirement") != -1) {
+                    const formModal = document.getElementById("modal-requirement");
+                    if (formModal) {
+                        window.onscroll = function () { };
+
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+
+                if (event.target.getAttribute("id").indexOf("gain") != -1) {
+                    const formModal = document.getElementById("modal-gain");
+                    if (formModal) {
+                        window.onscroll = function () { };
+
+                        formModal.classList.remove("show-flex");
+                    }
+                    return;
+                }
+            }
+        });
+
+        // Append New List Item For Course Requirements
+        const newRequirementBtn = document.getElementById("new-requirement-btn");
+        const requirementList = document.getElementById("modal-list-requirement");
+        const removeItemBtns = document.querySelectorAll(".item-requirement-remove-btn");
+        var listCount = 1;
+
+        newRequirementBtn.addEventListener("click", function (event) {
+            AppendNewRequirementItem();
+
+            const childRemoveItemBtns = document.querySelectorAll(".item-requirement-remove-btn");
+
+            childRemoveItemBtns[childRemoveItemBtns.length - 1].addEventListener("click", function () {
+                //RemoveExistingItem(childRemoveItemBtns.length - 1);
+                if (childRemoveItemBtns[childRemoveItemBtns.length - 1].getAttribute("id").lastIndexOf("-") != -1) {
+                    const listNumber = childRemoveItemBtns[childRemoveItemBtns.length - 1].getAttribute("id").slice((childRemoveItemBtns[childRemoveItemBtns.length - 1].getAttribute("id").lastIndexOf("-") + 1));
+                    for (let i = 0; i < requirementList.children.length; i++) {
+                        if (requirementList.children[i].getAttribute("id").slice((requirementList.children[i].getAttribute("id").lastIndexOf("-") + 1)) == listNumber) {
+                            RemoveExistingRequirementItem(requirementList.children[i]);
+                        }
+                    }
+                }
+            });
+        });
+
+
+        removeItemBtns.forEach(function (value, key) {
+            value.addEventListener("click", function () {
+                if (value.getAttribute("id").lastIndexOf("-") != -1) {
+                    const listNumber = value.getAttribute("id").slice((value.getAttribute("id").lastIndexOf("-") + 1));
+                    for (let i = 0; i < requirementList.children.length; i++) {
+                        if (requirementList.children[i].getAttribute("id").slice((requirementList.children[i].getAttribute("id").lastIndexOf("-") + 1)) == listNumber) {
+                            RemoveExistingRequirementItem(requirementList.children[i]);
+                        }
+                    }
+                }
+            });
+        });
+
+        // Save Requirement
+        const courseRequirementsInput = document.getElementById("course-requirement-input");
+        //const inputItems = document.querySelectorAll(".input-requirement-item");
+        const saveRequirementsBtn = document.getElementById("save-requirements-btn");
+
+        saveRequirementsBtn.addEventListener("click", SaveRequirementItems);
+
+
+
+
+
+
+
+
+        // Function: Using To Append New Li Item For Un-ordered list
+        function AppendNewRequirementItem() {
+            ++listCount;
+            // Create an "li" node
+            const node = document.createElement("li");
+            node.setAttribute("id", "course-requirement-item-" + listCount)
+
+            // Add Class For "li" node
+            node.classList.add("modal-body-list__item", "mb-16");
+
+            // Create "div" node
+            const div = document.createElement("div");
+
+            // Add Class For "div" node
+            div.classList.add("item-content");
+
+            // Create child "div" node
+            const childDiv = document.createElement("div");
+
+            // Add Class For Child "div" node
+            childDiv.classList.add("item-content__group", "list-item-content-group", "full-width");
+
+            // Create "input" node
+            const input = document.createElement("input")
+
+            // Add Class For "input" node
+            input.classList.add("form-control", "text-normal", "remove-outline", "border-primary-1", "full-width", "pad-r-48", "input-requirement-item");
+
+            // Add Id For "input" node
+            input.setAttribute("id", "course-requirement-" + listCount);
+
+            // Create "button" node
+            const button = document.createElement("button");
+            button.setAttribute("id", "course-requirement-btn-" + listCount)
+
+            // Append Class For "button" node
+            button.classList.add("item-remove-btn", "item-requirement-remove-btn", "list-item-remove-btn", "btn-restart");
+            //button.classList.add("list-item-remove-btn", "btn-restart");
+            button.type = "button";
+
+            // Create "icon" node
+            const icon = document.createElement("i");
+
+            // Append Class For "icon" node
+            icon.classList.add("fa-solid", "fa-minus", "standard-icon");
+
+            // Append The "icon" node into "removeItemBtn" node
+            button.appendChild(icon);
+
+            // Append "input", "button" node into "childDiv" node
+            childDiv.appendChild(input);
+            childDiv.append(button);
+
+            // Append The "childDiv" node into "div" node
+            div.appendChild(childDiv);
+
+            // Append The "div" node into "li" node
+            node.appendChild(div);
+
+            // Append "li" node to the list
+            requirementList.appendChild(node);
+
+            const html = `                                    <li class="modal-body-list__item">
+                                                                                                                                                                                                                                                                        <div class="item-content">
+                                                                                                                                                                                                                                                                            <div class="item-content__group full-width">
+        @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                                                                                                                                                                                                                                        <input type="text" id="course-requirement-001" class="form-control text-normal remove-outline border-primary-1 full-width pad-r-48" />
+                                                                                                                                                                                                                                                                                <button type="button" class="item-remove-btn item-requirement-remove-btn btn-restart">
+                                                                                                                                                                                                                                                                            <i class="fa-solid fa-minus"></i>
+                                                                                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                            <span class="item-content__status hide">Not Set</span>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </li>`;
+        }
+
+
+        // Function: Using To Remove Existing Li Item For Un-ordered list
+        function RemoveExistingRequirementItem(itemNode) {
+            if (requirementList.hasChildNodes()) {
+                //console.log(index);
+                requirementList.removeChild(itemNode);
+                --listCount;
+            }
+        }
+
+        // Function: Save All Requirement Items
+        function SaveRequirementItems() {
+            const requirementsArr = [];
+            const inputItems = document.querySelectorAll(".input-requirement-item");
+
+            for (let i = 0; i < inputItems.length; i++) {
+                if (inputItems[i].value != null && inputItems[i].value != '' && requirementList.children.length > 0) {
+                    requirementsArr.push(inputItems[i].value);
+                }
+            }
+
+            console.log(requirementsArr);
+            courseRequirementsInput.value = requirementsArr;
+
+            for (let i = 0; i < requirementsArr.length; i++) {
+                requirementsArr.pop();
+            }
+
+            // Display Requirements Item Into List
+            const html = `                   <li class="form-list__item full-width">
+                                                                                                                                                <div class="form-list-content">
+                                                                                                                                                    <i class="fa-solid fa-circle text-tiny"></i>
+                                                                                                                                                    <span class="form-list-content__text">Content</span>
+                                                                                                                                                </div>
+                                                                                                                                            </li>
+                                                                                        <li class="form-list__item">
+                                                                                            <div class="form-list-action">
+                                                                                                <i class="fa-solid fa-plus"></i>
+                                                                                                <button type="button" class="form-list-action__btn btn-restart" id="btn-requirement">Add</button>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                                                                            `;
+            // Requirements List
+            const requirementListDisplay = document.getElementById("list-requirements");
+
+
+            if (inputItems.length > 0) {
+                // remove old requirements item
+                for (let i = requirementListDisplay.children.length - 1; i >= 0; i--) {
+                    //console.log(i);
+                    requirementListDisplay.removeChild(requirementListDisplay.children[i]);
+                }
+
+                // count empty requirement item
+                let count = 0;
+
+                // add new requirements item
+                for (let i = 0; i < inputItems.length; i++) {
+                    if (inputItems[i].value != null && inputItems[i].value != '') {
+                        // Create an "li" node
+                        const node = document.createElement("li");
+                        node.setAttribute("custom-course-create", "");
+
+                        // Add class for "li" node
+                        node.classList.add("form-list__item", "full-width");
+
+                        // Create "div" node
+                        const div = document.createElement("div");
+                        div.setAttribute("custom-course-create", "");
+
+                        // Add class for "div" node
+                        div.classList.add("form-list-content");
+
+                        // Create "icon" node
+                        const icon = document.createElement("i");
+                        icon.setAttribute("custom-course-create", "");
+
+                        // Add class for "icon" node
+                        icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                        // Create "span" node
+                        const span = document.createElement("span");
+                        span.setAttribute("custom-course-create", "");
+
+                        // Add class for "span" node
+                        span.classList.add("form-list-content__text");
+
+                        //span.innerHTML = inputItems[i].value;
+                        span.appendChild(document.createTextNode(inputItems[i].value));
+
+                        div.appendChild(icon);
+                        div.appendChild(span);
+                        node.appendChild(div);
+                        requirementListDisplay.appendChild(node);
+                    }
+                    else {
+                        ++count;
+                        if (count == inputItems.length) {
+                            // Create an "li" node
+                            const node = document.createElement("li");
+                            node.setAttribute("custom-course-create", "");
+
+                            // Add class for "li" node
+                            node.classList.add("form-list__item", "full-width");
+
+                            // Create "div" node
+                            const div = document.createElement("div");
+                            div.setAttribute("custom-course-create", "");
+
+                            // Add class for "div" node
+                            div.classList.add("form-list-content");
+
+                            // Create "icon" node
+                            const icon = document.createElement("i");
+                            icon.setAttribute("custom-course-create", "");
+
+                            // Add class for "icon" node
+                            icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                            // Create "span" node
+                            const span = document.createElement("span");
+                            span.setAttribute("custom-course-create", "");
+
+                            // Add class for "span" node
+                            span.classList.add("form-list-content__text");
+
+                            //span.innerHTML = inputItems[i].value;
+                            span.appendChild(document.createTextNode("No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course."));
+
+                            //div.appendChild(icon);
+                            div.appendChild(span);
+                            node.appendChild(div);
+                            requirementListDisplay.appendChild(node);
+                        }
+                    }
+                }
+
+                //if (inputItems.length == 1) {
+                //    //console.log(inputItems.length);
+                //    if (inputItems[0].value == null || inputItems[0].value == '') {
+                //        // Create an "li" node
+                //        const node = document.createElement("li");
+                //        node.setAttribute("custom-course-create", "");
+
+                //        // Add class for "li" node
+                //        node.classList.add("form-list__item", "full-width");
+
+                //        // Create "div" node
+                //        const div = document.createElement("div");
+                //        div.setAttribute("custom-course-create", "");
+
+                //        // Add class for "div" node
+                //        div.classList.add("form-list-content");
+
+                //        // Create "icon" node
+                //        const icon = document.createElement("i");
+                //        icon.setAttribute("custom-course-create", "");
+
+                //        // Add class for "icon" node
+                //        icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                //        // Create "span" node
+                //        const span = document.createElement("span");
+                //        span.setAttribute("custom-course-create", "");
+
+                //        // Add class for "span" node
+                //        span.classList.add("form-list-content__text");
+
+                //        //span.innerHTML = inputItems[i].value;
+                //        span.appendChild(document.createTextNode("No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course."));
+
+                //        //div.appendChild(icon);
+                //        div.appendChild(span);
+                //        node.appendChild(div);
+                //        requirementListDisplay.appendChild(node);
+                //    }
+
+                //}
+
+                // Create a button "li" node
+                const nodeBtn = document.createElement("li");
+                nodeBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "li" node
+                nodeBtn.classList.add("form-list__item");
+
+                // Create a button "div" node
+                const divBtn = document.createElement("div");
+                divBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "div" node
+                divBtn.classList.add("form-list-action");
+
+                // Create a button "icon" node
+                const iconBtn = document.createElement("i");
+                iconBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "icon" node
+                iconBtn.classList.add("fa-solid", "fa-plus");
+
+                // Create "button" node
+                const button = document.createElement("button");
+                button.setAttribute("custom-course-create", "");
+                button.type = "button";
+
+                // Add class for "button" node
+                button.classList.add("form-list-action__btn", "btn-restart");
+                button.id = "btn-requirement";
+
+                // Add "Click" Event Listener For Button
+                button.addEventListener("click", function (ev) {
+                    const formModal = document.getElementById("modal-requirement");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                });
+
+                button.innerHTML = "Add";
+                divBtn.appendChild(iconBtn);
+                divBtn.appendChild(button);
+                nodeBtn.appendChild(divBtn);
+                requirementListDisplay.appendChild(nodeBtn);
+            } else {
+                for (let i = requirementListDisplay.children.length - 1; i >= 0; i--) {
+                    //console.log(i);
+                    requirementListDisplay.removeChild(requirementListDisplay.children[i]);
+                }
+
+                // Create an "li" node
+                const node = document.createElement("li");
+                node.setAttribute("custom-course-create", "");
+
+                // Add class for "li" node
+                node.classList.add("form-list__item", "full-width");
+
+                // Create a button "li" node
+                const nodeBtn = document.createElement("li");
+                nodeBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "li" node
+                nodeBtn.classList.add("form-list__item");
+
+                // Create "div" node
+                const div = document.createElement("div");
+                div.setAttribute("custom-course-create", "");
+
+                // Add class for "div" node
+                div.classList.add("form-list-content");
+
+                // Create a button "div" node
+                const divBtn = document.createElement("div");
+                divBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "div" node
+                divBtn.classList.add("form-list-action");
+
+                // Create "icon" node
+                const icon = document.createElement("i");
+                icon.setAttribute("custom-course-create", "");
+
+                // Add class for "icon" node
+                icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                // Create a button "icon" node
+                const iconBtn = document.createElement("i");
+                iconBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "icon" node
+                iconBtn.classList.add("fa-solid", "fa-plus");
+
+                // Create "span" node
+                const span = document.createElement("span");
+                span.setAttribute("custom-course-create", "");
+
+                // Add class for "span" node
+                span.classList.add("form-list-content__text");
+
+                // Create "button" node
+                const button = document.createElement("button");
+                button.setAttribute("custom-course-create", "");
+                button.type = "button";
+
+                // Add class for "button" node
+                button.classList.add("form-list-action__btn", "btn-restart");
+                button.id = "btn-requirement";
+
+                // Add "Click" Event Listener For Button
+                button.addEventListener("click", function (ev) {
+                    const formModal = document.getElementById("modal-requirement");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                });
+
+                span.innerHTML = "No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course.";
+
+                //div.appendChild(icon);
+                div.appendChild(span);
+                node.appendChild(div);
+                requirementListDisplay.appendChild(node);
+
+                button.innerHTML = "Add";
+                divBtn.appendChild(iconBtn);
+                divBtn.appendChild(button);
+                nodeBtn.appendChild(divBtn);
+                requirementListDisplay.appendChild(nodeBtn);
+            }
+
+
+            // Close Requirements Modal
+            const formModal = document.getElementById("modal-requirement");
+            if (formModal) {
+                if (formModal.classList.contains("show-flex")) {
+                    formModal.classList.remove("show-flex");
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        /// ************************************************ Course Gain Part ************************************************ ///
+        // Append New List Item For Course Requirements
+        const newGainBtn = document.getElementById("new-gain-btn");
+        const gainList = document.getElementById("modal-list-gain");
+        const removeGainBtns = document.querySelectorAll(".item-gain-remove-btn");
+        //var listCount = 1;
+        var listGainCount = 1;
+
+        newGainBtn.addEventListener("click", function (event) {
+            AppendNewGainItem();
+
+            const childRemoveGainBtns = document.querySelectorAll(".item-gain-remove-btn");
+
+            childRemoveGainBtns[childRemoveGainBtns.length - 1].addEventListener("click", function () {
+                //RemoveExistingItem(childRemoveGainBtns.length - 1);
+                if (childRemoveGainBtns[childRemoveGainBtns.length - 1].getAttribute("id").lastIndexOf("-") != -1) {
+                    const listNumber = childRemoveGainBtns[childRemoveGainBtns.length - 1].getAttribute("id").slice((childRemoveGainBtns[childRemoveGainBtns.length - 1].getAttribute("id").lastIndexOf("-") + 1));
+                    for (let i = 0; i < gainList.children.length; i++) {
+                        if (gainList.children[i].getAttribute("id").slice((gainList.children[i].getAttribute("id").lastIndexOf("-") + 1)) == listNumber) {
+                            RemoveExistingGainItem(gainList.children[i]);
+                        }
+                    }
+                }
+            });
+        });
+
+
+        removeGainBtns.forEach(function (value, key) {
+            value.addEventListener("click", function () {
+                if (value.getAttribute("id").lastIndexOf("-") != -1) {
+                    const listNumber = value.getAttribute("id").slice((value.getAttribute("id").lastIndexOf("-") + 1));
+                    for (let i = 0; i < gainList.children.length; i++) {
+                        if (gainList.children[i].getAttribute("id").slice((gainList.children[i].getAttribute("id").lastIndexOf("-") + 1)) == listNumber) {
+                            RemoveExistingGainItem(gainList.children[i]);
+                        }
+                    }
+                }
+            });
+        });
+
+        // Save Course Gain
+        const courseGainsInput = document.getElementById("course-gain-input");
+        //const inputItems = document.querySelectorAll(".input-requirement-item");
+        const saveGainsBtn = document.getElementById("save-gains-btn");
+
+        saveGainsBtn.addEventListener("click", SaveGainItems);
+
+
+
+
+
+
+
+
+        // Function: Using To Append New Li Item For Un-ordered list
+        function AppendNewGainItem() {
+            ++listGainCount;
+            // Create an "li" node
+            const node = document.createElement("li");
+            node.setAttribute("id", "course-gain-item-" + listGainCount)
+            node.setAttribute("custom-course-create", "");
+
+            // Add Class For "li" node
+            node.classList.add("modal-body-list__item", "mb-16");
+
+            // Create "div" node
+            const div = document.createElement("div");
+            div.setAttribute("custom-course-create", "");
+
+            // Add Class For "div" node
+            div.classList.add("item-content", "custom-item");
+
+            // Create child "div" node
+            const childDiv = document.createElement("div");
+            childDiv.setAttribute("custom-course-create", "");
+
+            // Add Class For Child "div" node
+            childDiv.classList.add("item-content__group", "list-item-content-group", "full-width");
+
+            // Create "input" node
+            const input = document.createElement("input");
+            input.setAttribute("custom-course-create", "");
+
+            // Add Class For "input" node
+            input.classList.add("form-control", "text-normal", "remove-outline", "border-primary-1", "full-width", "pad-r-48", "input-gain-item");
+
+            // Add Id For "input" node
+            input.setAttribute("id", "course-gain-" + listGainCount);
+
+            // Create "button" node
+            const button = document.createElement("button");
+            button.setAttribute("id", "course-gain-btn-" + listGainCount);
+            button.setAttribute("custom-course-create", "");
+
+            // Append Class For "button" node
+            button.classList.add("item-remove-btn", "item-gain-remove-btn", "list-item-remove-btn", "btn-restart");
+            //button.classList.add("list-item-remove-btn", "btn-restart");
+            button.type = "button";
+
+            // Create "icon" node
+            const icon = document.createElement("i");
+            icon.setAttribute("custom-course-create", "");
+
+            // Append Class For "icon" node
+            icon.classList.add("fa-solid", "fa-minus", "standard-icon");
+
+            // Append The "icon" node into "removeItemBtn" node
+            button.appendChild(icon);   
+
+            // Append "input", "button" node into "childDiv" node
+            childDiv.appendChild(input);
+            childDiv.append(button);
+
+            // Append The "childDiv" node into "div" node
+            div.appendChild(childDiv);
+
+            // Append The "div" node into "li" node
+            node.appendChild(div);
+
+            // Append "li" node to the list
+            gainList.appendChild(node);
+
+            const html = `                                    <li class="modal-body-list__item">
+                                                                                                                                                                                                                                                                        <div class="item-content">
+                                                                                                                                                                                                                                                                            <div class="item-content__group full-width">
+        @*                                                <span class="modal-item__text">0 hours / total</span>*@
+                                                                                                                                                                                                                                                                        <input type="text" id="course-requirement-001" class="form-control text-normal remove-outline border-primary-1 full-width pad-r-48" />
+                                                                                                                                                                                                                                                                                <button type="button" class="item-remove-btn item-requirement-remove-btn btn-restart">
+                                                                                                                                                                                                                                                                            <i class="fa-solid fa-minus"></i>
+                                                                                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                            <span class="item-content__status hide">Not Set</span>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </li>`;
+        }
+
+
+        // Function: Using To Remove Existing Li Item For Un-ordered list
+        function RemoveExistingGainItem(itemNode) {
+            if (gainList.hasChildNodes()) {
+                //console.log(index);
+                gainList.removeChild(itemNode);
+                --listGainCount;
+            }
+        }
+
+        // Function: Save All Gain Items
+        function SaveGainItems() {
+            const gainsArr = [];
+            const inputItems = document.querySelectorAll(".input-gain-item");
+
+            for (let i = 0; i < inputItems.length; i++) {
+                if (inputItems[i].value != null && inputItems[i].value != '' && gainList.children.length > 0) {
+                    gainsArr.push(inputItems[i].value);
+                }
+            }
+
+            console.log(gainsArr);
+            courseGainsInput.value = gainsArr;
+
+            for (let i = 0; i < gainsArr.length; i++) {
+                gainsArr.pop();
+            }
+
+            // Display Requirements Item Into List
+            const html = `                   <li class="form-list__item full-width">
+                                                                                                                                                <div class="form-list-content">
+                                                                                                                                                    <i class="fa-solid fa-circle text-tiny"></i>
+                                                                                                                                                    <span class="form-list-content__text">Content</span>
+                                                                                                                                                </div>
+                                                                                                                                            </li>
+                                                                                        <li class="form-list__item">
+                                                                                            <div class="form-list-action">
+                                                                                                <i class="fa-solid fa-plus"></i>
+                                                                                                <button type="button" class="form-list-action__btn btn-restart" id="btn-requirement">Add</button>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                                                                            `;
+            // Requirements List
+            const gainListDisplay = document.getElementById("list-gains");
+
+
+            if (inputItems.length > 0) {
+                // remove old requirements item
+                for (let i = gainListDisplay.children.length - 1; i >= 0; i--) {
+                    //console.log(i);
+                    gainListDisplay.removeChild(gainListDisplay.children[i]);
+                }
+
+                // count empty requirement item
+                let count = 0;
+
+                // add new requirements item
+                for (let i = 0; i < inputItems.length; i++) {
+                    if (inputItems[i].value != null && inputItems[i].value != '') {
+                        // Create an "li" node
+                        const node = document.createElement("li");
+                        node.setAttribute("custom-course-create", "");
+
+                        // Add class for "li" node
+                        //node.classList.add("form-list__item", "full-width");
+                        node.classList.add("form-list__item");
+
+                        // Create "div" node
+                        const div = document.createElement("div");
+                        div.setAttribute("custom-course-create", "");
+
+                        // Add class for "div" node
+                        div.classList.add("form-list-content");
+
+                        // Create "icon" node
+                        const icon = document.createElement("i");
+                        icon.setAttribute("custom-course-create", "");
+
+                        // Add class for "icon" node
+                        //icon.classList.add("fa-regular", "fa-circle-check", "text-tiny");
+                        icon.classList.add("fa-regular", "fa-circle-check");
+
+                        // Create "span" node
+                        const span = document.createElement("span");
+                        span.setAttribute("custom-course-create", "");
+
+                        // Add class for "span" node
+                        span.classList.add("form-list-content__text");
+
+                        //span.innerHTML = inputItems[i].value;
+                        span.appendChild(document.createTextNode(inputItems[i].value));
+
+                        div.appendChild(icon);
+                        div.appendChild(span);
+                        node.appendChild(div);
+                        gainListDisplay.appendChild(node);
+                    }
+                    else {
+                        ++count;
+                        if (count == inputItems.length) {
+                            // Create an "li" node
+                            const node = document.createElement("li");
+                            node.setAttribute("custom-course-create", "");
+
+                            // Add class for "li" node
+                            node.classList.add("form-list__item", "full-width");
+
+                            // Create "div" node
+                            const div = document.createElement("div");
+                            div.setAttribute("custom-course-create", "");
+
+                            // Add class for "div" node
+                            div.classList.add("form-list-content");
+
+                            // Create "icon" node
+                            //const icon = document.createElement("i");
+                            //icon.setAttribute("custom-course-create", "");
+
+                            // Add class for "icon" node
+                            //icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                            // Create "span" node
+                            const span = document.createElement("span");
+                            span.setAttribute("custom-course-create", "");
+
+                            // Add class for "span" node
+                            span.classList.add("form-list-content__text");
+
+                            //span.innerHTML = inputItems[i].value;
+                            span.appendChild(document.createTextNode("No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course."));
+
+                            //div.appendChild(icon);
+                            div.appendChild(span);
+                            node.appendChild(div);
+                            gainListDisplay.appendChild(node);
+                        }
+                    }
+                }
+
+                //if (inputItems.length == 1) {
+                //    //console.log(inputItems.length);
+                //    if (inputItems[0].value == null || inputItems[0].value == '') {
+                //        // Create an "li" node
+                //        const node = document.createElement("li");
+                //        node.setAttribute("custom-course-create", "");
+
+                //        // Add class for "li" node
+                //        node.classList.add("form-list__item", "full-width");
+
+                //        // Create "div" node
+                //        const div = document.createElement("div");
+                //        div.setAttribute("custom-course-create", "");
+
+                //        // Add class for "div" node
+                //        div.classList.add("form-list-content");
+
+                //        // Create "icon" node
+                //        const icon = document.createElement("i");
+                //        icon.setAttribute("custom-course-create", "");
+
+                //        // Add class for "icon" node
+                //        icon.classList.add("fa-solid", "fa-circle", "text-tiny");
+
+                //        // Create "span" node
+                //        const span = document.createElement("span");
+                //        span.setAttribute("custom-course-create", "");
+
+                //        // Add class for "span" node
+                //        span.classList.add("form-list-content__text");
+
+                //        //span.innerHTML = inputItems[i].value;
+                //        span.appendChild(document.createTextNode("No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course."));
+
+                //        //div.appendChild(icon);
+                //        div.appendChild(span);
+                //        node.appendChild(div);
+                //        gainListDisplay.appendChild(node);
+                //    }
+
+                //}
+
+                // Create a button "li" node
+                const nodeBtn = document.createElement("li");
+                nodeBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "li" node
+                nodeBtn.classList.add("form-list__item");
+
+                // Create a button "div" node
+                const divBtn = document.createElement("div");
+                divBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "div" node
+                divBtn.classList.add("form-list-action");
+
+                // Create a button "icon" node
+                const iconBtn = document.createElement("i");
+                iconBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "icon" node
+                iconBtn.classList.add("fa-solid", "fa-plus");
+
+                // Create "button" node
+                const button = document.createElement("button");
+                button.setAttribute("custom-course-create", "");
+                button.type = "button";
+
+                // Add class for "button" node
+                button.classList.add("form-list-action__btn", "btn-restart");
+                button.id = "btn-requirement";
+
+                // Add "Click" Event Listener For Button
+                button.addEventListener("click", function (ev) {
+                    const formModal = document.getElementById("modal-gain");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                });
+
+                button.innerHTML = "Add";
+                divBtn.appendChild(iconBtn);
+                divBtn.appendChild(button);
+                nodeBtn.appendChild(divBtn);
+                gainListDisplay.appendChild(nodeBtn);
+            } else {
+                for (let i = gainListDisplay.children.length - 1; i >= 0; i--) {
+                    //console.log(i);
+                    gainListDisplay.removeChild(gainListDisplay.children[i]);
+                }
+
+                // Create an "li" node
+                const node = document.createElement("li");
+                node.setAttribute("custom-course-create", "");
+
+                // Add class for "li" node
+                node.classList.add("form-list__item", "full-width");
+
+                // Create a button "li" node
+                const nodeBtn = document.createElement("li");
+                nodeBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "li" node
+                nodeBtn.classList.add("form-list__item");
+
+                // Create "div" node
+                const div = document.createElement("div");
+                div.setAttribute("custom-course-create", "");
+
+                // Add class for "div" node
+                div.classList.add("form-list-content");
+
+                // Create a button "div" node
+                const divBtn = document.createElement("div");
+                divBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "div" node
+                divBtn.classList.add("form-list-action");
+
+                // Create "icon" node
+                const icon = document.createElement("i");
+                icon.setAttribute("custom-course-create", "");
+
+                // Add class for "icon" node
+                icon.classList.add("fa-regular", "fa-circle-check");
+
+                // Create a button "icon" node
+                const iconBtn = document.createElement("i");
+                iconBtn.setAttribute("custom-course-create", "");
+
+                // Add class for button "icon" node
+                iconBtn.classList.add("fa-solid", "fa-plus");
+
+                // Create "span" node
+                const span = document.createElement("span");
+                span.setAttribute("custom-course-create", "");
+
+                // Add class for "span" node
+                span.classList.add("form-list-content__text");
+
+                // Create "button" node
+                const button = document.createElement("button");
+                button.setAttribute("custom-course-create", "");
+                button.type = "button";
+
+                // Add class for "button" node
+                button.classList.add("form-list-action__btn", "btn-restart");
+                button.id = "btn-requirement";
+
+                // Add "Click" Event Listener For Button
+                button.addEventListener("click", function (ev) {
+                    const formModal = document.getElementById("modal-gain");
+                    if (formModal) {
+                        formModal.classList.add("show-flex");
+                    }
+                });
+
+                span.innerHTML = "No Requirement Found. You Need To Add Atleast 1 Requirement To Create Course.";
+
+                //div.appendChild(icon);
+                div.appendChild(span);
+                node.appendChild(div);
+                gainListDisplay.appendChild(node);
+
+                button.innerHTML = "Add";
+                divBtn.appendChild(iconBtn);
+                divBtn.appendChild(button);
+                nodeBtn.appendChild(divBtn);
+                gainListDisplay.appendChild(nodeBtn);
+            }
+
+
+            // Close Requirements Modal
+            const formModal = document.getElementById("modal-gain");
+            if (formModal) {
+                if (formModal.classList.contains("show-flex")) {
+                    formModal.classList.remove("show-flex");
+                }
+            }
+        }
+    </script>
+}

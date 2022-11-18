@@ -1,0 +1,160 @@
+﻿.content__container {
+}
+
+.breadcrumb {
+    padding: 8px 96px;
+    background-color: #f3f3f3;
+}
+
+    .breadcrumb .breadcrumb__list {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+    }
+
+        .breadcrumb .breadcrumb__list .breadcrumb__list__item {
+            display: flex;
+            align-items: center;
+        }
+
+.breadcrumb__list .breadcrumb__list__item.breadcrumb-current {
+    color: var(--blue_purple);
+    font-weight: bold;
+}
+
+.breadcrumb__list .breadcrumb__list__item .breadcrumb-link {
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+.breadcrumb__list .breadcrumb__list__item i {
+    margin: 0 8px;
+}
+
+.content__container .exercises-content {
+    padding: 16px 96px;
+}
+
+.content__container .exercises-content .exercises-content__container {
+    border-radius: 16px;
+    border: 1px solid var(--black);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.exercises-content .exercises-content__container .exercises-main-field {
+    flex: 3;
+    padding: 16px 24px;
+    border-right: 1px solid var(--black);
+}
+
+.exercises-content__container .exercises-main-field .exercises-main-field__tab {
+
+}
+
+.exercises-main-field .exercises-main-field__tab .exercises-tab-btn {
+    font-weight: bold;
+    border-bottom: 3px solid #525a63;
+    color: #525a63;
+    padding: 4px 8px 0px 8px;
+}
+
+.exercises-main-field .exercises-main-field__tab .exercises-tab-btn + .exercises-tab-btn {
+    margin-left: 16px;
+}
+
+.exercises-main-field .exercises-main-field__tab .exercises-tab-btn:hover {
+    background-color: rgba(182, 182, 182, 0.25);
+}
+
+.exercises-main-field .exercises-main-field__tab .exercises-tab-active {
+    color: var(--blue_purple);
+    border-bottom: 3px solid var(--blue_purple);
+}
+
+.exercises-content__container .exercises-main-field .exercises-main-field__content {
+    overflow-y: auto;
+    max-height: 505px;
+}
+
+.exercises-main-field .exercises-main-field__content .exercises-tab-content {
+    display: none;
+}
+
+.exercises-content .exercises-content__container .exercises-list-field {
+    flex: 1;
+    padding: 16px 24px;
+}
+
+.exercises-content__container .exercises-list-field .exercises-list-content {
+
+}
+
+.exercises-list-field .exercises-list-content .exercises-list-content__title {
+    padding: 8px 16px;
+    background-color: var(--blue_purple);
+    color: var(--white);
+}
+
+.exercises-list-field .exercises-list-content .exercises-list {
+    list-style-type: none;
+    overflow-y: auto;
+    max-height: 505px;
+}
+
+.exercises-list-content .exercises-list .exercises-list__item {
+    
+}
+
+.exercises-list-content .exercises-list .exercises-list__item + .exercises-list__item {
+    margin-top: 8px;
+}
+
+.exercises-list .exercises-list__item .exercise-item-link {
+    padding: 8px 16px;
+    border: 1px solid var(--blue_purple);
+    text-decoration: none;
+    display: block;
+}
+
+.exercises-list .exercises-list__item .exercise-item-link-active {
+    background-color: rgba(72, 0, 255, 0.15);
+    box-shadow: 0px 0px 8px 0 #808080 inset;
+}
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .breadcrumb {
+        padding: 8px 48px;
+    }
+
+    .content__container .exercises-content {
+        padding: 16px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .breadcrumb {
+        padding: 8px 12px;
+    }
+
+    .content__container .exercises-content {
+        padding: 16px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

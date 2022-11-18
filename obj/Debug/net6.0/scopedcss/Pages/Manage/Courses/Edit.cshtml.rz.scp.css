@@ -1,0 +1,269 @@
+.form-item[custom-course-edit] {
+}
+
+    .form-item .action-form .form-group[custom-course-edit] {
+    }
+
+.action-form .form-group .form-group__alert[custom-course-edit] {
+    width: 100%;
+}
+
+.action-form .form-group .form-group__content[custom-course-edit] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-group .form-group__content .label-container[custom-course-edit] {
+    width: 15%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group .form-group__content .input-container[custom-course-edit] {
+    width: 85%;
+}
+
+.form-group .form-group__content .list-container[custom-course-edit] {
+    width: 85%;
+    padding: 16px;
+    border: 1px solid #bbbbbb;
+    border-radius: 16px;
+    background-color: var(--white);
+    display: flex;
+    min-width: 200px;
+}
+
+.form-group__content .list-container .form-list[custom-course-edit] {
+    list-style-type: none;
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.list-container .form-list .form-list__item[custom-course-edit] {
+    width: calc(90% / 2);
+    display: flex;
+    align-items: center;
+}
+
+.form-list .form-list__item .form-list-content[custom-course-edit] {
+    border-bottom: 1px dashed #bbbbbb;
+    display: flex;
+    align-items: center;
+}
+
+.form-list__item .form-list-content i[custom-course-edit] {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 20px;
+}
+
+.form-list__item .form-list-content .form-list-content__text[custom-course-edit] {
+}
+
+.form-list .form-list__item .form-list-action[custom-course-edit] {
+    border: 1px dashed #bbbbbb;
+    /*    box-shadow: 0px 0px 4px 0 #bbbbbb;*/
+    padding: 4px 16px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.form-list__item .form-list-action i[custom-course-edit] {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.form-list__item .form-list-action .form-list-action__btn[custom-course-edit] {
+}
+
+    .form-list__item .form-list-action .form-list-action__btn[custom-course-edit]::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+.form-group__content .label-container .asterisk[custom-course-edit] {
+    width: 20px;
+    height: 20px;
+    min-width: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.action-form .form-group .form-group__modal[custom-course-edit] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    display: none;
+}
+
+.form-group .form-group__modal .form-modal-container[custom-course-edit] {
+    background-color: var(--white);
+    width: 600px;
+    height: 600px;
+    position: relative;
+}
+
+.form-group__modal .form-modal-container .form-modal-header[custom-course-edit] {
+    border-bottom: 1px solid #bbbbbb;
+    margin-bottom: 16px;
+    padding: 16px 32px 0px 32px;
+}
+
+.form-modal-container .form-modal-header .modal-header-content[custom-course-edit] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-modal-header .modal-header-content .modal-header-title[custom-course-edit] {
+}
+
+.form-modal-header .modal-header-content .modal-header-close[custom-course-edit] {
+}
+
+.form-group__modal .form-modal-container .form-modal-body[custom-course-edit] {
+    padding: 0px 32px 0px 32px;
+    margin-bottom: 16px;
+    height: 462px;
+    overflow-y: auto;
+}
+
+.form-modal-container .form-modal-body .modal-body-content[custom-course-edit] {
+}
+
+.form-modal-body .modal-body-content .modal-body-list[custom-course-edit] {
+    list-style-type: none;
+    margin-bottom: 16px;
+}
+
+.modal-body-content .modal-body-list .modal-body-list__item[custom-course-edit] {
+    margin-bottom: 16px;
+}
+
+    .modal-body-content .modal-body-list .modal-body-list__item:last-child[custom-course-edit] {
+        margin-bottom: 0px;
+    }
+
+.modal-body-list .modal-body-list__item .item-content[custom-course-edit] {
+    display: flex;
+    align-items: center;
+}
+
+.modal-body-list__item .item-content.custom-item[custom-course-edit] {
+}
+
+    .modal-body-list__item .item-content.custom-item[custom-course-edit]::before {
+        content: "\f058"; /* FontAwesome "circle-check" Unicode */
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        margin-left: -1.3em; /* same as padding-left set on li */
+        width: 1.3em; /* same as padding-left set on li */
+    }
+
+.modal-body-list__item .item-content i[custom-course-edit] {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 20px;
+}
+
+.modal-body-list__item .item-content .item-content__group[custom-course-edit] {
+    position: relative;
+}
+
+.item-content .item-content__group .item-remove-btn[custom-course-edit] {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    margin-right: 16px;
+}
+
+.item-content__group .item-remove-btn i[custom-course-edit] {
+    width: 20px;
+    min-width: 16px;
+    margin: 0;
+}
+
+.form-modal-body .modal-body-content .modal-body-action[custom-course-edit] {
+    padding: 8px 16px;
+    border: 1px dashed #bbbbbb;
+    text-align: center;
+    position: relative;
+}
+
+.modal-body-content .modal-body-action i[custom-course-edit] {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.modal-body-content .modal-body-action .modal-body-action__btn[custom-course-edit] {
+}
+
+    .modal-body-content .modal-body-action .modal-body-action__btn[custom-course-edit]::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+.form-group__modal .form-modal-container .form-modal-footer[custom-course-edit] {
+    padding: 0px 32px 16px 32px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.form-modal-container .form-modal-footer .modal-footer-content[custom-course-edit] {
+}
+
+.form-modal-footer .modal-footer-content .save-form-modal[custom-course-edit] {
+    text-align: right;
+}
+
+.modal-footer-content .save-form-modal .save-form-modal__btn[custom-course-edit] {
+    padding: 8px 16px;
+    border: 1px solid #bbbbbb;
+    background-color: var(--white);
+    font-weight: bold;
+}
+
+.form-group .form-submit[custom-course-edit] {
+    text-align: right;
+}
+
+    .form-group .form-submit .form-btn[custom-course-edit] {
+        width: 240px;
+        min-width: 200px;
+    }
+
+.form-item .action-form .form-item__main[custom-course-edit] {
+    margin-bottom: 64px;
+}
+
+.form-item .action-form .form-item__sub[custom-course-edit] {
+    margin-bottom: 32px;
+}

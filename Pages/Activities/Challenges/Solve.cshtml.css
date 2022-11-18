@@ -1,0 +1,402 @@
+﻿.content__container {
+}
+
+.breadcrumb {
+    padding: 8px 96px;
+    background-color: #f3f3f3;
+}
+
+.breadcrumb .breadcrumb__list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+.breadcrumb .breadcrumb__list .breadcrumb__list__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb__list .breadcrumb__list__item.breadcrumb-current {
+    color: var(--blue_purple);
+    font-weight: bold;
+}
+
+.breadcrumb__list .breadcrumb__list__item .breadcrumb-link {
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+.breadcrumb__list .breadcrumb__list__item i {
+    margin: 0 8px;
+}
+
+.content__container .challenge-topic-title {
+    margin-top: 16px;
+    padding: 0px 96px;
+}
+
+.content__container .challenge-topic-title .challenge-topic-title__text {
+    font-weight: bold;
+    text-align: center;
+    color: #525a63;
+    font-size: 24px;
+}
+
+.content__container .challenge-topic-content {
+    padding: 16px 96px;
+    display: flex;
+}
+
+.content__container .challenge-topic-content .challenge-topic-content__info {
+    flex: 4;
+}
+
+.challenge-topic-content .challenge-topic-content__info .challenge-info-question {
+
+}
+
+.challenge-topic-content__info .challenge-info-question .challenge-info-question__content {
+
+}
+
+.challenge-info-question .challenge-info-question__content .challenge-question-title {
+
+}
+
+.challenge-info-question .challenge-info-question__content .challenge-question-text {
+
+}
+
+.challenge-info-question__content .challenge-question-text .question-text {
+    color: #525a63;
+}
+
+.challenge-info-question .challenge-info-question__content .challenge-question-attention {
+
+}
+
+.challenge-info-question__content .challenge-question-attention .question-attention-title {
+    font-weight: bold;
+    color: #525a63;
+}
+
+.challenge-info-question__content .challenge-question-attention .question-attention-list {
+    margin-left: 16px;
+}
+
+.challenge-question-attention .question-attention-list .question-attention-list__item {
+    color: #525a63;
+}
+
+.challenge-question-attention .question-attention-list .question-attention-list__item + .question-attention-list__item {
+    margin-top: 8px;
+}
+
+.question-attention-list .question-attention-list__item .question-attention-btn {
+    border: 1px solid #bbbbbb;
+    padding: 4px 8px;
+}
+
+.question-attention-list__item .question-attention-btn i {
+    margin-right: 8px;
+}
+
+.challenge-topic-content__info .challenge-info-question .challenge-info-question__input {
+}
+
+.challenge-info-question .challenge-info-question__input .challenge-input-title {
+
+}
+
+.challenge-info-question .challenge-info-question__input .challenge-input-content {
+    color: #525a63;
+}
+
+.challenge-topic-content__info .challenge-info-question .challenge-info-question__output {
+}
+
+.challenge-info-question .challenge-info-question__output .challenge-output-title {
+
+}
+
+.challenge-info-question .challenge-info-question__output .challenge-output-content {
+    color: #525a63;
+}
+
+.challenge-topic-content__info .challenge-info-question .challenge-info-question__hint {
+
+}
+
+.challenge-info-question .challenge-info-question__hint .challenge-hint-title {
+
+}
+
+.challenge-info-question .challenge-info-question__hint .challenge-hint-content {
+    color: #525a63;
+}
+
+.content__container .challenge-topic-content .challenge-topic-content__overview {
+    flex: 2;
+    border-left: 2px solid #bbbbbb;
+}
+
+.challenge-topic-content .challenge-topic-content__overview .challenge-overview-specification {
+    margin: 0px 16px;
+}
+
+.challenge-topic-content__overview .challenge-overview-specification .challenge-specification-title {
+
+}
+
+.challenge-topic-content__overview .challenge-overview-specification .challenge-specification-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #525a63;
+}
+
+.challenge-topic-content .challenge-topic-content__overview .challenge-overview-submit {
+    margin: 0px 16px;
+}
+
+.challenge-topic-content__overview .challenge-overview-submit .challenge-submit-title {
+
+}
+
+.challenge-topic-content__overview .challenge-overview-submit .challenge-submit-content {
+    margin-top: 8px;
+}
+
+.challenge-overview-submit .challenge-submit-content .challenge-submit-content__link {
+    color: var(--blue_purple);
+    text-decoration: none;
+}
+
+.challenge-submit-content .challenge-submit-content__link i {
+    width: 20px;
+    height: 20px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.challenge-topic-content .challenge-topic-content__overview .challenge-overview-statistics {
+    margin: 0px 16px;
+}
+
+.challenge-topic-content__overview .challenge-overview-statistics .challenge-statistics-title {
+
+}
+
+.challenge-topic-content__overview .challenge-overview-statistics .challenge-statistics-content {
+    margin-top: 8px;
+}
+
+.challenge-overview-statistics .challenge-statistics-content .challenge-statistics-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.challenge-overview-statistics .challenge-statistics-content .challenge-statistics-item + .challenge-statistics-item {
+    margin-top: 8px;
+}
+
+.challenge-topic-content__overview .challenge-overview-statistics .challenge-statistics-reason {
+    margin-top: 8px;
+}
+
+.challenge-overview-statistics .challenge-statistics-reason .challenge-statistics-reason__link {
+    color: var(--blue_purple);
+    text-decoration: none;
+}
+
+.challenge-statistics-reason .challenge-statistics-reason__link i {
+    width: 20px;
+    height: 20px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.challenge-topic-content .challenge-topic-content__overview .challenge-overview-rating {
+    margin: 0px 16px;
+}
+
+.challenge-topic-content__overview .challenge-overview-rating .challenge-rating-title {
+
+}
+
+.challenge-topic-content__overview .challenge-overview-rating .challenge-rating-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 16px;
+}
+
+.challenge-overview-rating .challenge-rating-content .challenge-rating-btn {
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 8px;
+    width: 100px;
+}
+
+.challenge-overview-rating .challenge-rating-content .challenge-rating-btn + .challenge-rating-btn {
+    margin-top: 16px;
+}
+
+.challenge-rating-content .challenge-rating-btn.challenge-rating-btn--green {
+    color: #5cbe32;
+    border: 1px solid #5cbe32;
+}
+
+.challenge-rating-content .challenge-rating-btn.challenge-rating-btn--yellow {
+    color: #d0b833;
+    border: 1px solid #d0b833;
+}
+
+.challenge-rating-content .challenge-rating-btn.challenge-rating-btn--red {
+    color: #d82c2c;
+    border: 1px solid #d82c2c;
+}
+
+.challenge-topic-content__overview .challenge-overview-rating .challenge-rating-action {
+    margin-top: 16px;
+}
+
+.challenge-overview-rating .challenge-rating-action .challenge-help-btn {
+    border: 1px solid #bbbbbb;
+    padding: 4px 8px;
+}
+
+.challenge-rating-action .challenge-help-btn i {
+    margin-right: 8px;
+}
+
+.challenge-overview-rating .challenge-rating-action .challenge-report-btn {
+    border: 1px solid #bbbbbb;
+    padding: 4px 8px;
+}
+
+.challenge-rating-action .challenge-report-btn i {
+    margin-right: 8px;
+}
+
+.content__container .challenge-topic-ide {
+    padding: 16px 96px;
+}
+
+.content__container .relative-topics {
+    padding: 16px 96px;
+}
+
+.content__container .relative-topics .relative-topics__container {
+
+}
+
+.relative-topics .relative-topics__container .relative-topics-title {
+
+}
+
+.relative-topics .relative-topics__container .relative-topics-content {
+    margin-top: 16px;
+}
+
+.relative-topics__container .relative-topics-content .relative-topics-list {
+    list-style-type: none;
+}
+
+.relative-topics-content .relative-topics-list .relative-topics-list__item {
+    
+}
+
+.relative-topics-content .relative-topics-list .relative-topics-list__item + .relative-topics-list__item {
+    margin-top: 8px;
+}
+
+.relative-topics-list .relative-topics-list__item .topic-item-title-link {
+    text-decoration: none;
+    color: var(--blue_purple);
+}
+
+.relative-topics-list__item .topic-item-title-link i {
+    margin-right: 8px;
+}
+
+.relative-topics-list .relative-topics-list__item .topic-item-level {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.relative-topics-list__item .topic-item-level.topic-item-level--green {
+    color: #5cbe32;
+}
+
+.relative-topics-list__item .topic-item-level.topic-item-level--yellow {
+    color: #d0b833;
+}
+
+.relative-topics-list__item .topic-item-level.topic-item-level--red {
+    color: #d82c2c;
+}
+
+
+
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .breadcrumb {
+        padding: 8px 48px;
+    }
+
+    .content__container .challenge-topic-title {
+        padding: 0px 48px;
+    }
+
+    .content__container .challenge-topic-content {
+        padding: 16px 48px;
+    }
+
+    .content__container .challenge-topic-ide {
+        padding: 16px 48px;
+    }
+
+    .content__container .relative-topics {
+        padding: 16px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .breadcrumb {
+        padding: 8px 12px;
+    }
+
+    .content__container .challenge-topic-title {
+        padding: 0px 12px;
+    }
+
+    .content__container .challenge-topic-content {
+        padding: 16px 12px;
+    }
+
+    .content__container .challenge-topic-ide {
+        padding: 16px 12px;
+    }
+
+    .content__container .relative-topics {
+        padding: 16px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

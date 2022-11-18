@@ -1,0 +1,25 @@
+.manage-details-content[b-0ygr939q4g] {
+}
+
+    .manage-details-content .details-content-list[b-0ygr939q4g] {
+        list-style-type: none;
+    }
+
+        .manage-details-content .details-content-list .details-content-list__item[b-0ygr939q4g] {
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+        }
+
+.details-content-list .details-content-list__item .details-item-title[b-0ygr939q4g] {
+    width: 20%;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.details-content-list .details-content-list__item .details-item-content[b-0ygr939q4g] {
+    width: 80%;
+    min-width: 240px;
+    display: inline-block;
+    position: relative;
+}

@@ -1,0 +1,164 @@
+@page
+@model EasyCodeAcademy.Web.Pages_Manage_Courses.DeleteModel
+
+@{
+    ViewData["ContentTitle"] = "Delete Course";
+    ViewData["ManageSection"] = "Course";
+    ViewData["Title"] = "EasyCode Manage - Delete Course";
+    ViewData["GuideTitle"] = "How To Delete Course";
+    ViewData["GuideList"] = new String[]
+    {
+        "Double Check Your Delete Course"
+    };
+
+    Layout = "_CRUDLayout";
+}
+
+@*<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CoursePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CoursePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.created_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.created_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.updated_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.updated_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.Topic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.Topic.TopicName)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Course.CourseId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>*@
+
+
+<div class="manage-details-content">
+    <ul class="details-content-list">
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseName)</span>
+            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseName)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseDescription)</span>
+            <span class="details-item-content">@Html.Raw(Model.Course.CourseDescription)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CoursePrice)</span>
+            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CoursePrice)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseType)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseType)</span>*@
+            @if (Model.Course.CourseType == 1)
+            {
+                    <span class="details-item-content">Course</span>
+            }
+
+            @if (Model.Course.CourseType == 2)
+            {
+                    <span class="details-item-content">Tutorial</span>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseStatus)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseStatus)</span>*@
+            @if (Model.Course.CourseStatus == 1)
+            {
+                    <span class="details-item-content">Not Available</span>
+            }
+
+            @if (Model.Course.CourseStatus == 2)
+            {
+                    <span class="details-item-content">Queue</span>
+            }
+
+            @if (Model.Course.CourseStatus == 3)
+            {
+                    <span class="details-item-content">Available</span>
+            }
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.CourseImage)</span>
+            @*            <span class="details-item-content">@Html.DisplayFor(model => model.Course.CourseImage)</span>*@
+            <img src="/Assets/uploads/@Model.Course.CourseImage" alt="Course Image" width="200" />
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.created_date)</span>
+            <span class="details-item-content">@Html.DisplayFor(model => model.Course.created_date)</span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.updated_date)</span>
+            <span class="details-item-content">
+                @Html.DisplayFor(model => model.Course.updated_date)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title">@Html.DisplayNameFor(model => model.Course.Topic)</span>
+            <span class="details-item-content">
+                @Html.DisplayFor(model => model.Course.Topic.TopicName)
+            </span>
+        </li>
+        <li class="details-content-list__item">
+            <span class="details-item-title"></span>
+            <span class="details-item-content">
+                <form method="post">
+                    <input type="hidden" asp-for="Course.CourseId" />
+                    <input type="submit" value="Delete" class="delete-form-btn link-basic link-restart border-restart cursor-pointer text-normal" />
+                </form>
+            </span>
+        </li>
+    </ul>
+</div>

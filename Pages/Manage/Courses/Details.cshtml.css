@@ -1,0 +1,110 @@
+﻿.manage-details-content {
+}
+
+    .manage-details-content .details-content-list {
+        list-style-type: none;
+    }
+
+        .manage-details-content .details-content-list .details-content-list__item {
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+        }
+
+.details-content-list .details-content-list__item .details-item-title {
+    width: 20%;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.details-content-list .details-content-list__item .details-item-content {
+    /*    width: 80%;
+    min-width: 240px;
+    display: inline-block;
+    position: relative;*/
+    width: 80%;
+    padding: 16px;
+    border: 1px solid #bbbbbb;
+    border-radius: 16px;
+    background-color: var(--white);
+    min-width: 200px;
+    display: inline-block;
+}
+
+.details-content-list__item .details-item-content p {
+}
+
+.details-content-list__item .details-item-content-rich-text p + p {
+    margin-top: 8px;
+}
+
+
+.details-content-list__item .details-item-content ol {
+    padding-left: 16px;
+}
+
+.details-content-list__item .details-item-content .form-list {
+    list-style-type: none;
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.details-item-content .form-list .form-list__item {
+    width: calc(90% / 2);
+    display: flex;
+    align-items: center;
+}
+
+.form-list .form-list__item .form-list-content {
+    border-bottom: 1px dashed #bbbbbb;
+    display: flex;
+    align-items: center;
+}
+
+.form-list__item .form-list-content i {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 20px;
+}
+
+.form-list__item .form-list-content .form-list-content__text {
+}
+
+/*.form-list .form-list__item .form-list-action {
+    border: 1px dashed #bbbbbb;*/
+/*    box-shadow: 0px 0px 4px 0 #bbbbbb;*/
+/*padding: 4px 16px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.form-list__item .form-list-action i {
+    width: 20px;
+    min-width: 16px;
+    margin-right: 8px;
+}
+
+.form-list__item .form-list-action .form-list-action__btn {
+}
+
+    .form-list__item .form-list-action .form-list-action__btn::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }*/
+
+.details-content-list .details-content-list__item .details-item-action {
+    width: 80%;
+    min-width: 240px;
+    display: inline-block;
+    position: relative;
+}
