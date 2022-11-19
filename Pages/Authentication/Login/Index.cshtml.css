@@ -1,0 +1,137 @@
+﻿#main {
+    flex: 1 0 auto;
+}
+
+#content {
+
+}
+
+.content__container {
+}
+
+
+.content__container .content-wrapper {
+    padding: 48px 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("/Assets/img/login_register_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.content__container .content-wrapper .return-home-action {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.content-wrapper .return-home-action .return-home-action__link {
+}
+
+.return-home-action .return-home-action__link i {
+    color: var(--white);
+    font-size: 48px;
+}
+
+.return-home-action .return-home-action__link i:hover {
+    box-shadow: 0px 0px 6px 0 var(--white);
+}
+
+.content__container .content-wrapper .login-form-container {
+    width: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0px 0px 6px 0 var(--black);
+    padding: 8px 16px;
+}
+
+.content-wrapper .login-form-container .login-form-title {
+    text-align: center;
+    color: #525a63;
+}
+
+.content-wrapper .login-form-container .login-form-content {
+    
+}
+
+.login-form-container .login-form-content .login-form {
+
+}
+
+.login-form-content .login-form .login-form-label {
+    display: block;
+}
+
+.login-form-content .login-form .login-form-input {
+    padding: 8px 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.login-form-container .login-form-content .login-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-form-content .login-action .login-action__register {
+}
+
+.login-form-content .login-action .login-action__remember {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-action .login-action__remember .remember-form-checkbox {
+    background-color: var(--black);
+    display: block;
+    padding: 12px;
+}
+
+
+.login-form-container .login-form-content .submit-login-form-btn {
+    text-align: right;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    width: 100%;
+    text-align: center;
+}
+
+.login-form-container .login-form-content .submit-login-form-btn:hover {
+    background-color: rgba(182, 182, 182, 0.25);
+}
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+    .content__container .content-wrapper {
+        padding: 0px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .content__container .content-wrapper {
+        padding: 0px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

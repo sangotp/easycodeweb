@@ -8,153 +8,329 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EasyCodeAcademy.Web
 build_property.RootNamespace = EasyCodeAcademy.Web
-build_property.ProjectDir = D:\GCS190156\TopUp\Final Project\Project\Education Clone\easycodeweb\
+build_property.ProjectDir = D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\GCS190156\TopUp\Final Project\Project\Education Clone\easycodeweb
+build_property.MSBuildProjectDirectory = D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Activities/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Activities/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Chapters/Delete.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Chapters/Details.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Chapters/Edit.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/_ValidationScriptsPartial.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/_ViewImports.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/_ViewStart.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Activities/Challenges/Challenge.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Activities/Challenges/Challenge.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xDaGFsbGVuZ2VzXENoYWxsZW5nZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-expqj05th2
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Activities/Challenges/Solve.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Activities/Challenges/Solve.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xDaGFsbGVuZ2VzXFNvbHZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-pz59yc5fnf
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Courses/Details.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Authentication/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jfw82kr0zl
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Authentication/Register/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cUmVnaXN0ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pyzqp92n7d
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Courses/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = custom-page-course-details
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Courses/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Courses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-t7c477m7aw
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Courses/Learn/Exercise/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Courses/Learn/Exercise/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xMZWFyblxFeGVyY2lzZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-n09dr1nsxu
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Courses/Learn/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Courses/Learn/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xMZWFyblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = custom-page-course-details
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sxd8v2qb7c
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Categories/Create.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-78pi7xfso5
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Categories/Delete.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-il0lhc9mom
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Categories/Details.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-cw93wpwcc3
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Categories/Edit.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-hdb48ame8n
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Categories/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENhdGVnb3JpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tn1xew8tpd
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Chapters/Create.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-aqdgnxqtz4
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Chapters/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = custom-chapter-index
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Create.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = custom-course-create
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Delete.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-outyyg0jyo
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Details.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = custom-course-details
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Edit.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = custom-course-edit
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Courses/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qhmidr37ol
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-vkapxu9y4a
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Topics/Create.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Topics/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXFRvcGljc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ij2f8rj90w
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Topics/Delete.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Topics/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXFRvcGljc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0ygr939q4g
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Topics/Details.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Topics/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXFRvcGljc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-ootgrd0tiy
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Topics/Edit.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Topics/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXFRvcGljc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-wfu6p9cr7l
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Manage/Topics/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Topics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXFRvcGljc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-p2jzvgvar3
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/References/Index.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/References/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVmZXJlbmNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-z65imtclzf
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Shared/_CRUDLayout.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_CRUDLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9DUlVETGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-tlujvr5jq6
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Shared/_Layout.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_Identity_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9JZGVudGl0eV9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zkicdfu3p8
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7wphbzlyta
 
-[D:/GCS190156/TopUp/Final Project/Project/Education Clone/easycodeweb/Pages/Shared/_SubLayout.cshtml]
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_SubLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TdWJMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ah67vj5f6n

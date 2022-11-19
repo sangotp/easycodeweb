@@ -880,6 +880,277 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 /*Tablet and Mobile*/
 @media (max-width: 63.9375em) {
 }
+/* _content/EasyCodeAcademy.Web/Pages/Authentication/Login/Index.cshtml.rz.scp.css */
+#main[b-jfw82kr0zl] {
+    flex: 1 0 auto;
+}
+
+#content[b-jfw82kr0zl] {
+
+}
+
+.content__container[b-jfw82kr0zl] {
+}
+
+
+.content__container .content-wrapper[b-jfw82kr0zl] {
+    padding: 48px 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("/Assets/img/login_register_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.content__container .content-wrapper .return-home-action[b-jfw82kr0zl] {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.content-wrapper .return-home-action .return-home-action__link[b-jfw82kr0zl] {
+}
+
+.return-home-action .return-home-action__link i[b-jfw82kr0zl] {
+    color: var(--white);
+    font-size: 48px;
+}
+
+.return-home-action .return-home-action__link i:hover[b-jfw82kr0zl] {
+    box-shadow: 0px 0px 6px 0 var(--white);
+}
+
+.content__container .content-wrapper .login-form-container[b-jfw82kr0zl] {
+    width: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0px 0px 6px 0 var(--black);
+    padding: 8px 16px;
+}
+
+.content-wrapper .login-form-container .login-form-title[b-jfw82kr0zl] {
+    text-align: center;
+    color: #525a63;
+}
+
+.content-wrapper .login-form-container .login-form-content[b-jfw82kr0zl] {
+    
+}
+
+.login-form-container .login-form-content .login-form[b-jfw82kr0zl] {
+
+}
+
+.login-form-content .login-form .login-form-label[b-jfw82kr0zl] {
+    display: block;
+}
+
+.login-form-content .login-form .login-form-input[b-jfw82kr0zl] {
+    padding: 8px 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.login-form-container .login-form-content .login-action[b-jfw82kr0zl] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-form-content .login-action .login-action__register[b-jfw82kr0zl] {
+}
+
+.login-form-content .login-action .login-action__remember[b-jfw82kr0zl] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-action .login-action__remember .remember-form-checkbox[b-jfw82kr0zl] {
+    background-color: var(--black);
+    display: block;
+    padding: 12px;
+}
+
+
+.login-form-container .login-form-content .submit-login-form-btn[b-jfw82kr0zl] {
+    text-align: right;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    width: 100%;
+    text-align: center;
+}
+
+.login-form-container .login-form-content .submit-login-form-btn:hover[b-jfw82kr0zl] {
+    background-color: rgba(182, 182, 182, 0.25);
+}
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+    .content__container .content-wrapper[b-jfw82kr0zl] {
+        padding: 0px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .content__container .content-wrapper[b-jfw82kr0zl] {
+        padding: 0px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}
+/* _content/EasyCodeAcademy.Web/Pages/Authentication/Register/Index.cshtml.rz.scp.css */
+#main[b-pyzqp92n7d] {
+    flex: 1 0 auto;
+}
+
+#content[b-pyzqp92n7d] {
+}
+
+.content__container[b-pyzqp92n7d] {
+}
+
+
+    .content__container .content-wrapper[b-pyzqp92n7d] {
+        padding: 48px 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url("/Assets/img/login_register_background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+        .content__container .content-wrapper .return-home-action[b-pyzqp92n7d] {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+.content-wrapper .return-home-action .return-home-action__link[b-pyzqp92n7d] {
+}
+
+.return-home-action .return-home-action__link i[b-pyzqp92n7d] {
+    color: var(--white);
+    font-size: 48px;
+}
+
+    .return-home-action .return-home-action__link i:hover[b-pyzqp92n7d] {
+        box-shadow: 0px 0px 6px 0 var(--white);
+    }
+
+.content__container .content-wrapper .register-form-container[b-pyzqp92n7d] {
+    width: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0px 0px 6px 0 var(--black);
+    padding: 8px 16px;
+}
+
+.content-wrapper .register-form-container .register-form-title[b-pyzqp92n7d] {
+    text-align: center;
+    color: #525a63;
+}
+
+.content-wrapper .register-form-container .register-form-content[b-pyzqp92n7d] {
+}
+
+.register-form-container .register-form-content .register-form[b-pyzqp92n7d] {
+}
+
+.register-form-content .register-form .form-group--flex[b-pyzqp92n7d] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register-form .form-group--flex .form-group-half[b-pyzqp92n7d] {
+    flex: 1;
+}
+
+.register-form-content .register-form .register-form-label[b-pyzqp92n7d] {
+    display: block;
+}
+
+.register-form-content .register-form .register-form-input[b-pyzqp92n7d] {
+    padding: 8px 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.register-form-container .register-form-content .register-action[b-pyzqp92n7d] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-form-content .register-action .register-action__login[b-pyzqp92n7d] {
+}
+
+
+.register-form-container .register-form-content .submit-register-form-btn[b-pyzqp92n7d] {
+    text-align: right;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    width: 100%;
+    text-align: center;
+}
+
+    .register-form-container .register-form-content .submit-register-form-btn:hover[b-pyzqp92n7d] {
+        background-color: rgba(182, 182, 182, 0.25);
+    }
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+    .content__container .content-wrapper[b-pyzqp92n7d] {
+        padding: 0px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .content__container .content-wrapper[b-pyzqp92n7d] {
+        padding: 0px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}
 /* _content/EasyCodeAcademy.Web/Pages/Courses/Details.cshtml.rz.scp.css */
 .content__container[custom-page-course-details] {
 }
@@ -6132,6 +6403,417 @@ select:-webkit-autofill:focus[custom-chapter-index] {
 
 /*Tablet and Mobile*/
 @media (max-width: 63.9375em) {
+}
+/* _content/EasyCodeAcademy.Web/Pages/Shared/_Identity_Layout.cshtml.rz.scp.css */
+#main[b-zkicdfu3p8] {
+    flex: 1 0 auto;
+    background-image: linear-gradient(to bottom, #FFF, #e8fefe);
+}
+
+#header[b-zkicdfu3p8] {
+    width: 100%;
+}
+
+    #header .header__container[b-zkicdfu3p8] {
+        width: 100%;
+    }
+
+        #header .header__container .nav-bar[b-zkicdfu3p8] {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 96px;
+            position: fixed;
+            background-color: var(--white);
+            z-index: 9999;
+        }
+
+.sticky-box-shadow[b-zkicdfu3p8] {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.header__container .nav-bar .nav-bar__brand[b-zkicdfu3p8] {
+    font-weight: bold;
+}
+
+.nav-bar .nav-bar__brand .brand-home[b-zkicdfu3p8] {
+    padding: 4px 16px;
+    border: 2px solid #000;
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+}
+
+    .nav-bar .nav-bar__brand .brand-home:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+        border: 2px solid var(--blue_purple);
+    }
+
+.header__container .nav-bar .nav-bar__action[b-zkicdfu3p8] {
+}
+
+.nav-bar .nav-bar__action .action-list[b-zkicdfu3p8] {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-bar__action .action-list .action-list__item[b-zkicdfu3p8] {
+    position: relative;
+}
+
+.action-list .action-list__item .action-link[b-zkicdfu3p8] {
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+}
+
+    .action-list .action-list__item .action-link:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+    }
+
+.action-list .action-list__item button[b-zkicdfu3p8]::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.action-list .action-list__item button:hover[b-zkicdfu3p8] {
+    color: var(--blue_purple);
+}
+
+.action-list .action-list__item .subnav-list[b-zkicdfu3p8] {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 0px 3px 0px #000;
+    background-color: var(--white);
+}
+
+.action-list .action-list__item .subnav-list[b-zkicdfu3p8] {
+    display: none;
+}
+
+.subnav-list .subnav-list__item .subnav-link[b-zkicdfu3p8] {
+    padding: 8px 24px;
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+}
+
+    .subnav-list .subnav-list__item .subnav-link:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+    }
+
+.header__container .nav-bar .nav-bar__identify[b-zkicdfu3p8] {
+}
+
+.nav-bar .nav-bar__identify .user-signup[b-zkicdfu3p8] {
+    padding: 8px 16px;
+    color: var(--white);
+    background-color: var(--blue_purple);
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.nav-bar .nav-bar__identify .user-login[b-zkicdfu3p8] {
+    padding: 8px 16px;
+    border: 1px solid var(--black);
+    color: var(--black);
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.header__container .nav-bar .menu[b-zkicdfu3p8] {
+    display: none;
+}
+
+/*Mobile Selector*/
+.nav-bar .menu button:hover[b-zkicdfu3p8] {
+    color: var(--blue_purple);
+}
+
+.header__container .nav-bar .menu-modal[b-zkicdfu3p8] {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #FFF, #e8fefe);
+}
+
+.menu-modal__header .header-mobile-container .nav-bar-mobile[b-zkicdfu3p8] {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 96px;
+    /*    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;*/
+}
+
+.header-mobile-container .nav-bar-mobile .nav-bar-mobile__brand[b-zkicdfu3p8] {
+    font-weight: bold;
+}
+
+.nav-bar-mobile .nav-bar-mobile__brand .brand-mobile-home[b-zkicdfu3p8] {
+    padding: 4px 16px;
+    border: 2px solid #000;
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+}
+
+    .nav-bar-mobile .nav-bar-mobile__brand .brand-mobile-home:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+        border: 2px solid var(--blue_purple);
+    }
+
+.nav-bar-mobile .nav-bar-mobile__close button:hover[b-zkicdfu3p8] {
+    color: var(--blue_purple);
+}
+
+.menu-modal .menu-modal__content .modal-content-container[b-zkicdfu3p8] {
+    padding: 16px 96px;
+}
+
+.menu-modal__content .modal-content-container .modal-list[b-zkicdfu3p8] {
+    list-style-type: none;
+}
+
+.modal-list .modal-list__item .modal-action-link[b-zkicdfu3p8] {
+    padding: 16px 0px 16px 0px;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+    .modal-list .modal-list__item .modal-action-link:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+    }
+
+.modal-list .modal-list__item .sub-modal-btn[b-zkicdfu3p8] {
+    padding: 16px 0px 16px 0px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .modal-list .modal-list__item .sub-modal-btn:hover[b-zkicdfu3p8] {
+        color: var(--blue_purple);
+    }
+
+.modal-list .modal-list__item .signup-btn[b-zkicdfu3p8] {
+    padding: 8px 16px;
+    color: var(--white);
+    background-color: var(--blue_purple);
+    border-radius: 4px;
+    padding: 8px 0px 8px 0px;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.modal-list .modal-list__item .login-btn[b-zkicdfu3p8] {
+    padding: 8px 16px;
+    border: 1px solid var(--black);
+    border-radius: 4px;
+    padding: 8px 0px 8px 0px;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.nav-bar .menu-modal .submenu-modal__content[b-zkicdfu3p8] {
+    display: none;
+}
+
+.menu-modal .submenu-modal__content .submenu-modal-container[b-zkicdfu3p8] {
+    padding: 16px 96px;
+}
+
+.submenu-modal-container .submenu-return .submenu-return__btn[b-zkicdfu3p8] {
+    width: 100%;
+    padding: 16px 0px 16px 0px;
+    text-align: left;
+}
+
+.submenu-modal__content .submenu-modal-container .submenu-header[b-zkicdfu3p8] {
+    font-size: 22px;
+}
+
+.submenu-modal__content .submenu-modal-container .submenu-list[b-zkicdfu3p8] {
+    list-style-type: none;
+}
+
+.submenu-list .submenu-list__item .submenu-link[b-zkicdfu3p8] {
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+    width: 100%;
+    padding: 16px 0px 16px 0px;
+}
+
+#content[b-zkicdfu3p8] {
+    margin-top: 80px;
+    padding: 12px 96px;
+}
+
+#footer[b-zkicdfu3p8] {
+    /*margin-top: 16px;*/
+}
+
+    #footer .footer__container[b-zkicdfu3p8] {
+        padding: 24px 96px;
+    }
+
+        #footer .footer__container .footer-term[b-zkicdfu3p8] {
+            /*    border-top: 1px solid #e4e4e4;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 8px 0;
+        }
+
+.footer-term .footer-term__content .term-link[b-zkicdfu3p8] {
+    color: var(--text-black);
+    text-decoration: none;
+}
+
+.footer__container .footer-term .footer-term__content[b-zkicdfu3p8]::after {
+    content: "|";
+    display: inline-block;
+    margin: 0px 8px;
+}
+
+.footer__container .footer-term .footer-term__content:last-child[b-zkicdfu3p8]::after {
+    display: none;
+}
+
+#footer .footer__container .footer-copyright[b-zkicdfu3p8] {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.footer__container .footer-copyright .footer-copyright__date[b-zkicdfu3p8]:after {
+    content: "-";
+    display: inline-block;
+    margin: 0 8px;
+}
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+    .header__container .nav-bar .menu-modal[b-zkicdfu3p8] {
+        display: none !important;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    #header .header__container .nav-bar[b-zkicdfu3p8] {
+        padding: 0 48px;
+    }
+
+    .menu-modal__header .header-mobile-container .nav-bar-mobile[b-zkicdfu3p8] {
+        padding: 0 48px;
+    }
+
+    .menu-modal .menu-modal__content .modal-content-container[b-zkicdfu3p8] {
+        padding: 16px 48px;
+    }
+
+    .menu-modal .submenu-modal__content .submenu-modal-container[b-zkicdfu3p8] {
+        padding: 16px 48px;
+    }
+
+    #footer .footer__container[b-zkicdfu3p8] {
+        padding: 24px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    #header .header__container .nav-bar[b-zkicdfu3p8] {
+        padding: 0 12px;
+    }
+
+    .menu-modal__header .header-mobile-container .nav-bar-mobile[b-zkicdfu3p8] {
+        padding: 0 12px;
+    }
+
+    .menu-modal .menu-modal__content .modal-content-container[b-zkicdfu3p8] {
+        padding: 16px 12px;
+    }
+
+    .menu-modal .submenu-modal__content .submenu-modal-container[b-zkicdfu3p8] {
+        padding: 16px 12px;
+    }
+
+    #footer .footer__container[b-zkicdfu3p8] {
+        padding: 24px 12px;
+    }
+
+        #footer .footer__container .footer-term[b-zkicdfu3p8] {
+            flex-direction: column;
+            align-items: center;
+        }
+
+    .footer-term .footer-term__content + .footer-term__content[b-zkicdfu3p8] {
+        margin-top: 8px;
+    }
+
+    .footer__container .footer-term .footer-term__content[b-zkicdfu3p8]::after {
+        content: "";
+        display: none;
+    }
+
+    #footer .footer__container .footer-copyright[b-zkicdfu3p8] {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__container .footer-copyright .footer-copyright__date[b-zkicdfu3p8]:after {
+        content: "";
+        display: none;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+    .header__container .nav-bar .nav-bar__action[b-zkicdfu3p8] {
+        display: none;
+    }
+
+    .header__container .nav-bar .nav-bar__search[b-zkicdfu3p8] {
+        display: none;
+    }
+
+    .header__container .nav-bar .nav-bar__identify[b-zkicdfu3p8] {
+        display: none;
+    }
+
+    .header__container .nav-bar .menu[b-zkicdfu3p8] {
+        display: block;
+    }
 }
 /* _content/EasyCodeAcademy.Web/Pages/Shared/_Layout.cshtml.rz.scp.css */
 #main[b-7wphbzlyta] {

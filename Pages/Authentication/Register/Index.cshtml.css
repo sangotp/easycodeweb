@@ -1,0 +1,132 @@
+﻿#main {
+    flex: 1 0 auto;
+}
+
+#content {
+}
+
+.content__container {
+}
+
+
+    .content__container .content-wrapper {
+        padding: 48px 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url("/Assets/img/login_register_background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+        .content__container .content-wrapper .return-home-action {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+.content-wrapper .return-home-action .return-home-action__link {
+}
+
+.return-home-action .return-home-action__link i {
+    color: var(--white);
+    font-size: 48px;
+}
+
+    .return-home-action .return-home-action__link i:hover {
+        box-shadow: 0px 0px 6px 0 var(--white);
+    }
+
+.content__container .content-wrapper .register-form-container {
+    width: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0px 0px 6px 0 var(--black);
+    padding: 8px 16px;
+}
+
+.content-wrapper .register-form-container .register-form-title {
+    text-align: center;
+    color: #525a63;
+}
+
+.content-wrapper .register-form-container .register-form-content {
+}
+
+.register-form-container .register-form-content .register-form {
+}
+
+.register-form-content .register-form .form-group--flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register-form .form-group--flex .form-group-half {
+    flex: 1;
+}
+
+.register-form-content .register-form .register-form-label {
+    display: block;
+}
+
+.register-form-content .register-form .register-form-input {
+    padding: 8px 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.register-form-container .register-form-content .register-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-form-content .register-action .register-action__login {
+}
+
+
+.register-form-container .register-form-content .submit-register-form-btn {
+    text-align: right;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    width: 100%;
+    text-align: center;
+}
+
+    .register-form-container .register-form-content .submit-register-form-btn:hover {
+        background-color: rgba(182, 182, 182, 0.25);
+    }
+
+
+
+
+
+
+/* Display On: PC, Tablet, Mobile */
+/*PC*/
+@media (min-width: 64em) {
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+    .content__container .content-wrapper {
+        padding: 0px 48px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .content__container .content-wrapper {
+        padding: 0px 12px;
+    }
+}
+
+/*Tablet and Mobile*/
+@media (max-width: 63.9375em) {
+}

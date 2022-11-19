@@ -1,6 +1,7 @@
 ﻿@page "/course/{id:int?}/learn/{lessonId:int?}/exercises"
 @model EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise.IndexModel
 @{
+    ViewData["Title"] = "EasyCode Academy - Exercises";
 }
 
 <div class="content__container">
@@ -46,11 +47,18 @@
                         }
                         else
                         {
-                            <div class="exercise-requirements">Requirements</div>
-                            <div class="exercise-description">
-                                <div class="exercise-description__title text-bold mt-8">Description</div>
-                                <div class="exercise-description__content mt-8">Desc Content</div>
-                            </div>
+                            @if (Model.CourseLesson.CourseExerises is not null)
+                            {
+                                foreach (var courseExercise in Model.CourseLesson.CourseExerises.OrderBy(m => m.ExerciseId))
+                                {
+                                    <div class="exercise-requirements">@Html.Raw(courseExercise.Content)</div>
+                                    <div class="exercise-description">
+                                        <div class="exercise-description__title text-bold mt-8">Description</div>
+                                        <div class="exercise-description__content mt-8">@Html.Raw(courseExercise.Description)</div>
+                                    </div>
+                                    break;
+                                }
+                            }
                         }
                     </div>
                     <div class="exercises-tab-content" id="exercise-content-tab-work-place">Content For Work Place & Submission</div>
@@ -78,10 +86,7 @@
                                         </li>
                                     }
                                 } else {
-                                    if (countExercise == 0)
-                                    {
-                                        ++countExercise;
-                                    }
+                                    ++countExercise;
 
                                     @if (countExercise == 1)
                                     {
@@ -97,6 +102,10 @@
                                     }
                                 }
                             }
+                        } else {
+                            <li class="exercises-list__item">
+                                No Exercise Found.
+                            </li>
                         }
                     </ul>
                 </div>

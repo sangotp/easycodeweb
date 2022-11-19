@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using EasyCodeAcademy.Web.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EasyCodeAcademy.Web.Models
 {
-    public class EasyCodeContext : DbContext
+    public class EasyCodeContext : IdentityDbContext<AppUser>
     {
         public EasyCodeContext(DbContextOptions<EasyCodeContext> options) : base(options)
         {
@@ -29,6 +30,19 @@ namespace EasyCodeAcademy.Web.Models
                 .HasForeignKey<CourseDetails>(c => c.CourseDetailsId)
                 .OnDelete(DeleteBehavior.Cascade);
             });
+
+            // Remove Prefix "AspNet" For Identity Tables
+            foreach(var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                var tableName = entityType.GetTableName();
+                if(tableName is not null)
+                {
+                    if (tableName.StartsWith("AspNet"))
+                    {
+                        entityType.SetTableName(tableName.Substring(6));
+                    }
+                }
+            }
         }
 
         // Table
