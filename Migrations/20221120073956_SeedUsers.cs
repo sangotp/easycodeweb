@@ -27,7 +27,7 @@ namespace EasyCodeAcademy.Web.Migrations
                     }, values: new object[]
                     {
                         Guid.NewGuid().ToString(),
-                        $"email{i.ToString("D3")}@example.com",
+                        "User-"+i.ToString("D3"),
                         $"email{i.ToString("D3")}@example.com",
                         Guid.NewGuid().ToString(),
                         true,
