@@ -54,7 +54,15 @@
                                 </ul>
                             </li>
                             <li class="action-list__item ml-64">
-                                <a asp-page="/Manage/Index" class="action-link link-restart">Manage</a>
+                                <button type="button" class="action-btn btn-restart">Manage</button>
+                                <ul class="subnav-list">
+                                    <li class="subnav-list__item">
+                                        @*                                        <a asp-page="/Manage/Index" class="subnav-link">Site</a>.
+                                        <a asp-page="/Manage/User" class="subnav-link">User</a>*@
+                                        <a asp-page="/Manage/Index" class="nav-link text-dark">Site</a>
+                                        <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark">User</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -136,6 +144,24 @@
                                 <ul class="submenu-list mt-8">
                                     <li class="submenu-list__item">
                                         <a href="/documentation" class="submenu-link">Documentation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        @*Sub Menu Modal*@
+                        <div id="submenu-item-manage" class="submenu-modal__content">
+                            <div class="submenu-modal-container">
+                                <div class="submenu-return">
+                                    <button type="button" class="submenu-return__btn btn-restart"><i class="fa-solid fa-angle-left mr-8"></i>Return</button>
+                                </div>
+                                <h1 class="submenu-header mt-16">Manage</h1>
+                                <ul class="submenu-list mt-8">
+                                    <li class="submenu-list__item">
+                                        @*                                        <a asp-page="/Manage/Index" class="submenu-link">Site</a>
+                                        <a asp-page="/Manage/User" class="submenu-link">User</a>*@
+                                        <a asp-page="/Manage/Index" class="nav-link text-dark">Site</a>
+                                        <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark">User</a>
                                     </li>
                                 </ul>
                             </div>
@@ -267,6 +293,13 @@
                     {
                         menuModalContent.classList.add('hide');
                         referencesItem.classList.add('show');
+                    }
+                }
+                else if (item.id == 'sub-modal-manage') {
+                    const manageItem = document.getElementById('submenu-item-manage');
+                    if (manageItem) {
+                        menuModalContent.classList.add('hide');
+                        manageItem.classList.add('show');
                     }
                 }
             });

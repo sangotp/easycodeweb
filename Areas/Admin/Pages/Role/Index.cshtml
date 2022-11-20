@@ -1,0 +1,35 @@
+﻿@page "/admin/roles"
+@model EasyCodeAcademy.Web.Areas.Admin.Pages.Role.IndexModel
+@{
+    ViewData["Title"] = "EasyCode - Roles Management";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="mb-2">
+    <a asp-page="./Create" class="btn btn-success">Create Role</a>
+    <a asp-page="../User/Index" class="btn btn-success">Users List</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var role in Model.roles)
+        {
+            <tr>
+                <td>@role.Name</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-roleid="@role.Id" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-page="./Delete" asp-route-roleid="@role.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

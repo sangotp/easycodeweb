@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Assets\lib\" />
+    <Folder Include="wwwroot\Assets\lib\" />
     <Folder Include="wwwroot\Assets\uploads\video\" />
   </ItemGroup>
 

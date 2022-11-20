@@ -1,0 +1,27 @@
+﻿@page "/admin/roles/delete/{roleid}"
+@model EasyCodeAcademy.Web.Areas.Admin.Pages.Role.DeleteModel
+@{
+    ViewData["Title"] = "EasyCode - Delete Role";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p>Are you sure you want to delete <strong>@Model.role.Name</strong> role?</p>
+
+            <div class="form-group">
+                <input type="submit" value="Confirm" class="btn btn-danger" />
+                <a asp-page="./Index" class="btn btn-primary">Roles List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

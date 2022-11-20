@@ -77,6 +77,17 @@ namespace EasyCodeAcademy.Web
                 options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
 
             });
+
+            // Register Identity Error Service
+            services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
+
+            // Register Identity Login Service
+            services.ConfigureApplicationCookie(option =>
+            {
+                option.LoginPath = "/Identity/Account/Login";
+                option.LogoutPath = "/Identity/Account/Logout";
+                option.AccessDeniedPath = "/accessDenied.html";
+            });
         }
 
         // Setup Configure For Using HTTP Pipeline

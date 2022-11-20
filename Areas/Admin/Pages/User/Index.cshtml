@@ -1,0 +1,67 @@
+﻿@page "/admin/users"
+@model EasyCodeAcademy.Web.Areas.Admin.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "EasyCode - Users Management";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<p>Total Users: @Model.totalUsers</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>
+                    @if (string.IsNullOrEmpty(@user.RoleNames))
+                    {
+                        <a asp-page="./AddRole" asp-route-id="@user.Id" class="text-dark text-decoration-none">+ Add Roles</a>
+                    } 
+                    else 
+                    {
+                        <a asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                    }
+                    
+                </td>
+                <td>
+                    <a asp-page="./SetPassword" asp-route-id="@user.Id" class="btn btn-primary btn-sm">Set Password</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    //// xây dựng Func phát sinh Url từ page ./Index
+    //Func<int?, string> generateUrl = (int? _pagenumber) =>
+    //{
+    //    return Url.Page("./User", new { pageNumber = _pagenumber });
+    //};
+
+    //var datapaging = new
+    //{
+    //    currentPage = 2,    // trang hiện tại
+    //    countPages = 20,   // tổng  số trang
+    //    generateUrl = generateUrl
+    //};
+
+    var pagingmodel = new EasyCodeAcademy.Web.Helpers.PagingModel()
+    {
+        currentPage = Model.currentPage,
+        countPages = Model.countPages,
+        generateUrl = (int? p) => Url.Page("./Index", new {p = p})
+    };
+}
+
+@*<partial name="_Paging" model="@datapaging" />*@
+<partial name="_Paging" model="@pagingmodel" />
