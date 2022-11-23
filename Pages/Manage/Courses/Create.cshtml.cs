@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using EasyCodeAcademy.Web.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyCodeAcademy.Web.Pages_Manage_Courses
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly EasyCodeAcademy.Web.Models.EasyCodeContext _context;

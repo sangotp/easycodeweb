@@ -251,13 +251,17 @@
                                 <div class="course-card-author text-medium">Thanh Sang</div>
                                 <div class="course-card-price">
                                     <span class="card-price-normal text-heading">@Html.DisplayFor(modelItem => item.CoursePrice)$</span>
-                                    <span class="card-price-sales text-heading">8.99$</span>
-                                    <span class="card-price-status text-small">Best Sales</span>
+                                    @*<span class="card-price-normal card-price-normal-line-through text-heading">@Html.DisplayFor(modelItem => item.CoursePrice)$</span>*@
+                                    @*<span class="card-price-sales text-heading">8.99$</span>*@
+                                    @*<span class="card-price-status text-small">Best Sales</span>*@
                                 </div>
                                 <div class="course-card-action">
                                     <div class="card-action-container card-action-container--btn">
                                         <i class="fa-solid fa-plus icon-btn"></i>
-                                        <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                                        <form action="/Inventory/Add?courseid=@item.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="card-action-btn btn-restart">Inventory</button>
+                                        </form>
                                     </div>
                                     <div class="card-action-container card-action-container--link">
                                         <i class="fa-solid fa-info icon-link"></i>

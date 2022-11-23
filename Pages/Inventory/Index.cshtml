@@ -1,0 +1,133 @@
+﻿@page "/inventory"
+@model EasyCodeAcademy.Web.Pages.Inventory.IndexModel
+@{
+    Layout = "/Pages/Shared/_Identity_Layout.cshtml";
+}
+
+<h2>Inventory</h2>
+
+@if (Model.Count > 0)
+{
+    decimal total = 0;
+    int stt = 1;
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Course</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Into Money</th>
+            <th></th>
+        </tr>
+        @foreach (var cartitem in Model.cartItems)
+        {
+            var thanhtien = cartitem.quantity * cartitem.course.CoursePrice;
+            total += thanhtien;
+
+            <tr>
+                <td class="align-middle">@(stt++)</td>
+                <td class="align-middle"><img src="/Assets/uploads/@cartitem.course.CourseImage" alt="Course Image" class="content-img" width="140" /></td>
+                <td class="align-middle">@cartitem.course.CourseName</td>
+                <td class="align-middle">@(cartitem.course.CoursePrice.ToString("n2"))$</td>
+                <td class="align-middle"><input asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.course.CourseId}")" /></td>
+                <td class="align-middle">@(thanhtien.ToString("n2"))$</td>
+                <td class="align-middle">
+                    <form class="d-inline" id="update-inventory-form-@cartitem.course.CourseId" enctype="application/x-www-form-urlencoded">
+                        @Html.AntiForgeryToken()
+                        <button type="button" class="btn btn-success updateinventoryitem"
+                        data-courseid="@cartitem.course.CourseId" id="update-inventory-btn-@cartitem.course.CourseId">
+                            Update
+                        </button>
+                    </form>
+                    <form class="d-inline" action="/Inventory/Remove?courseid=@cartitem.course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5" class="text-right">Total</td>
+            <td>@(total.ToString("n2"))$</td>
+            <td></td>
+        </tr>
+    </table>
+    <form class="d-inline" action="/Inventory/PaypalCheckout" method="post" enctype="application/x-www-form-urlencoded">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-lg btn-primary float-end">Checkout</button>
+    </form>
+
+    @section Scripts {
+@*    <script src="~/Assets/lib/jquery3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".updateinventoryitem").click(function (event) {
+                event.preventDefault();
+                var courseid = $(this).attr("data-courseid");
+                var quantity = $("#quantity-" + courseid).val();
+                var reqestToken = new FormData(document.getElementById("update-inventory-form")).get('__RequestVerificationToken');
+                $.ajax({
+                    type: "POST",
+                    url: "/Inventory/Update",
+                    data: {
+                        courseid: courseid,
+                        quantity: quantity,
+                        RequestVerificationToken: reqestToken
+                    },
+                    success: function (result) {
+                        window.location.href = "@Url.RouteUrl("Inventory")";
+                    }
+                });
+            });
+        });
+    </script>*@
+    <script type="text/javascript">
+        var updateInventoryBtns = document.querySelectorAll(".updateinventoryitem");
+        updateInventoryBtns.forEach(item => {
+            item.addEventListener("click", function() {
+                var courseid = item.getAttribute("data-courseid");
+                var quantity = document.getElementById("quantity-" + courseid).value;
+
+                // Create an XMLHttpRequest object
+                const xhttp = new XMLHttpRequest();
+
+                // Define a callback function
+                xhttp.onload = function () {
+                    if (xhttp.status === 200) {
+                        //// What to do when the response is ready
+                        //let response = JSON.parse(xhttp.responseText);
+                        //if (response != undefined && response != null) {
+                        //    console.log(response);
+                        //    window.location.href = "@Url.RouteUrl("Inventory")";
+                        //} else {
+                        //    alert("Data Not Found.");
+                        //}
+                        window.location.href = "@Url.RouteUrl("Inventory")";
+                    } else {
+                        //alert(xhttp.status);
+                        alert("Cannot Update Inventory \"Invalid Request Information.\"");
+                    }
+                }
+
+                //let url = editForm.action;
+                let url = `/Inventory/Update`;
+                let data = new FormData(document.getElementById("update-inventory-form-" + courseid));
+                data.append("courseid", courseid);
+                data.append("quantity", quantity);
+
+                // Send a request
+                xhttp.open("POST", url);
+                xhttp.setRequestHeader("RequestVerificationToken", data.get('__RequestVerificationToken'));
+                xhttp.send(data);
+            });
+        });
+    </script>
+      }
+
+}
+else
+{
+    <p class="alert alert-danger">Inventory Is Empty.</p>
+}

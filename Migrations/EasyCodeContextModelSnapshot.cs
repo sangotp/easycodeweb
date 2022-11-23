@@ -312,6 +312,42 @@ namespace EasyCodeAcademy.Web.Migrations
                     b.ToTable("courseLessons");
                 });
 
+            modelBuilder.Entity("EasyCodeAcademy.Web.Models.ECAPayment", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Method")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("courseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("created_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("paymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("updated_date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ECAPayments");
+                });
+
             modelBuilder.Entity("EasyCodeAcademy.Web.Models.Topic", b =>
                 {
                     b.Property<int>("TopicId")
@@ -529,6 +565,17 @@ namespace EasyCodeAcademy.Web.Migrations
                     b.Navigation("Chapter");
                 });
 
+            modelBuilder.Entity("EasyCodeAcademy.Web.Models.ECAPayment", b =>
+                {
+                    b.HasOne("EasyCodeAcademy.Web.Models.AppUser", "User")
+                        .WithMany("ECAPayments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EasyCodeAcademy.Web.Models.Topic", b =>
                 {
                     b.HasOne("EasyCodeAcademy.Web.Models.Category", "Category")
@@ -589,6 +636,11 @@ namespace EasyCodeAcademy.Web.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyCodeAcademy.Web.Models.AppUser", b =>
+                {
+                    b.Navigation("ECAPayments");
                 });
 
             modelBuilder.Entity("EasyCodeAcademy.Web.Models.Category", b =>

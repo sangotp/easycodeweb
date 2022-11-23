@@ -1,0 +1,60 @@
+﻿@page
+@model EasyCodeAcademy.Web.Areas.Identity.Pages.Account.Manage.PaymentHistoryModel
+@{
+    ViewData["Title"] = "Payment History";
+    ViewData["ActivePage"] = ManageNavPages.OwnedCoursesAndPayment;
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6 w-100">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a asp-page="./OwnedCoursesAndPayment" class="nav-link">Owned Courses</a>
+            </li>
+            <li class="nav-item">
+                <a asp-page="./PaymentHistory" class="nav-link active" aria-current="page">Payment History</a>
+            </li>
+        </ul>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Paypal Payment Id</th>
+                <th>Method</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            @if (Model.ECAPayments is not null)
+            {
+                int stt = 1;
+                @foreach (var payment in Model.ECAPayments.OrderByDescending(c => c.created_date))
+                {
+                    <tr>
+                        <td class="align-middle">@(stt++)</td>
+                        <td class="align-middle">@payment.paymentId</td>
+                        <td class="align-middle">@payment.Method</td>
+                        <td class="align-middle">
+                            @if(payment.Status == 1)
+                            {
+                                <span class="badge bg-success">Success</span>
+                            } else {
+                                <span class="badge bg-danger">Failed</span>
+                            }
+                        </td>
+                        <td class="align-middle">@payment.created_date</td>
+@*                        <td class="align-middle">
+                            <a asp-page="./PaymentHistory" asp-route-paymentId="@payment.paymentId" asp-page-handler="PaypalPaymentDetails" class="btn btn-primary float-end">Payment Details</a>
+                        </td>*@
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

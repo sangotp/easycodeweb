@@ -601,3 +601,10 @@ D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\De
 D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
 D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\libman.json
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\BraintreeHttp-Dotnet.dll
+D:\GCS190156\TopUp\Final Project\Project\Education Clone\v1.6\easycodeweb\bin\Debug\net6.0\Source.dll

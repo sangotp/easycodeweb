@@ -59,5 +59,7 @@ namespace EasyCodeAcademy.Web.Models
         public DbSet<CourseLesson> courseLessons { get; set; }
 
         public DbSet<CourseExerise> courseExerises { get; set; }
+
+        public DbSet<ECAPayment> ECAPayments { get; set; }
     }
 }

@@ -7,12 +7,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyCodeAcademy.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EasyCodeAcademy.Web.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly UserManager<AppUser> _userManager;
@@ -62,7 +64,7 @@ namespace EasyCodeAcademy.Web.Areas.Identity.Pages.Account.Manage
 
             [StringLength(400)]
             [Display(Name = "Address")]
-            public string? HomeAddress { get; set; }
+            public string HomeAddress { get; set; }
 
             [Display(Name = "Birth Date")]
             public DateTime? BirthDate { get; set; }

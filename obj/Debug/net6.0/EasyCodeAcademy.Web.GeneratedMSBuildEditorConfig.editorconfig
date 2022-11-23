@@ -151,6 +151,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/OwnedCoursesAndPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcT3duZWRDb3Vyc2VzQW5kUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/PaymentHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGF5bWVudEhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -235,6 +243,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Checkout/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XENoZWNrb3V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Checkout/Paypal/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XENoZWNrb3V0XFBheXBhbFxDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Checkout/Paypal/Failed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XENoZWNrb3V0XFBheXBhbFxGYWlsZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Checkout/Paypal/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XENoZWNrb3V0XFBheXBhbFxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Inventory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3J5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -245,6 +285,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Manage/Courses/Chapters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlXENvdXJzZXNcQ2hhcHRlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_CartPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9DYXJ0UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/GCS190156/TopUp/Final Project/Project/Education Clone/v1.6/easycodeweb/Pages/Shared/_LoginPartial.cshtml]

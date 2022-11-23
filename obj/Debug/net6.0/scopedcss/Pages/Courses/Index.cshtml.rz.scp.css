@@ -279,6 +279,10 @@
 }
 
 .course-card__container .course-card-price .card-price-normal[b-t7c477m7aw] {
+    
+}
+
+.course-card__container .course-card-price .card-price-normal-line-through[b-t7c477m7aw] {
     text-decoration: line-through;
 }
 

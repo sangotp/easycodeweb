@@ -1,0 +1,59 @@
+﻿@page
+@model EasyCodeAcademy.Web.Areas.Identity.Pages.Account.Manage.OwnedCoursesAndPaymentModel
+@{
+    ViewData["Title"] = "Owned Courses";
+    ViewData["ActivePage"] = ManageNavPages.OwnedCoursesAndPayment;
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6 w-100">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a asp-page="./OwnedCoursesAndPayment" class="nav-link active" aria-current="page">Owned Courses</a>
+            </li>
+            <li class="nav-item">
+                <a asp-page="./PaymentHistory" class="nav-link">Payment History</a>
+            </li>
+        </ul>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Course</th>
+                <th>Status</th>
+                <th>Pay Total</th>
+                <th></th>
+            </tr>
+            @if (Model.Courses is not null && Model.ECAPayments is not null)
+            {
+                int stt = 1;
+                @foreach (var course in Model.Courses)
+                {
+                    foreach (var payment in Model.ECAPayments.OrderByDescending(c => c.created_date))
+                    {
+                        if (payment.courseId == course.CourseId && payment.Status == 1)
+                        {
+                            <tr>
+                                <td class="align-middle">@(stt++)</td>
+                                <td class="align-middle"><img src="/Assets/uploads/@course.CourseImage" alt="Course Image" class="content-img" width="140" /></td>
+                                <td class="align-middle">@course.CourseName</td>
+                                <td class="align-middle"><span class="badge bg-success">Owned</span></td>
+                                <td class="align-middle"><strong class="text-danger">-@course.CoursePrice.ToString("n2")$</strong></td>
+@*                                <td class="align-middle">
+                                    <a asp-page="./PaymentHistory" asp-route-paymentId="@payment.paymentId" asp-page-handler="PaypalPaymentDetails" class="btn btn-primary float-end">Payment Details</a>
+                                </td>*@
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

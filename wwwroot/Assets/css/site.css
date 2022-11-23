@@ -240,6 +240,7 @@ body {
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: "Century Gothic";
 }
 
 .padding-item-link {
@@ -363,6 +364,50 @@ body {
 
 .z-index-10001 {
     z-index: 10001 !important;
+}
+
+.site-subnav-link {
+    padding: 8px 24px;
+    text-decoration: none;
+    color: var(--text-black);
+    display: inline-block;
+}
+
+.site-subnav-link:hover {
+    color: var(--blue_purple);
+}
+
+.site-user-signup {
+    padding: 8px 16px;
+    color: var(--white);
+    background-color: var(--blue_purple);
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Century Gothic';
+}
+
+.site-user-signup:hover {
+    color: var(--white);
+}
+
+.site-user-login {
+    padding: 8px 16px;
+    border: 1px solid var(--black);
+    color: var(--black);
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Century Gothic';
+}
+
+.site-user-login:hover {
+    color: var(--black);
+}
+
+.site-link-hover {
+
+}
+.site-link-hover:hover {
+    color: var(--blue_purple);
 }
 
 /* For summernote override unordered and order list */

@@ -5,6 +5,10 @@
     {
       "library": "multiple-select@1.2.3",
       "destination": "wwwroot/Assets/lib/multiple-select"
+    },
+    {
+      "library": "jquery@3.6.1",
+        "destination": "wwwroot/Assets/lib/jquery3.6.1"
     }
   ]
 }

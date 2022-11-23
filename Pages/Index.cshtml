@@ -2,18 +2,27 @@
 @model EasyCodeAcademy.Web.Pages.IndexModel
 @{
 }
+@using Microsoft.AspNetCore.Identity
+@using EasyCodeAcademy.Web.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 <div class="content__container">
     <div class="banner-join">
         <div class="banner-join__title sub-heading">Hard To Find The Way To Learn Coding?_</div>
         <div class="banner-join__content mt-8">
             Join us now to take a roadmap that we
-            providing in details for variety courses 
+            providing in details for variety courses
             like: "Programming Language, Web, Mobile App, Game Development and more."
         </div>
-        <div class="banner-join__link mt-32">
-            <a href="/Authentication/Login" class="join-link">Join Now</a>
-        </div>
+        @{
+            if (UserManager.GetUserId(User) == null)
+            {
+                <div class="banner-join__link mt-32">
+                    <a href="/Authentication/Login" class="join-link">Join Now</a>
+                </div>
+            }
+        }
     </div>
 
     <div class="banner-courses">
@@ -41,7 +50,7 @@
             Code Challenge activity is waiting for you to find out.
         </div>
         <div class="banner-activities__description">
-            This activity help you improve your coding skills 
+            This activity help you improve your coding skills
             also logical thinking about problem.
         </div>
         <div class="banner-activities__content mt-8">
@@ -51,30 +60,30 @@
                     Programming Language
                 </button>
                 <div class="challenge-field__description">
-                    Programming Language is an important field 
-                    that developer need to focus on and have a lot of knowledge 
-                    . This programming language challenge help you try to solve 
-                    and understand all the problem that occurs when coding in 
+                    Programming Language is an important field
+                    that developer need to focus on and have a lot of knowledge
+                    . This programming language challenge help you try to solve
+                    and understand all the problem that occurs when coding in
                     specific programming language such as:  C, C++, C#, Java, Python,etc...
                 </div>
             </div>
             <div class="challenge-field mt-8">
-                 <button type="button" class="btn-restart challenge-field__btn  text-heading">
-                     <i class="fa-solid fa-plus mr-8"></i>
-                     Problem Solving
-                 </button>
+                <button type="button" class="btn-restart challenge-field__btn  text-heading">
+                    <i class="fa-solid fa-plus mr-8"></i>
+                    Problem Solving
+                </button>
             </div>
             <div class="challenge-field mt-8">
-                 <button type="button" class="btn-restart challenge-field__btn text-heading">
-                     <i class="fa-solid fa-plus mr-8"></i>
-                     Data Structure & Algorithm
-                 </button>
+                <button type="button" class="btn-restart challenge-field__btn text-heading">
+                    <i class="fa-solid fa-plus mr-8"></i>
+                    Data Structure & Algorithm
+                </button>
             </div>
             <div class="challenge-field mt-8">
-                 <button type="button" class="btn-restart challenge-field__btn text-heading">
-                     <i class="fa-solid fa-plus mr-8"></i>
-                     Mathematics
-                 </button>
+                <button type="button" class="btn-restart challenge-field__btn text-heading">
+                    <i class="fa-solid fa-plus mr-8"></i>
+                    Mathematics
+                </button>
             </div>
             <div class="challenge-field mt-8">
                 <a href="" class="challenge-field__link text-heading">More...</a>
@@ -88,7 +97,7 @@
         </div>
         <div class="banner-references__content">
             <span class="banner-references-desc text-heading">
-                References is the best place to store all 
+                References is the best place to store all
                 needed information around the coding field, skills, documentation,etc...
                 Everyone can gather and understand the core knowledge from here.
             </span>
@@ -102,10 +111,9 @@
         // Toggle Display Challenge Field Button Description
         const challengeBtns = document.querySelectorAll('.challenge-field__btn');
         challengeBtns.forEach(item => {
-            item.addEventListener("click", function() {
+            item.addEventListener("click", function () {
                 // if next element sibling of button not null
-                if(item.nextElementSibling)
-                {
+                if (item.nextElementSibling) {
                     // if next element sibling contains class 'challenge-field__description'
                     if (item.nextElementSibling.classList.contains('challenge-field__description')) {
                         item.nextElementSibling.classList.toggle('show');

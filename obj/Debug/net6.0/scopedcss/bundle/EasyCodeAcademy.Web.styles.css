@@ -2538,6 +2538,10 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 }
 
 .course-card__container .course-card-price .card-price-normal[b-t7c477m7aw] {
+    
+}
+
+.course-card__container .course-card-price .card-price-normal-line-through[b-t7c477m7aw] {
     text-decoration: line-through;
 }
 
@@ -6444,6 +6448,7 @@ select:-webkit-autofill:focus[custom-chapter-index] {
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .nav-bar .nav-bar__brand .brand-home:hover[b-zkicdfu3p8] {
@@ -6457,6 +6462,8 @@ select:-webkit-autofill:focus[custom-chapter-index] {
 .nav-bar .nav-bar__action .action-list[b-zkicdfu3p8] {
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-bar__action .action-list .action-list__item[b-zkicdfu3p8] {
@@ -6467,6 +6474,7 @@ select:-webkit-autofill:focus[custom-chapter-index] {
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .action-list .action-list__item .action-link:hover[b-zkicdfu3p8] {
@@ -6497,6 +6505,7 @@ select:-webkit-autofill:focus[custom-chapter-index] {
     left: 0;
     box-shadow: 0px 0px 3px 0px #000;
     background-color: var(--white);
+    padding: 0;
 }
 
 .action-list .action-list__item .subnav-list[b-zkicdfu3p8] {
@@ -6508,6 +6517,7 @@ select:-webkit-autofill:focus[custom-chapter-index] {
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .subnav-list .subnav-list__item .subnav-link:hover[b-zkicdfu3p8] {

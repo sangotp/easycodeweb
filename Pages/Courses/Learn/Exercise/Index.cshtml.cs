@@ -1,10 +1,12 @@
 using EasyCodeAcademy.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly EasyCodeContext _context;

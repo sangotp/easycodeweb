@@ -37,6 +37,7 @@
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .nav-bar .nav-bar__brand .brand-home:hover {
@@ -50,6 +51,8 @@
 .nav-bar .nav-bar__action .action-list {
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-bar__action .action-list .action-list__item {
@@ -60,6 +63,7 @@
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .action-list .action-list__item .action-link:hover {
@@ -90,6 +94,7 @@
     left: 0;
     box-shadow: 0px 0px 3px 0px #000;
     background-color: var(--white);
+    padding: 0;
 }
 
 .action-list .action-list__item .subnav-list {
@@ -101,6 +106,7 @@
     text-decoration: none;
     color: var(--text-black);
     display: inline-block;
+    font-family: 'Century Gothic';
 }
 
     .subnav-list .subnav-list__item .subnav-link:hover {

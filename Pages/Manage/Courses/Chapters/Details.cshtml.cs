@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EasyCodeAcademy.Web.Models;
 using NuGet.Protocol;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyCodeAcademy.Web.Pages_Manage_Courses_Chapters
 {
+    [Authorize(Roles = "Admin")]
     public class DetailsModel : PageModel
     {
         private readonly EasyCodeAcademy.Web.Models.EasyCodeContext _context;

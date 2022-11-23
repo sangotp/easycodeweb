@@ -1,0 +1,26 @@
+﻿@page "/Inventory/PaypalCheckout/Confirm"
+@model EasyCodeAcademy.Web.Pages.Inventory.Checkout.Paypal.ConfirmModel
+@{
+    Layout = "/Pages/Shared/_Identity_Layout.cshtml";
+}
+
+<div class="card">
+  <h5 class="card-header">Confirm Paypal Payment</h5>
+  <div class="card-body">
+    @*<h5 class="card-title">Special title treatment</h5>*@
+        <p class="card-text">
+            To Continues Checkout Process You Need To Confirm. 
+            After you confirm, 
+            Your Paypal account will be deducted some amount. 
+            If you cancel, all the checkout process will stopped
+        </p>
+        <h6 class="card-text">Your Paypal Account: <strong class="text-danger">-@Model.total.ToString("n2")$</strong></h6>
+        <div class="float-end">
+            <a href="/Inventory/PaypalCheckout/Failed?paymentId=@Model.paymentId" class="btn btn-danger">Cancel</a>
+            <form class="d-inline" action="/Inventory/PaypalCheckout/Confirm?paymentId=@Model.paymentId&token=@Model.token&PayerID=@Model.PayerID" method="post" enctype="application/x-www-form-urlencoded">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@using EasyCodeAcademy.Web.Helpers
+@inject IHttpContextAccessor HttpContextAccessor
+
+@using Microsoft.AspNetCore.Identity
+@using EasyCodeAcademy.Web.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+@{
+    if (SignInManager.IsSignedIn(User))
+    {
+        const string CARTKEY = "cart";
+        var session = HttpContextAccessor.HttpContext.Session;
+        string jsoncart = session.GetString(CARTKEY);
+        if (jsoncart != null)
+        {
+            var cart = JsonConvert.DeserializeObject<List<CartItem>>(jsoncart);
+            <div><a class="link-restart site-link-hover" asp-page="/Inventory/Index">Inventory(@cart.Count)</a></div>
+
+        }
+    }
+}

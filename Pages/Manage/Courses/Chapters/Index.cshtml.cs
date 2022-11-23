@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using EasyCodeAcademy.Web.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using NuGet.Protocol;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyCodeAcademy.Web.Pages_Manage_Courses_Chapters
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly EasyCodeAcademy.Web.Models.EasyCodeContext _context;

@@ -86,7 +86,11 @@
                 <span class="course-price-status text-small">Best Sales</span>
             </div>
             <div class="course-info__action mt-32">
-                <button type="button" class="course-add-inventory btn-restart">+ Inventory</button>
+                <form action="/Inventory/Add?courseid=@Model.Course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="course-add-inventory btn-restart">+ Inventory</button>
+                </form>
+
                 <a href="#" class="course-purchase">Buy Now</a>
             </div>
         </div>
@@ -341,14 +345,17 @@
                     <div class="course-content-summary__all">
                         @if (Model.Course.CourseChapters is not null)
                         {
-                            if(Model.Course.CourseChapters.Count >= 0 && Model.Course.CourseChapters.Count <= 1)
+                            if (Model.Course.CourseChapters.Count >= 0 && Model.Course.CourseChapters.Count <= 1)
                             {
                                 <span class="course-summary-item">@Model.Course.CourseChapters.Count Chapter</span>
-                            } else if (Model.Course.CourseChapters.Count > 1)
+                            }
+                            else if (Model.Course.CourseChapters.Count > 1)
                             {
                                 <span class="course-summary-item">@Model.Course.CourseChapters.Count Chapters</span>
                             }
-                        } else {
+                        }
+                        else
+                        {
                             <span class="course-summary-item">0 Chapter</span>
                         }
                         @if (Model.Course.CourseChapters is not null)
@@ -356,24 +363,27 @@
                             int countlesson = 0;
                             foreach (var courseChapter in Model.Course.CourseChapters)
                             {
-                                @if(courseChapter.CourseLessons is not null)
+                                @if (courseChapter.CourseLessons is not null)
                                 {
                                     countlesson += courseChapter.CourseLessons.Count;
                                 }
                             }
 
-                            if(countlesson >= 0 && countlesson <= 1)
+                            if (countlesson >= 0 && countlesson <= 1)
                             {
                                 <span class="course-summary-item">@countlesson lesson</span>
-                            } else if (countlesson > 1)
+                            }
+                            else if (countlesson > 1)
                             {
                                 <span class="course-summary-item">@countlesson lessons</span>
                             }
-                            
-                        } else {
+
+                        }
+                        else
+                        {
                             <span class="course-summary-item">0 Lesson</span>
                         }
-                        
+
                         <span class="course-summary-item">Duration: NAN hours</span>
                     </div>
                     <div class="course-content-summary__action">
@@ -403,7 +413,7 @@
                                     <ul class="course-lesson-list">
                                         @if (courseChapter.CourseLessons is not null)
                                         {
-                                            if(courseChapter.CourseLessons.Count > 0)
+                                            if (courseChapter.CourseLessons.Count > 0)
                                             {
                                                 foreach (var courseLesson in courseChapter.CourseLessons)
                                                 {
@@ -419,24 +429,28 @@
                                                             </div>
                                                         </div>
                                                         <div class="course-lesson-expand">
-                                                            @if(courseLesson.CourseExerises is not null)
+                                                            @if (courseLesson.CourseExerises is not null)
                                                             {
-                                                                if(courseLesson.CourseExerises.Count >= 0 && courseLesson.CourseExerises.Count <= 1)
+                                                                if (courseLesson.CourseExerises.Count >= 0 && courseLesson.CourseExerises.Count <= 1)
                                                                 {
                                                                     <button type="button" id="expand-exercise-btn-@courseLesson.LessonId" class="lesson-expand-exercises_btn btn-restart"><i class="fa-solid fa-network-wired"></i>@courseLesson.CourseExerises.Count Exercise</button>
-                                                                } else if(courseLesson.CourseExerises.Count > 1) {
+                                                                }
+                                                                else if (courseLesson.CourseExerises.Count > 1)
+                                                                {
                                                                     <button type="button" id="expand-exercise-btn-@courseLesson.LessonId" class="lesson-expand-exercises_btn btn-restart"><i class="fa-solid fa-network-wired"></i>@courseLesson.CourseExerises.Count Exercises</button>
                                                                 }
-                                                            } else {
+                                                            }
+                                                            else
+                                                            {
                                                                 <button type="button" id="expand-exercise-btn-@courseLesson.LessonId" class="lesson-expand-exercises_btn btn-restart"><i class="fa-solid fa-network-wired"></i>0 Exercise</button>
                                                             }
-                                                            
+
                                                         </div>
                                                         @*Exercise*@
                                                         <ul class="course-exercise-list" id="exercise-list-@courseLesson.LessonId">
                                                             @if (courseLesson.CourseExerises is not null)
                                                             {
-                                                                foreach(var courseExercise in courseLesson.CourseExerises)
+                                                                foreach (var courseExercise in courseLesson.CourseExerises)
                                                                 {
                                                                     <li class="course-exercise-list__item">
                                                                         <div class="course-exercise-item-container">
@@ -451,7 +465,9 @@
                                                         </ul>
                                                     </li>
                                                 }
-                                            } else {
+                                            }
+                                            else
+                                            {
                                                 <li class="course-lesson-list__item" id="not-found-lesson-item">
                                                     <div class="course-lesson-item-container">
                                                         <div class="course-lesson-action">

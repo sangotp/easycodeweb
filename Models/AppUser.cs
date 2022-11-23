@@ -13,5 +13,8 @@ namespace EasyCodeAcademy.Web.Models
 
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
+
+        // User - Payment (1 - Many)
+        public ICollection<ECAPayment>? ECAPayments { get; set; }
     }
 }

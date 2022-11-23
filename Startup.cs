@@ -89,6 +89,13 @@ namespace EasyCodeAcademy.Web
                 option.LogoutPath = "/Identity/Account/Logout";
                 option.AccessDeniedPath = "/accessDenied.html";
             });
+
+            // Register Session Service
+            services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+            services.AddSession(cfg => {                    // Đăng ký dịch vụ Session
+                cfg.Cookie.Name = "xuanthulab";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
+                cfg.IdleTimeout = new TimeSpan(0, 30, 0);    // Thời gian tồn tại của Session
+            });
         }
 
         // Setup Configure For Using HTTP Pipeline
@@ -105,6 +112,7 @@ namespace EasyCodeAcademy.Web
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 // Razor Page Endpoint

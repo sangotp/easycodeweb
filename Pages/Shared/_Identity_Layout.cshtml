@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using EasyCodeAcademy.Web.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -53,24 +58,36 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="action-list__item ml-64">
-                                <button type="button" class="action-btn btn-restart">Manage</button>
-                                <ul class="subnav-list">
-                                    <li class="subnav-list__item">
-@*                                        <a asp-page="/Manage/Index" class="subnav-link">Site</a>.
+                            @{
+                                if (UserManager.GetUserId(User) != null)
+                                {
+                                    var user = await UserManager.FindByIdAsync(UserManager.GetUserId(User));
+                                    var roles = await UserManager.GetRolesAsync(user);
+                                    if (roles.Contains("Admin"))
+                                    {
+                                        <li class="action-list__item ml-64">
+                                            <button type="button" class="action-btn btn-restart">Manage</button>
+                                            <ul class="subnav-list">
+                                                <li class="subnav-list__item">
+                                                    @*                                        <a asp-page="/Manage/Index" class="subnav-link">Site</a>.
                                         <a asp-page="/Manage/User" class="subnav-link">User</a>*@
-                                        <a asp-page="/Manage/Index" class="nav-link text-dark">Site</a>
-                                        <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark">User</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                                    <a asp-page="/Manage/Index" class="nav-link text-dark">Site</a>
+                                                    <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark">User</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            }
                         </ul>
                     </div>
-                    <div class="nav-bar__search ml-auto"><i class="fa-solid fa-magnifying-glass"></i></div>
+@*                    <div class="nav-bar__search ml-auto"><i class="fa-solid fa-magnifying-glass"></i></div>*@
+                    <div class="ml-auto">@await Html.PartialAsync("_CartPartial")</div>
 @*                    <div class="nav-bar__identify ml-32">
                         <a href="/Authentication/Register" class="user-signup">Sign Up</a>
                         <a href="/Authentication/Login" class="user-login ml-8">Log In</a>
                     </div>*@
+@*                    <div class="nav-bar__inventory ml-auto"><a href="" class="link-restart site-link-hover"><i class="fa-solid fa-box-archive"></i></a></div>*@
                     <partial name="_LoginPartial"/>
                     @*Menu Mobile*@
                     <div class="menu ml-auto">
