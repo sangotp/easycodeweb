@@ -1265,8 +1265,11 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 }
 
 .course-info .course-info__price .course-price-normal[custom-page-course-details] {
-    text-decoration: line-through;
     margin-right: 8px;
+}
+
+.course-info .course-info__price .course-price-normal--line-through[custom-page-course-details] {
+    text-decoration: line-through;
 }
 
 .course-info .course-info__price .course-price-sales[custom-page-course-details] {
@@ -1285,6 +1288,7 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 
 .course-details-info .course-info .course-info__action[custom-page-course-details] {
     display: flex;
+    position: relative;
 }
 
 .course-info .course-info__action .course-add-inventory[custom-page-course-details] {
@@ -1298,16 +1302,23 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 .course-info .course-info__action .course-purchase[custom-page-course-details] {
     background-color: var(--green);
     padding: 8px 24px;
-    text-decoration: none;
     box-shadow: 0px 0px 6px 0 var(--green);
     color: var(--white);
     border: 1px solid var(--green);
     font-weight: bold;
-    display: inline-block;
     width: 140px;
     min-width: 140px;
     text-align: center;
-    margin-left: 16px;
+}
+
+.course-info .course-info__action .course-purchase-owned[custom-page-course-details] {
+    padding: 8px 24px;
+    color: var(--green);
+    border: 1px solid var(--green);
+    font-weight: bold;
+    width: 140px;
+    min-width: 140px;
+    text-align: center;
 }
 
 .content__container .course-details-info .course-video[custom-page-course-details] {
@@ -1942,6 +1953,46 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     align-items: stretch;
 }
 
+.course-details-rate__content .course-rate-content .course-rate-content__comment[custom-page-course-details] {
+    display: flex;
+    align-items: stretch;
+}
+
+.course-rate-content .course-rate-content__comment .rate-comment-container[custom-page-course-details] {
+    flex: 1;
+    position: relative;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-input[custom-page-course-details] {
+    padding: 12px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    width: 60%;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-select[custom-page-course-details] {
+    height: 100%;
+    display: inline-block;
+    border: 1px solid #bbbbbb;
+    padding: 12px 48px 12px 12px;
+    outline: none;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-btn[custom-page-course-details] {
+    border: 1px solid var(--green);
+    padding: 6px 24px;
+    display: inline-flex;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: bold;
+    height: 100%;
+}
+
+.rate-comment-container .rate-comment-form .comment-btn-disabled[custom-page-course-details] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
 .course-rate-content .course-rate-content__search .rate-search-container[custom-page-course-details] {
     flex: 1;
     position: relative;
@@ -2375,6 +2426,17 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     border-left: 0px;
 }
 
+.content-wrapper .category-content .category-content__paging[b-t7c477m7aw] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: sticky;
+    top: 80px;
+    background-color: var(--white);
+    z-index: 1;
+}
+
 .content-wrapper .category-content .category-content__filter[b-t7c477m7aw] {
     display: flex;
     align-items: center;
@@ -2508,6 +2570,7 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    max-height:280px;
 }
 
 .category-content__courses .course-card .course-card__container[b-t7c477m7aw] {
@@ -2576,6 +2639,12 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     border-radius: 4px;
 }
 
+.course-card-action .card-action-container.card-action-container--btn-owned[b-t7c477m7aw] {
+    /*background-color: var(--black);*/
+    border: 1px solid var(--green);
+    border-radius: 4px;
+}
+
 .course-card-action .card-action-container.card-action-container--link[b-t7c477m7aw] {
     background-color: var(--bright-blue);
     border: 1px solid var(--bright-blue);
@@ -2586,6 +2655,10 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     margin-right: 8px;
 }
 
+.course-card-action .card-action-container .icon-owned[b-t7c477m7aw] {
+    color: var(--green);
+}
+
 .course-card-action .card-action-container .icon-btn[b-t7c477m7aw] {
     color: var(--white);
 }
@@ -2593,6 +2666,31 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
 .course-card-action .card-action-container .card-action-btn[b-t7c477m7aw] {
     font-weight: bold;
     color: var(--white);
+}
+
+.course-card-action .card-action-container .card-action-btn[b-t7c477m7aw]::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.course-card-action .card-action-container .card-action-btn-owned[b-t7c477m7aw] {
+    font-weight: bold;
+    color: var(--green);
+}
+
+.course-card-action .card-action-container .card-action-btn-owned[b-t7c477m7aw]::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .course-card-action .card-action-container .icon-link[b-t7c477m7aw] {
@@ -2937,6 +3035,10 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     justify-content: space-between;
 }
 
+.course-lesson-list .course-lesson-list__item.course-lesson-list__item--active[custom-page-course-details] {
+    background-color: var(--blue_purple);
+}
+
 .course-lesson-list .course-lesson-list__item .course-lesson-link[custom-page-course-details] {
     text-decoration: none;
     padding: 0px 8px;
@@ -2951,6 +3053,11 @@ challenge-contributor-table .challenge-contributor-thead .challenge-contributor-
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.course-lesson-list__item .course-lesson-link.course-lesson-link--active[custom-page-course-details] {
+    color: var(--white);
+    font-weight: bold;
 }
 
 .course-lesson-list .course-lesson-list__item .course-lesson-link:hover[custom-page-course-details]::after {

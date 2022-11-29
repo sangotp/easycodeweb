@@ -43,6 +43,9 @@ namespace EasyCodeAcademy.Web.Models
                     }
                 }
             }
+
+            // Use Seed Method
+            modelBuilder.Seed();
         }
 
         // Table
@@ -61,5 +64,7 @@ namespace EasyCodeAcademy.Web.Models
         public DbSet<CourseExerise> courseExerises { get; set; }
 
         public DbSet<ECAPayment> ECAPayments { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
     }
 }

@@ -301,6 +301,10 @@ body {
     clear: both !important;
 }
 
+.form-inline {
+    display: inline-block !important;
+}
+
 .control-label {
     display: inline-block !important;
 }
@@ -408,6 +412,20 @@ body {
 }
 .site-link-hover:hover {
     color: var(--blue_purple);
+}
+
+/*Paging*/
+.list-paging-control {
+    display: flex;
+    list-style-type: none;
+}
+
+.active-link {
+    font-weight: bold;
+}
+
+.text-no-wrap {
+    white-space: nowrap;
 }
 
 /* For summernote override unordered and order list */

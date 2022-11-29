@@ -111,8 +111,11 @@
 }
 
 .course-info .course-info__price .course-price-normal {
-    text-decoration: line-through;
     margin-right: 8px;
+}
+
+.course-info .course-info__price .course-price-normal--line-through {
+    text-decoration: line-through;
 }
 
 .course-info .course-info__price .course-price-sales {
@@ -131,6 +134,7 @@
 
 .course-details-info .course-info .course-info__action {
     display: flex;
+    position: relative;
 }
 
 .course-info .course-info__action .course-add-inventory {
@@ -144,16 +148,23 @@
 .course-info .course-info__action .course-purchase {
     background-color: var(--green);
     padding: 8px 24px;
-    text-decoration: none;
     box-shadow: 0px 0px 6px 0 var(--green);
     color: var(--white);
     border: 1px solid var(--green);
     font-weight: bold;
-    display: inline-block;
     width: 140px;
     min-width: 140px;
     text-align: center;
-    margin-left: 16px;
+}
+
+.course-info .course-info__action .course-purchase-owned {
+    padding: 8px 24px;
+    color: var(--green);
+    border: 1px solid var(--green);
+    font-weight: bold;
+    width: 140px;
+    min-width: 140px;
+    text-align: center;
 }
 
 .content__container .course-details-info .course-video {
@@ -786,6 +797,46 @@
 .course-details-rate__content .course-rate-content .course-rate-content__search {
     display: flex;
     align-items: stretch;
+}
+
+.course-details-rate__content .course-rate-content .course-rate-content__comment {
+    display: flex;
+    align-items: stretch;
+}
+
+.course-rate-content .course-rate-content__comment .rate-comment-container {
+    flex: 1;
+    position: relative;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-input {
+    padding: 12px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    width: 60%;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-select {
+    height: 100%;
+    display: inline-block;
+    border: 1px solid #bbbbbb;
+    padding: 12px 48px 12px 12px;
+    outline: none;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-btn {
+    border: 1px solid var(--green);
+    padding: 6px 24px;
+    display: inline-flex;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: bold;
+    height: 100%;
+}
+
+.rate-comment-container .rate-comment-form .comment-btn-disabled {
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .course-rate-content .course-rate-content__search .rate-search-container {

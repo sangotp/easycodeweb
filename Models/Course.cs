@@ -55,5 +55,8 @@ namespace EasyCodeAcademy.Web.Models
 
         // Course - CourseChapter (1 - Many)
         public ICollection<CourseChapter>? CourseChapters { get; set; }
+
+        // Course - Comment (1 - Many)
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using EasyCodeAcademy.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,13 @@ namespace EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise
     public class IndexModel : PageModel
     {
         private readonly EasyCodeContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public IndexModel(EasyCodeContext context)
+        public IndexModel(EasyCodeContext context,
+            UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public Course Course { get; set; } = default!;
@@ -21,6 +25,10 @@ namespace EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise
         public CourseLesson CourseLesson { get; set; } = default!;
 
         public CourseExerise CourseExercise { get; set; } = default!;
+
+        public IList<ECAPayment> ECAPayments { get; set; } = default!;
+
+        public ECAPayment ECAPayment { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id, int? lessonId, int? exerciseId)
         {
@@ -47,7 +55,17 @@ namespace EasyCodeAcademy.Web.Pages.Courses.Learn.Exercise
 #pragma warning restore CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
             var courselesson = await _context.courseLessons.Include(m => m.CourseExerises).FirstOrDefaultAsync(m => m.LessonId == lessonId);
 
-            if (course == null || courselesson == null)
+            var payments = await _context.ECAPayments.Where(u => u.UserId == _userManager.GetUserId(User).ToString()).ToListAsync();
+            foreach (var payment in payments)
+            {
+                if (payment.courseId == id && payment.Status == 1)
+                {
+                    ECAPayment = payment;
+                    break;
+                }
+            }
+
+            if (course == null || courselesson == null || ECAPayment == null || ECAPayment.Status == 0)
             {
                 return NotFound();
             }

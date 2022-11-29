@@ -62,17 +62,36 @@
                                         {
                                             foreach (var courseLesson in courseChapter.CourseLessons)
                                             {
-                                                <li class="course-lesson-list__item">
-                                                    <a href="/course/@Model.Course.CourseId/learn?lessonId=@courseLesson.LessonId" class="course-lesson-link">@courseLesson.Title</a>
-                                                    <span class="lesson-exercise-count">
-                                                        @if(courseLesson.CourseExerises is not null)
-                                                        {
-                                                            <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">@courseLesson.CourseExerises.Count Exercise</a>
-                                                        } else {
-                                                            <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">0 Exercise</a>
-                                                        }
-                                                    </span>
-                                                </li>
+                                                @if(Model.LessonId == courseLesson.LessonId)
+                                                {
+                                                    <li class="course-lesson-list__item course-lesson-list__item--active">
+                                                        <a href="/course/@Model.Course.CourseId/learn?lessonId=@courseLesson.LessonId" class="course-lesson-link course-lesson-link--active">@courseLesson.Title</a>
+                                                        <span class="lesson-exercise-count">
+                                                            @if (courseLesson.CourseExerises is not null)
+                                                            {
+                                                                <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">@courseLesson.CourseExerises.Count Exercise</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">0 Exercise</a>
+                                                            }
+                                                        </span>
+                                                    </li>
+                                                } else {
+                                                    <li class="course-lesson-list__item">
+                                                        <a href="/course/@Model.Course.CourseId/learn?lessonId=@courseLesson.LessonId" class="course-lesson-link">@courseLesson.Title</a>
+                                                        <span class="lesson-exercise-count">
+                                                            @if (courseLesson.CourseExerises is not null)
+                                                            {
+                                                                <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">@courseLesson.CourseExerises.Count Exercise</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises" class="lesson-exercise-count__link">0 Exercise</a>
+                                                            }
+                                                        </span>
+                                                    </li>
+                                                }
                                             }
                                         } else {
                                             <li class="course-lesson-list__item">

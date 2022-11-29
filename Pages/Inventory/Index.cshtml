@@ -31,16 +31,16 @@
                 <td class="align-middle"><img src="/Assets/uploads/@cartitem.course.CourseImage" alt="Course Image" class="content-img" width="140" /></td>
                 <td class="align-middle">@cartitem.course.CourseName</td>
                 <td class="align-middle">@(cartitem.course.CoursePrice.ToString("n2"))$</td>
-                <td class="align-middle"><input asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.course.CourseId}")" /></td>
+                <td class="align-middle"><input asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.course.CourseId}")" readonly /></td>
                 <td class="align-middle">@(thanhtien.ToString("n2"))$</td>
                 <td class="align-middle">
-                    <form class="d-inline" id="update-inventory-form-@cartitem.course.CourseId" enctype="application/x-www-form-urlencoded">
+@*                    <form class="d-inline" id="update-inventory-form-@cartitem.course.CourseId" enctype="application/x-www-form-urlencoded">
                         @Html.AntiForgeryToken()
                         <button type="button" class="btn btn-success updateinventoryitem"
                         data-courseid="@cartitem.course.CourseId" id="update-inventory-btn-@cartitem.course.CourseId">
                             Update
                         </button>
-                    </form>
+                    </form>*@
                     <form class="d-inline" action="/Inventory/Remove?courseid=@cartitem.course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
                         @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-danger">Delete</button>

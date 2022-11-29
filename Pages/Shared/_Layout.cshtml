@@ -67,8 +67,8 @@
                                                 <li class="subnav-list__item">
                                                     @*                                        <a asp-page="/Manage/Index" class="subnav-link">Site</a>.
                                         <a asp-page="/Manage/User" class="subnav-link">User</a>*@
-                                                    <a asp-page="/Manage/Index" class="site-subnav-link">Site</a>
-                                                    <a asp-area="Admin" asp-page="/Role/Index" class="site-subnav-link">User</a>
+                                                    <a asp-page="/Manage/Index" class="site-subnav-link text-no-wrap">Site</a>
+                                                    <a asp-area="Admin" asp-page="/Role/Index" class="site-subnav-link text-no-wrap">Role & User</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -79,16 +79,16 @@
                     </div>
                     @*<div class="nav-bar__search ml-auto"><i class="fa-solid fa-magnifying-glass"></i></div>*@
                     <div class="ml-auto">@await Html.PartialAsync("_CartPartial")</div>
-@*                    <div class="nav-bar__identify ml-32">
-                        <a href="/Authentication/Register" class="user-signup">Sign Up</a>
-                        <a href="/Authentication/Login" class="user-login ml-8">Log In</a>
+                    @*                    <div class="nav-bar__identify ml-32">
+                    <a href="/Authentication/Register" class="user-signup">Sign Up</a>
+                    <a href="/Authentication/Login" class="user-login ml-8">Log In</a>
                     </div>*@
                     <partial name="_LoginPartial" />
                     @*Menu Mobile*@
                     <div class="menu ml-auto">
                         <button type="button" id="menu-btn" class="btn-restart font-24"><i class="fa-solid fa-bars"></i></button>
                     </div>
-                    
+
                     @*Menu Modal*@
                     <div class="menu-modal">
                         <div class="menu-modal__header">
@@ -119,15 +119,30 @@
                                             <i class="fa-solid fa-angle-right"></i>
                                         </button>
                                     </li>
-                                    <li class="modal-list__item">
-                                        <a asp-page="/Manage/Index" class="modal-action-link link-restart">Manage</a>
-                                    </li>
-                                    <li class="modal-list__item mt-16">
+
+                                    @*<a asp-page="/Manage/Index" class="modal-action-link link-restart">Manage</a>*@
+                                    @{
+                                        if (UserManager.GetUserId(User) != null)
+                                        {
+                                            var user = await UserManager.FindByIdAsync(UserManager.GetUserId(User));
+                                            var roles = await UserManager.GetRolesAsync(user);
+                                            if (roles.Contains("Admin"))
+                                            {
+                                                <li class="modal-list__item">
+                                                    <button type="button" id="sub-modal-manage" class="sub-modal-btn btn-restart">
+                                                        <span class="modal-action-btn__title">Manage</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </li>
+                                            }
+                                        }
+                                    }
+@*                                    <li class="modal-list__item mt-16">
                                         <a href="/Authentication/Register" class="signup-btn text-center">Sign Up</a>
                                     </li>
                                     <li class="modal-list__item mt-8">
                                         <a href="/Authentication/Login" class="login-btn text-center">Log In</a>
-                                    </li>
+                                    </li>*@
                                 </ul>
                             </div>
                         </div>
@@ -172,8 +187,8 @@
                                     <li class="submenu-list__item">
                                         @*                                        <a asp-page="/Manage/Index" class="submenu-link">Site</a>
                                         <a asp-page="/Manage/User" class="submenu-link">User</a>*@
-                                        <a asp-page="/Manage/Index" class="nav-link text-dark">Site</a>
-                                        <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark">User</a>
+                                        <a asp-page="/Manage/Index" class="nav-link text-dark text-no-wrap">Site</a>
+                                        <a asp-area="Admin" asp-page="/Role/Index" class="nav-link text-dark text-no-wrap">Role & User</a>
                                     </li>
                                 </ul>
                             </div>
@@ -199,7 +214,7 @@
                     </span>
                 </div>
                 <div class="footer-copyright">
-                    <span class="footer-copyright__date">Copyright &copy; @DateTime.Now.ToString("yyyy") </span>    
+                    <span class="footer-copyright__date">Copyright &copy; @DateTime.Now.ToString("yyyy") </span>
                     <span class="footer-copyright__from">EasyCode Academy</span>
                 </div>
             </div>
@@ -209,8 +224,8 @@
     @RenderSection("Scripts", required: false)
     <script type="text/javascript">
         // Sticky navbar (header)
-            // Catch Event When User Scroll Page
-        window.addEventListener("scroll", function() {
+        // Catch Event When User Scroll Page
+        window.addEventListener("scroll", function () {
             const navbar = document.querySelector('.nav-bar');
             // if scroll Y Direction > 0, then we trigger 'sticky' class
             navbar.classList.toggle('sticky-box-shadow', window.scrollY > 0);
@@ -219,15 +234,12 @@
         // Dropdown navbar
         const actionBtns = document.querySelectorAll('.action-btn');
         actionBtns.forEach(item => {
-            item.addEventListener("click", function() {
-                if (item.nextElementSibling) 
-                {
+            item.addEventListener("click", function () {
+                if (item.nextElementSibling) {
                     const Dropdown = document.getElementsByClassName(item.nextElementSibling.className);
                     const thisDropdown = this.nextElementSibling;
-                    if (!thisDropdown.classList.contains('show')) 
-                    {
-                        for (var i = 0; i < Dropdown.length; i++) 
-                        {
+                    if (!thisDropdown.classList.contains('show')) {
+                        for (var i = 0; i < Dropdown.length; i++) {
                             Dropdown[i].classList.remove('show');
                         }
                     }
@@ -237,12 +249,11 @@
         });
 
         //Hide subnav when user click outside
-        window.onclick = function(events) {
+        window.onclick = function (events) {
             if (!events.target.matches('.action-btn')) {
                 const subnav = document.getElementsByClassName("subnav-list");
                 for (var i = 0; i < subnav.length; i++) {
-                    if (subnav[i].classList.contains('show'))
-                    {
+                    if (subnav[i].classList.contains('show')) {
                         subnav[i].classList.remove('show');
                     }
                 }
@@ -252,23 +263,21 @@
 
         //Menu Modal
         const menuBtn = document.getElementById('menu-btn');
-        menuBtn.addEventListener("click", function() {
+        menuBtn.addEventListener("click", function () {
             const menuModal = document.getElementsByClassName('menu-modal');
-            if(!menuModal[0].classList.contains('show'))
-            {
+            if (!menuModal[0].classList.contains('show')) {
                 menuModal[0].classList.add('show');
 
                 // Remove Scroll When Trigger Modal
                 document.body.style.overflow = "hidden";
                 document.body.style.height = "100%";
-            } 
+            }
         });
 
         const modalClose = document.getElementById('modal-close');
-        modalClose.addEventListener("click", function() {
+        modalClose.addEventListener("click", function () {
             const menuModal = document.getElementsByClassName('menu-modal');
-            if(menuModal[0].classList.contains('show'))
-            {
+            if (menuModal[0].classList.contains('show')) {
                 menuModal[0].classList.remove('show');
 
                 // Restore Scroll When Close Modal
@@ -285,21 +294,19 @@
         const menuModalContent = document.querySelector('.menu-modal__content');
 
         submenuBtns.forEach(item => {
-            item.addEventListener("click", function() {
+            item.addEventListener("click", function () {
                 // if button have 'sub-modal-activities' id then we hide main modal content
                 // and display activitiesItem. Else opposite for referencesItem
                 if (item.id == 'sub-modal-activities') {
                     const activitiesItem = document.getElementById('submenu-item-activities');
-                    if (activitiesItem) 
-                    {
+                    if (activitiesItem) {
                         menuModalContent.classList.add('hide');
                         activitiesItem.classList.add('show');
                     }
                 }
                 else if (item.id == 'sub-modal-references') {
                     const referencesItem = document.getElementById('submenu-item-references');
-                    if (referencesItem) 
-                    {
+                    if (referencesItem) {
                         menuModalContent.classList.add('hide');
                         referencesItem.classList.add('show');
                     }
@@ -317,12 +324,11 @@
         // Return Main Modal
         const returnBtn = document.querySelectorAll('.submenu-return__btn');
         returnBtn.forEach(item => {
-            item.addEventListener("click", function() {
+            item.addEventListener("click", function () {
                 const submenuItem = document.querySelectorAll('.submenu-modal__content');
                 submenuItem.forEach(subItem => {
                     // if this subItem Contains Show Then We Remove it and Remove 'hide' class for main modal content
-                    if(subItem.classList.contains('show'))
-                    {
+                    if (subItem.classList.contains('show')) {
                         subItem.classList.remove('show');
                         menuModalContent.classList.remove('hide');
                     }

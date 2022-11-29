@@ -128,7 +128,7 @@
                                     @foreach (var topic in item.Topics)
                                     {
                                         <li class="sub-category-list__item">
-                                            <a href="" class="sub-category-link text-medium">@topic.TopicName</a>
+                                            <a href="/courses?topicId=@topic.TopicId" class="sub-category-link text-medium">@topic.TopicName</a>
                                         </li>
                                         @*                                        <li class="sub-category-list__item">ASP.NET Core
                         <a href="" class="sub-category-link text-medium">PHP</a>
@@ -150,86 +150,134 @@
         </div>
         <div class="category-content">
             <div class="category-content__filter">
-                <div class="category-filter-title sub-heading">All</div>
+                <div class="category-filter-title sub-heading">
+                    @if (Model.TopicName != null)
+                    {
+                        <p>@Model.TopicName</p>
+                    }
+                    else
+                    {
+                        <p>All</p>
+                    }
+                </div>
                 <div class="category-filter-action">
                     <div class="filter-action-item">
                         <div class="filter-action-item__container">
                             <button type="button" id="filter-sort" class="filter-sort-btn btn-restart">Sort By:</button>
                             <div class="filter-sort-text ml-8">
-                                <i class="fa-solid fa-star"></i>
-                                <span class="sort-text">Popular</span>
+                                @if (Model.FilterQuery != null)
+                                {
+                                    if (Model.FilterQuery.Contains("Latest"))
+                                    {
+                                        <i class="fa-solid fa-calendar-day"></i>
+                                        <span class="sort-text">Latest</span>
+                                    }
+                                    else if (Model.FilterQuery.Contains("Price"))
+                                    {
+                                        <i class="fa-solid fa-arrow-down-1-9"></i>
+                                        <span class="sort-text">Price</span>
+                                    }
+                                    else if (Model.FilterQuery.Contains("Name"))
+                                    {
+                                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                                        <span class="sort-text">Name</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-calendar-day"></i>
+                                    <span class="sort-text">Latest</span>
+                                }
+
                                 <i class="fa-solid fa-angle-down ml-16"></i>
                             </div>
                         </div>
                         <ul class="filter-sort-list">
                             <li class="filter-sort-list__item">
                                 <div class="sort-item-container">
-                                    <i class="fa-solid fa-star"></i>
-                                    <button type="button" class="sort-item-btn btn-restart">Popular</button>
-                                </div>
-                            </li>
-                            <li class="filter-sort-list__item">
-                                <div class="sort-item-container">
                                     <i class="fa-solid fa-calendar-day"></i>
-                                    <button type="button" class="sort-item-btn btn-restart">Latest</button>
+                                    <form class="filter-search-form form-inline" action="/courses" method="get">
+                                        <input type="hidden" name="filterBy" id="filter-input" value="Latest" />
+                                        <button type="submit" class="sort-item-btn btn-restart">Latest</button>
+                                    </form>
                                 </div>
                             </li>
                             <li class="filter-sort-list__item">
                                 <div class="sort-item-container">
                                     <i class="fa-solid fa-arrow-down-1-9"></i>
-                                    <button type="button" class="sort-item-btn btn-restart">Price</button>
+                                    <form class="filter-search-form form-inline" action="/courses?filterBy=Price" method="get">
+                                        <input type="hidden" name="filterBy" id="filter-input" value="Price" />
+                                        <button type="submit" class="sort-item-btn btn-restart">Price</button>
+                                    </form>
                                 </div>
                             </li>
                             <li class="filter-sort-list__item">
                                 <div class="sort-item-container">
                                     <i class="fa-solid fa-arrow-down-a-z"></i>
-                                    <button type="button" class="sort-item-btn btn-restart">Name</button>
+                                    <form class="filter-search-form form-inline" action="/courses?filterBy=Name" method="get">
+                                        <input type="hidden" name="filterBy" id="filter-input" value="Name" />
+                                        <button type="submit" class="sort-item-btn btn-restart">Name</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="filter-action-item">
-                        <form class="filter-search-form" action="" method="get">
-                            <input type="text" class="filter-search-input text-normal" placeholder="Find Courses" />
+                        <form class="filter-search-form" action="/courses" method="get">
+                            <input name="SearchString" type="text" class="filter-search-input text-normal" placeholder="Find Courses" />
                             <button type="submit" class="filter-search-btn btn-restart">
                                 <i class="fa-solid fa-magnifying-glass text-heading"></i>
                             </button>
                         </form>
                     </div>
-                    <span class="filter-action-item">550 Results</span>
+                    @if (Model.Course is not null)
+                    {
+                        if (Model.Course.Count > 0 && Model.Course.Count <= 1)
+                        {
+                            <span class="filter-action-item">@Model.Course.Count Result</span>
+                        }
+                        else
+                        {
+                            <span class="filter-action-item">@Model.Course.Count Results</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="filter-action-item">0 Result</span>
+                    }
                 </div>
             </div>
             <div class="category-content__courses">
-@*                <div class="course-card">
-                    <div class="course-card__img">
-                        <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
-                    </div>
-                    <div class="course-card__container">
-                        <div class="course-card-title text-heading">Unity 3D Development</div>
-                        <div class="course-card-rating">
-                            <i class="fa-solid fa-star text-small"></i>
-                            <i class="fa-solid fa-star text-small"></i>
-                            <i class="fa-solid fa-star text-small"></i>
-                            <i class="fa-solid fa-star text-small"></i>
-                            <i class="fa-solid fa-star text-small"></i>
-                        </div>
-                        <div class="course-card-author text-medium">Thanh Sang</div>
-                        <div class="course-card-price">
-                            <span class="card-price-normal text-heading">18.99$</span>
-                            <span class="card-price-sales text-heading">8.99$</span>
-                            <span class="card-price-status text-small">Best Sales</span>
-                        </div>
-                        <div class="course-card-action">
-                            <div class="card-action-container card-action-container--btn">
-                                <i class="fa-solid fa-plus icon-btn"></i>
-                                <button type="button" class="card-action-btn btn-restart">Inventory</button>
-                            </div>
-                            <div class="card-action-container card-action-container--link">
-                                <i class="fa-solid fa-info icon-link"></i>
-                                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
-                            </div>
-                        </div>
-                    </div>
+                @*                <div class="course-card">
+                <div class="course-card__img">
+                <img src="/Assets/img/unity.jpg" alt="Course Image" class="card-img" />
+                </div>
+                <div class="course-card__container">
+                <div class="course-card-title text-heading">Unity 3D Development</div>
+                <div class="course-card-rating">
+                <i class="fa-solid fa-star text-small"></i>
+                <i class="fa-solid fa-star text-small"></i>
+                <i class="fa-solid fa-star text-small"></i>
+                <i class="fa-solid fa-star text-small"></i>
+                <i class="fa-solid fa-star text-small"></i>
+                </div>
+                <div class="course-card-author text-medium">Thanh Sang</div>
+                <div class="course-card-price">
+                <span class="card-price-normal text-heading">18.99$</span>
+                <span class="card-price-sales text-heading">8.99$</span>
+                <span class="card-price-status text-small">Best Sales</span>
+                </div>
+                <div class="course-card-action">
+                <div class="card-action-container card-action-container--btn">
+                <i class="fa-solid fa-plus icon-btn"></i>
+                <button type="button" class="card-action-btn btn-restart">Inventory</button>
+                </div>
+                <div class="card-action-container card-action-container--link">
+                <i class="fa-solid fa-info icon-link"></i>
+                <a href="/courses/details" class="card-action-link btn-restart">Details</a>
+                </div>
+                </div>
+                </div>
                 </div>*@
                 @if (Model.Course is not null)
                 {
@@ -248,30 +296,122 @@
                                     <i class="fa-solid fa-star text-small"></i>
                                     <i class="fa-solid fa-star text-small"></i>
                                 </div>
-                                <div class="course-card-author text-medium">Thanh Sang</div>
+                                <div class="course-card-author text-medium">EasyCode</div>
                                 <div class="course-card-price">
                                     <span class="card-price-normal text-heading">@Html.DisplayFor(modelItem => item.CoursePrice)$</span>
                                     @*<span class="card-price-normal card-price-normal-line-through text-heading">@Html.DisplayFor(modelItem => item.CoursePrice)$</span>*@
                                     @*<span class="card-price-sales text-heading">8.99$</span>*@
                                     @*<span class="card-price-status text-small">Best Sales</span>*@
                                 </div>
-                                <div class="course-card-action">
-                                    <div class="card-action-container card-action-container--btn">
-                                        <i class="fa-solid fa-plus icon-btn"></i>
-                                        <form action="/Inventory/Add?courseid=@item.CourseId" method="post" enctype="application/x-www-form-urlencoded">
-                                            @Html.AntiForgeryToken()
-                                            <button type="submit" class="card-action-btn btn-restart">Inventory</button>
-                                        </form>
+                                @if (Model.ECAPayments != null && Model.ECAPayments.Count > 0)
+                                {
+                                    int countPayment = 0;
+                                    @foreach (var payment in Model.ECAPayments)
+                                    {
+                                        ++countPayment;
+                                        if (item.CourseId == payment.courseId && payment.Status == 1)
+                                        {
+                                            <div class="course-card-action">
+                                                <div class="card-action-container card-action-container--btn-owned">
+                                                    <i class="icon-owned fa-solid fa-check"></i>
+                                                    <button type="button" class="card-action-btn-owned btn-restart">Owned</button>
+                                                </div>
+                                                <div class="card-action-container card-action-container--link">
+                                                    <i class="fa-solid fa-info icon-link"></i>
+                                                    <a href="/course/details/@item.CourseId" class="card-action-link btn-restart">Details</a>
+                                                </div>
+                                            </div>
+                                            break;
+                                        }
+                                        else if (countPayment == Model.ECAPayments.Count)
+                                        {
+                                            <div class="course-card-action">
+                                                <div class="card-action-container card-action-container--btn">
+                                                    <i class="fa-solid fa-plus icon-btn"></i>
+                                                    <form action="/Inventory/Add?courseid=@item.CourseId&returnUrl=/courses" method="post" enctype="application/x-www-form-urlencoded">
+                                                        @Html.AntiForgeryToken()
+                                                        <button type="submit" class="card-action-btn btn-restart">Inventory</button>
+                                                    </form>
+                                                </div>
+                                                <div class="card-action-container card-action-container--link">
+                                                    <i class="fa-solid fa-info icon-link"></i>
+                                                    <a href="/course/details/@item.CourseId" class="card-action-link btn-restart">Details</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="course-card-action">
+                                        <div class="card-action-container card-action-container--btn">
+                                            <i class="fa-solid fa-plus icon-btn"></i>
+                                            <form action="/Inventory/Add?courseid=@item.CourseId&returnUrl=/courses" method="post" enctype="application/x-www-form-urlencoded">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="card-action-btn btn-restart">Inventory</button>
+                                            </form>
+                                        </div>
+                                        <div class="card-action-container card-action-container--link">
+                                            <i class="fa-solid fa-info icon-link"></i>
+                                            <a href="/course/details/@item.CourseId" class="card-action-link btn-restart">Details</a>
+                                        </div>
                                     </div>
-                                    <div class="card-action-container card-action-container--link">
-                                        <i class="fa-solid fa-info icon-link"></i>
-                                        <a href="/course/details/@item.CourseId" class="card-action-link btn-restart">Details</a>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     }
                 }
+            </div>
+            @{
+                dynamic pagingmodelDM = default!;
+                if(Model.TopicId != null)
+                {
+                    var pagingmodel = new EasyCodeAcademy.Web.Helpers.PagingModel()
+                    {
+                        currentPage = Model.currentPage,
+                        countPages = Model.countPages,
+                        generateUrl = (int? p) => Url.Page("./Index", new { p = p, topicId = Model.TopicId })
+                    };
+
+                    pagingmodelDM = pagingmodel;
+                } 
+                else if(Model.SearchQuery != null)
+                {
+                    var pagingmodel = new EasyCodeAcademy.Web.Helpers.PagingModel()
+                    {
+                        currentPage = Model.currentPage,
+                        countPages = Model.countPages,
+                        generateUrl = (int? p) => Url.Page("./Index", new { p = p, SearchString = Model.SearchQuery })
+                    };
+
+                    pagingmodelDM = pagingmodel;
+                }
+                else if(Model.FilterQuery != null)
+                {
+                    var pagingmodel = new EasyCodeAcademy.Web.Helpers.PagingModel()
+                    {
+                        currentPage = Model.currentPage,
+                        countPages = Model.countPages,
+                        generateUrl = (int? p) => Url.Page("./Index", new { p = p, filterBy = Model.FilterQuery })
+                    };
+
+                    pagingmodelDM = pagingmodel;
+                }
+                else {
+                    var pagingmodel = new EasyCodeAcademy.Web.Helpers.PagingModel()
+                    {
+                        currentPage = Model.currentPage,
+                        countPages = Model.countPages,
+                        generateUrl = (int? p) => Url.Page("./Index", new { p = p })
+                    };
+
+                    pagingmodelDM = pagingmodel;
+                }
+            }
+
+            @*<partial name="_Paging" model="@datapaging" />*@
+            <div class="category-content__paging">
+                <partial name="_NonBootstrapPaging" model="@pagingmodelDM" />
             </div>
         </div>
     </div>
@@ -283,7 +423,7 @@
         const sideBar = document.querySelector(".sidebar");
         const categoryContent = document.querySelector(".category-content");
 
-        window.addEventListener("scroll", function(){
+        window.addEventListener("scroll", function () {
             sideBar.classList.toggle("remove-shadow-t", window.scrollY > 48); // if Window Scroll > 48px (48px => margin-top)
             categoryContent.classList.toggle("remove-shadow-t", window.scrollY > 48); // if Window Scroll > 48px (48px => margin-top)
         });
@@ -293,7 +433,7 @@
         const categoryBtns = document.querySelectorAll(".sidebar-category-btn");
 
         categoryBtns.forEach(item => {
-            item.addEventListener("click", function() {
+            item.addEventListener("click", function () {
                 if (item.parentElement.nextElementSibling) {
                     if (item.parentElement.nextElementSibling.classList.contains("sub-category-list")) {
                         item.parentElement.nextElementSibling.classList.toggle("show");
@@ -305,7 +445,7 @@
         // Dropdown Sort Btn
         const sortBtn = document.getElementById("filter-sort");
 
-        window.addEventListener("click", function(event) {
+        window.addEventListener("click", function (event) {
             if (!event.target.matches("#filter-sort")) {
                 if (sortBtn.parentElement.nextElementSibling) {
                     if (sortBtn.parentElement.nextElementSibling.classList.contains("filter-sort-list")) {
@@ -317,7 +457,7 @@
             }
         });
 
-        sortBtn.addEventListener("click", function() {
+        sortBtn.addEventListener("click", function () {
             if (this.parentElement.nextElementSibling) {
                 if (this.parentElement.nextElementSibling.classList.contains("filter-sort-list")) {
                     this.parentElement.nextElementSibling.classList.toggle("show");

@@ -27,12 +27,13 @@ namespace EasyCodeAcademy.Web.Pages_Manage_Categories
 
         [BindProperty]
         public Category Category { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.categories == null || Category == null)
+            if (!ModelState.IsValid || _context.categories == null 
+                || Category == null)
             {
                 return Page();
             }

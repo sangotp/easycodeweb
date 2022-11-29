@@ -19,30 +19,58 @@
             if (UserManager.GetUserId(User) == null)
             {
                 <div class="banner-join__link mt-32">
-                    <a href="/Authentication/Login" class="join-link">Join Now</a>
+                    <a href="/Identity/Account/Login" class="join-link">Join Now</a>
                 </div>
             }
         }
     </div>
 
     <div class="banner-courses">
-        <div class="banner-courses__title sub-heading">
-            We're provide various courses to learn how to coding in different field:
-        </div>
-        <div class="banner-courses__content">
-            <div class="course-field">
-                <a href="" class="course-field__link">Web Development</a>
+        @if (Model.Topics != null && Model.Topics.Count > 0)
+        {
+            int i = 0;
+            <div class="banner-courses__title sub-heading">
+                We're provide various courses to learn how to coding in different field:
             </div>
-            <div class="course-field">
-                <a href="" class="course-field__link">Mobile Development</a>
+            <div class="banner-courses__content">
+                @foreach (var topic in Model.Topics.OrderBy(c => c.created_date))
+                {
+                    ++i;
+
+                    if (i == 4)
+                    {
+                        <div class="course-field">
+                            <a href="/courses" class="course-field__link">More...</a>
+                        </div>
+                        break;
+                    }
+
+                    <div class="course-field">
+                        <a href="/courses?topicId=@topic.TopicId" class="course-field__link">@topic.TopicName</a>
+                    </div>
+                }
             </div>
-            <div class="course-field">
-                <a href="" class="course-field__link">Game Development</a>
+        }
+        else
+        {
+            <div class="banner-courses__title sub-heading">
+                No Course Availabled Yet...
             </div>
-            <div class="course-field">
-                <a href="" class="course-field__link">More...</a>
-            </div>
-        </div>
+@*            <div class="banner-courses__content">
+                <div class="course-field">
+                    <a href="" class="course-field__link">Web Development</a>
+                </div>
+                <div class="course-field">
+                    <a href="" class="course-field__link">Mobile Development</a>
+                </div>
+                <div class="course-field">
+                    <a href="" class="course-field__link">Game Development</a>
+                </div>
+                <div class="course-field">
+                    <a href="" class="course-field__link">More...</a>
+                </div>
+            </div>*@
+        }
     </div>
 
     <div class="banner-activities">

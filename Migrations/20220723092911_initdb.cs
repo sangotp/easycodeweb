@@ -50,27 +50,27 @@ namespace EasyCodeAcademy.Web.Migrations
             //    );
             //}
 
-            migrationBuilder.InsertData(
-                table: "categories",
-                columns: new[] { "CategoryName", "created_date", "updated_date" },
-                values: new object[]
-                {
-                    "Web",
-                    DateTime.Now,
-                    DateTime.Now
-                }
-            );
+            //migrationBuilder.InsertData(
+            //    table: "categories",
+            //    columns: new[] { "CategoryName", "created_date", "updated_date" },
+            //    values: new object[]
+            //    {
+            //        "Web",
+            //        DateTime.Now,
+            //        DateTime.Now
+            //    }
+            //);
 
-            migrationBuilder.InsertData(
-                table: "categories",
-                columns: new[] { "CategoryName", "created_date", "updated_date" },
-                values: new object[]
-                {
-                    "Game",
-                    DateTime.Now,
-                    DateTime.Now
-                }
-            );
+            //migrationBuilder.InsertData(
+            //    table: "categories",
+            //    columns: new[] { "CategoryName", "created_date", "updated_date" },
+            //    values: new object[]
+            //    {
+            //        "Programming Language",
+            //        DateTime.Now,
+            //        DateTime.Now
+            //    }
+            //);
 
         }
 

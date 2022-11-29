@@ -16,5 +16,8 @@ namespace EasyCodeAcademy.Web.Models
 
         // User - Payment (1 - Many)
         public ICollection<ECAPayment>? ECAPayments { get; set; }
+
+        // User - Comment (1 - Many)
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

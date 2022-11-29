@@ -1,6 +1,8 @@
 ﻿using EasyCodeAcademy.Web.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace EasyCodeAcademy.Web.Pages.Inventory
@@ -14,18 +16,26 @@ namespace EasyCodeAcademy.Web.Pages.Inventory
         }
 
         private readonly EasyCodeContext easyCodeContext;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public CreateModel(EasyCodeContext _easyCodeContext)
+        public CreateModel(
+            EasyCodeContext _easyCodeContext,
+            SignInManager<AppUser> signInManager, 
+            UserManager<AppUser> userManager)
         {
             easyCodeContext = _easyCodeContext;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public void OnGet()
         {
         }
 
+        private IList<ECAPayment> ECAPayments { get; set; } = default!;
 
-        public IActionResult OnPost(int? courseid)
+        public async Task<IActionResult> OnPostAsync(int? courseid, string? returnUrl)
         {
             var course = easyCodeContext.courses
                                   .Where(p => p.CourseId == courseid)
@@ -33,24 +43,60 @@ namespace EasyCodeAcademy.Web.Pages.Inventory
             if (course == null)
                 return NotFound("Course Not Found");
 
-            // Xử lý đưa vào Cart ...
-            var cart = GetCartItems();
-            var cartitem = cart.Find(p => p.course.CourseId == courseid);
-            if (cartitem != null)
+            bool isOwned = false;
+
+            if (_signInManager.IsSignedIn(User) && isOwned == false)
             {
-                // Đã tồn tại, tăng thêm 1
-                cartitem.quantity++;
+                // Xử lý đưa vào Cart ...
+                var cart = GetCartItems();
+                var cartitem = cart.Find(p => p.course.CourseId == courseid);
+                if (cartitem != null)
+                {
+                    // Đã tồn tại, tăng thêm 1
+                    //cartitem.quantity++;
+                }
+                else
+                {
+                    //  Thêm mới
+                    cart.Add(new CartItem() { quantity = 1, course = course });
+                }
+
+                // Lưu cart vào Session
+                SaveCartSession(cart);
+                // Chuyển đến trang hiện thị Cart
+                return Redirect("/Inventory");
+            }
+            else if (_signInManager.IsSignedIn(User) && isOwned)
+            {
+                return NotFound("You already own this course. Unable to add.");
             }
             else
             {
-                //  Thêm mới
-                cart.Add(new CartItem() { quantity = 1, course = course });
+                if (returnUrl != null)
+                {
+                    string returnUrlQuery = $"?ReturnUrl={Url.Content("~" + returnUrl)}";
+                    return LocalRedirect($"/Identity/Account/Login{returnUrlQuery}");
+                }
+                else
+                {
+                    string returnUrlQuery = $"?ReturnUrl={Url.Content("~/")}";
+                    return LocalRedirect($"/Identity/Account/Login{returnUrlQuery}");
+                }
             }
 
-            // Lưu cart vào Session
-            SaveCartSession(cart);
-            // Chuyển đến trang hiện thị Cart
-            return Redirect("/Inventory");
+            ECAPayments = await easyCodeContext.ECAPayments.Where(u => u.UserId == _userManager.GetUserId(User).ToString()).ToListAsync();
+
+            if(ECAPayments != null)
+            {
+                foreach(var payment in ECAPayments)
+                {
+                    if(payment.courseId == courseid && payment.Status == 1)
+                    {
+                        isOwned = true;
+                        break;
+                    }
+                }
+            }
         }
 
         // Key lưu chuỗi json của Cart

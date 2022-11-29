@@ -59,7 +59,6 @@ namespace EasyCodeAcademy.Web.Areas.Identity.Pages.Account.Manage
             var client = new PayPalHttpClient(environment);
 
             PaymentGetRequest request = new PaymentGetRequest(paymentId);
-            
 
             var hostname = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
             try

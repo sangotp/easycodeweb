@@ -111,8 +111,11 @@
 }
 
 .course-info .course-info__price .course-price-normal[custom-page-course-details] {
-    text-decoration: line-through;
     margin-right: 8px;
+}
+
+.course-info .course-info__price .course-price-normal--line-through[custom-page-course-details] {
+    text-decoration: line-through;
 }
 
 .course-info .course-info__price .course-price-sales[custom-page-course-details] {
@@ -131,6 +134,7 @@
 
 .course-details-info .course-info .course-info__action[custom-page-course-details] {
     display: flex;
+    position: relative;
 }
 
 .course-info .course-info__action .course-add-inventory[custom-page-course-details] {
@@ -144,16 +148,23 @@
 .course-info .course-info__action .course-purchase[custom-page-course-details] {
     background-color: var(--green);
     padding: 8px 24px;
-    text-decoration: none;
     box-shadow: 0px 0px 6px 0 var(--green);
     color: var(--white);
     border: 1px solid var(--green);
     font-weight: bold;
-    display: inline-block;
     width: 140px;
     min-width: 140px;
     text-align: center;
-    margin-left: 16px;
+}
+
+.course-info .course-info__action .course-purchase-owned[custom-page-course-details] {
+    padding: 8px 24px;
+    color: var(--green);
+    border: 1px solid var(--green);
+    font-weight: bold;
+    width: 140px;
+    min-width: 140px;
+    text-align: center;
 }
 
 .content__container .course-details-info .course-video[custom-page-course-details] {
@@ -786,6 +797,46 @@
 .course-details-rate__content .course-rate-content .course-rate-content__search[custom-page-course-details] {
     display: flex;
     align-items: stretch;
+}
+
+.course-details-rate__content .course-rate-content .course-rate-content__comment[custom-page-course-details] {
+    display: flex;
+    align-items: stretch;
+}
+
+.course-rate-content .course-rate-content__comment .rate-comment-container[custom-page-course-details] {
+    flex: 1;
+    position: relative;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-input[custom-page-course-details] {
+    padding: 12px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    width: 60%;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-select[custom-page-course-details] {
+    height: 100%;
+    display: inline-block;
+    border: 1px solid #bbbbbb;
+    padding: 12px 48px 12px 12px;
+    outline: none;
+}
+
+.rate-comment-container .rate-comment-form .rate-comment-btn[custom-page-course-details] {
+    border: 1px solid var(--green);
+    padding: 6px 24px;
+    display: inline-flex;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: bold;
+    height: 100%;
+}
+
+.rate-comment-container .rate-comment-form .comment-btn-disabled[custom-page-course-details] {
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .course-rate-content .course-rate-content__search .rate-search-container[custom-page-course-details] {

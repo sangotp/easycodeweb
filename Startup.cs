@@ -121,6 +121,8 @@ namespace EasyCodeAcademy.Web
                 // Default Endpoint
                 endpoints.MapGet("/hello", () => "Hello World!");
             });
+
+            
         }
     }
 }

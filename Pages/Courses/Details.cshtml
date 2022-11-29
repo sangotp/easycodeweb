@@ -2,7 +2,15 @@
 @model EasyCodeAcademy.Web.Pages.Courses.DetailsModel
 @{
     ViewData["Title"] = "EasyCode Academy - Course Details";
+    bool isOwned = false;
+    bool isComment = false;
+    string UserName = "Null";
 }
+
+@using Microsoft.AspNetCore.Identity
+@using EasyCodeAcademy.Web.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 <div class="content__container">
     <div class="breadcrumb">
@@ -64,7 +72,7 @@
         <div class="course-info">
             <div class="course-info__title sub-heading">@Model.Course.CourseName</div>
             <div class="course-info__author text-small">
-                Author: <a href="#" class="course-author">Thanh Sang</a>
+                Author: <a href="#" class="course-author">EasyCode</a>
             </div>
             <div class="course-info__vote text-small mt-8">
                 <i class="fa-solid fa-star"></i>
@@ -72,26 +80,56 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star-half"></i>
-                <a href="#" class="course-vote-total">(700 rating)</a>
+                <a href="#" class="course-vote-total">(0 rating)</a>
             </div>
             <div class="course-info__language text-medium mt-8">
                 Language: <button type="button" class="course-language btn-restart">@Model.Course.CourseDetails.CourseLanguage</button>
             </div>
             <div class="course-info__total-time text-medium mt-8">
-                Complete Course: <a href="#" class="course-total-time">20 hours / total</a>
+                Complete Course: <a href="#" class="course-total-time">0 hours / total</a>
             </div>
             <div class="course-info__price mt-16">
                 <span class="course-price-normal text-heading">@Html.DisplayFor(modelItem => Model.Course.CoursePrice)$</span>
-                <span class="course-price-sales text-heading">8.99$</span>
-                <span class="course-price-status text-small">Best Sales</span>
+                @*<span class="course-price-sales text-heading">8.99$</span>*@
+                @*<span class="course-price-status text-small">Best Sales</span>*@
             </div>
             <div class="course-info__action mt-32">
-                <form action="/Inventory/Add?courseid=@Model.Course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="course-add-inventory btn-restart">+ Inventory</button>
-                </form>
-
-                <a href="#" class="course-purchase">Buy Now</a>
+                @*                <form action="/Inventory/Add?courseid=@Model.Course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="course-add-inventory btn-restart">+ Inventory</button>
+                </form>*@
+                @if (Model.Course is not null)
+                {
+                    @if (Model.ECAPayments is not null && Model.ECAPayments.Count > 0)
+                    {
+                        int countPayment = 0;
+                        foreach (var payment in Model.ECAPayments)
+                        {
+                            ++countPayment;
+                            if (payment.courseId == Model.Course.CourseId && payment.Status == 1)
+                            {
+                                isOwned = true;
+                                <button type="button" href="#" class="course-purchase-owned btn-restart">
+                                    <i class="icon-owned fa-solid fa-check mr-8"></i>Owned
+                                </button>
+                            }
+                            else if (countPayment == Model.ECAPayments.Count)
+                            {
+                                <form action="/Inventory/Add?courseid=@Model.Course.CourseId&returnUrl=/course/details/@Model.Course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" href="#" class="course-purchase btn-restart">Buy Now</button>
+                                </form>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <form action="/Inventory/Add?courseid=@Model.Course.CourseId&returnUrl=/course/details/@Model.Course.CourseId" method="post" enctype="application/x-www-form-urlencoded">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" href="#" class="course-purchase btn-restart">Buy Now</button>
+                        </form>
+                    }
+                }
             </div>
         </div>
         <div class="course-video">
@@ -421,7 +459,15 @@
                                                         <div class="course-lesson-item-container">
                                                             <div class="course-lesson-action">
                                                                 <i class="fa-regular fa-circle-play"></i>
-                                                                <a href="/course/@Model.Course.CourseId/learn?lessonId=@courseLesson.LessonId" class="course-lesson-link">@courseLesson.Title</a>
+                                                                @if (isOwned)
+                                                                {
+                                                                    <a href="/course/@Model.Course.CourseId/learn?lessonId=@courseLesson.LessonId" class="course-lesson-link">@courseLesson.Title</a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a href="" class="course-lesson-link link-disabled disabled">@courseLesson.Title</a>
+                                                                }
+
                                                             </div>
                                                             <div class="course-lesson-info">
                                                                 <span class="course-lesson-info__item">Ready</span>
@@ -456,7 +502,15 @@
                                                                         <div class="course-exercise-item-container">
                                                                             <div class="course-exercise-action">
                                                                                 <i class="fa-solid fa-note-sticky"></i>
-                                                                                <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="course-exercise-link">@courseExercise.Title</a>
+                                                                                @if (isOwned)
+                                                                                {
+                                                                                    <a href="/course/@Model.Course.CourseId/learn/@courseLesson.LessonId/exercises?exerciseId=@courseExercise.ExerciseId" class="course-exercise-link">@courseExercise.Title</a>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <a href="" class="course-exercise-link link-disabled disabled">@courseExercise.Title</a>
+                                                                                }
+
                                                                             </div>
                                                                         </div>
                                                                     </li>
@@ -502,9 +556,9 @@
                     <span class="course-contribute-member__title">Member: </span>
                     <button type="button" id="author_member" class="contribute-member-btn btn-restart">Thanh Sang</button>
                     <span class="contribute-member-comma">,</span>
-                    <button type="button" id="codex_member" class="contribute-member-btn btn-restart">Codex</button>
-                    <span class="contribute-member-comma">,</span>
-                    <button type="button" id="W3C_member" class="contribute-member-btn btn-restart">W3C</button>
+                    <button type="button" id="codex_member" class="contribute-member-btn btn-restart">EasyCode Academy</button>
+                    @*                    <span class="contribute-member-comma">,</span>
+                    <button type="button" id="W3C_member" class="contribute-member-btn btn-restart">W3C</button>*@
                 </div>
                 <div class="course-contribute-info">
                     <div class="course-contribute-info__container">
@@ -609,7 +663,7 @@
                             </div>
                         </div>
                         <div class="member-contribute-name mt-8">
-                            <span class="member-contribute-name__text text-heading">Codex</span>
+                            <span class="member-contribute-name__text text-heading">EasyCode Academy</span>
                         </div>
                         <div class="member-contribute-role text-heading">
                             <span class="member-contribute-role__text text-heading">Support</span>
@@ -733,113 +787,195 @@
         <div class="course-details-rate__content">
             <div class="course-rate-title text-heading">Comments By Trainee</div>
             <div class="course-rate-content mt-16">
-                <div class="course-rate-content__search">
-                    <div class="rate-search-container">
-                        <form class="rate-search-form" method="post" action="">
-                            <input type="text" class="rate-search-input text-normal" placeholder="Search For Reviews" />
-                            <button type="submit" class="rate-search-btn btn-restart text-heading">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="course-rate-filter">
-                        <form class="course-rate-form" method="post" action="">
-                            <select class="course-rate-filter__select text-normal" name="rate-select">
-                                <option class="course-rate-filter__option text-normal" value="0">All</option>
-                                <option class="course-rate-filter__option text-normal" value="5">5 Stars</option>
-                                <option class="course-rate-filter__option text-normal" value="4">4 Stars</option>
-                                <option class="course-rate-filter__option text-normal" value="3">3 Stars</option>
-                                <option class="course-rate-filter__option text-normal" value="2">2 Stars</option>
-                                <option class="course-rate-filter__option text-normal" value="1">1 Stars</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="course-rate-content__container mt-16">
-                    <div class="course-rate-reviewer">
-                        <div class="course-rate-image">
-                            <span class="reviewer-img-text">
-                                TS
-                            </span>
+                @if (SignInManager.IsSignedIn(User) && isOwned)
+                {
+                    <div class="course-rate-content__comment">
+                        <div class="rate-comment-container">
+                            <form id="comment-form" class="rate-comment-form" method="post" enctype="application/x-www-form-urlencoded">
+                                @Html.AntiForgeryToken()
+                                <div asp-validation-summary="ModelOnly" class="text-danger text-medium"></div>
+                                <input name="Comment.CommentMessage" type="text" id="comment-input" class="rate-comment-input text-normal" placeholder="Give Your Comment" />
+                                <span asp-validation-for="Comment.CommentMessage" class="text-danger text-medium block mb-8"></span>
+                                <select class="rate-comment-select text-normal" name="comment-rate-select">
+                                    <option class="course-rate-option text-normal" value="5">5 Stars</option>
+                                    <option class="course-rate-option text-normal" value="4">4 Stars</option>
+                                    <option class="course-rate-option text-normal" value="3">3 Stars</option>
+                                    <option class="course-rate-option text-normal" value="2">2 Stars</option>
+                                    <option class="course-rate-option text-normal" value="1">1 Stars</option>
+                                </select>
+
+                                <input type="hidden" name="Comment.created_date" value="@DateTime.Now" />
+                                <input type="hidden" name="Comment.updated_date" value="@DateTime.Now" />
+                                <input type="hidden" name="Comment.UserId" value="@UserManager.GetUserId(User).ToString()" />
+                                <input type="hidden" name="Comment.CourseId" value="@Model.Course.CourseId" />
+                                @if (Model.Comments != null && Model.Comments.Count > 0)
+                                {
+                                    foreach (var comment in Model.Comments.OrderByDescending(c => c.created_date))
+                                    {
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            if (comment.UserId == UserManager.GetUserId(User).ToString())
+                                            {
+                                                isComment = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @if (isComment)
+                                {
+                                    <button type="button" class="rate-comment-btn btn-restart comment-btn-disabled" id="submit-comment-btn">
+                                        Submit
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button type="button" class="rate-comment-btn btn-restart" id="submit-comment-btn">
+                                        Submit
+                                    </button>
+                                }
+                            </form>
                         </div>
-                        <div class="course-rate-info">
-                            <span class="course-rate-info__fullname">Thanh Sang</span>
-                            <span class="course-rate-info__star">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            <span class="course-rate-info__content mt-8">
-                                Great course to get all the starting skills for Unity.
-                                You clearly can build your own small game after each project of the course.
-                                Well explained, interesting projects.
-                            </span>
-                            <div class="course-rate-info__action mt-8">
-                                <button type="button" class="course-rate-reaction btn-restart">
-                                    <i class="fa-regular fa-thumbs-up"></i>
+                    </div>
+                }
+                else
+                {
+                    <div class="course-rate-content__search">
+                        <div class="rate-search-container">
+                            <form class="rate-search-form" method="post" action="">
+                                <input type="text" class="rate-search-input text-normal" placeholder="Search For Reviews" />
+                                <button type="submit" class="rate-search-btn btn-restart text-heading">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
-                                <button type="button" class="course-rate-reaction btn-restart ml-8">
-                                    <i class="fa-regular fa-thumbs-down"></i>
-                                </button>
-                                <div class="course-rate-report mt-16">
-                                    <div class="course-rate-report__container">
-                                        <button type="button" class="course-rate-report__btn btn-restart">
-                                            <i class="fa-regular fa-flag"></i>
-                                        </button>
-                                        <span class="course-rate-report__text">Report</span>
-                                    </div>
+                            </form>
+                        </div>
+                        <div class="course-rate-filter">
+                            <form class="course-rate-form" method="post" action="">
+                                <select class="course-rate-filter__select text-normal" name="rate-select">
+                                    <option class="course-rate-filter__option text-normal" value="0">All</option>
+                                    <option class="course-rate-filter__option text-normal" value="5">5 Stars</option>
+                                    <option class="course-rate-filter__option text-normal" value="4">4 Stars</option>
+                                    <option class="course-rate-filter__option text-normal" value="3">3 Stars</option>
+                                    <option class="course-rate-filter__option text-normal" value="2">2 Stars</option>
+                                    <option class="course-rate-filter__option text-normal" value="1">1 Stars</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                }
+
+                <div class="course-rate-content__container mt-16" id="course-comment-container">
+                    @*                    <div class="course-rate-reviewer">
+                    <div class="course-rate-image">
+                    <span class="reviewer-img-text">
+                    TS
+                    </span>
+                    </div>
+                    <div class="course-rate-info">
+                    <span class="course-rate-info__fullname">Thanh Sang</span>
+                    <span class="course-rate-info__star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="course-rate-info__content mt-8">
+                    Great course to get all the starting skills for Unity.
+                    You clearly can build your own small game after each project of the course.
+                    Well explained, interesting projects.
+                    </span>
+                    <div class="course-rate-info__action mt-8">
+                    <button type="button" class="course-rate-reaction btn-restart">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    </button>
+                    <button type="button" class="course-rate-reaction btn-restart ml-8">
+                    <i class="fa-regular fa-thumbs-down"></i>
+                    </button>
+                    <div class="course-rate-report mt-16">
+                    <div class="course-rate-report__container">
+                    <button type="button" class="course-rate-report__btn btn-restart">
+                    <i class="fa-regular fa-flag"></i>
+                    </button>
+                    <span class="course-rate-report__text">Report</span>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>*@
+
+                    @if (Model.Comments != null && Model.Comments.Count > 0)
+                    {
+                        foreach (var comment in Model.Comments.OrderByDescending(c => c.created_date))
+                        {
+                            <div class="course-rate-reviewer">
+                                <div class="course-rate-image">
+                                    <span class="reviewer-img">
+                                        <img src="/Assets/img/gamedevTV.jpg" class="reviewer-img__profile" alt="Reviewer Image" />
+                                    </span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="course-rate-info">
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        if (comment.UserId == UserManager.GetUserId(User).ToString())
+                                        {
+                                            <span class="course-rate-info__fullname">@*Codex*@@comment.User.UserName <strong>(You)</strong></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="course-rate-info__fullname">@*Codex*@@comment.User.UserName</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="course-rate-info__fullname">@*Codex*@@comment.User.UserName</span>
+                                    }
 
-
-
-                    <div class="course-rate-reviewer">
-                        <div class="course-rate-image">
-                            <span class="reviewer-img">
-                                <img src="/Assets/img/gamedevTV.jpg" class="reviewer-img__profile" alt="Reviewer Image" />
-                            </span>
-                        </div>
-                        <div class="course-rate-info">
-                            <span class="course-rate-info__fullname">Codex</span>
-                            <span class="course-rate-info__star">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            <span class="course-rate-info__content mt-8">
-                                I am totally new to this course
+                                    <span class="course-rate-info__star">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="course-rate-info__content mt-8">
+                                        @*                                        I am totally new to this course
                                 and barely worked on C# and Unity but
                                 the knowledge that I got here helped
                                 channel my thinking with regards to doing
                                 things I haven't done before. I did enjoy the course .
                                 Will have to practice a lot on my own to
                                 make sure the concepts were fully grasped.
-                                Thanks very much guys.
-                            </span>
-                            <div class="course-rate-info__action mt-8">
-                                <button type="button" class="course-rate-reaction btn-restart">
-                                    <i class="fa-regular fa-thumbs-up"></i>
-                                </button>
-                                <button type="button" class="course-rate-reaction btn-restart ml-8">
-                                    <i class="fa-regular fa-thumbs-down"></i>
-                                </button>
-                                <div class="course-rate-report mt-16">
-                                    <div class="course-rate-report__container">
-                                        <button type="button" class="course-rate-report__btn btn-restart">
-                                            <i class="fa-regular fa-flag"></i>
+                                Thanks very much guys.*@
+                                        @comment.CommentMessage
+                                    </span>
+                                    <div class="course-rate-info__action mt-8">
+                                        <button type="button" class="course-rate-reaction btn-restart">
+                                            <i class="fa-regular fa-thumbs-up"></i>
                                         </button>
-                                        <span class="course-rate-report__text">Report</span>
+                                        <button type="button" class="course-rate-reaction btn-restart ml-8">
+                                            <i class="fa-regular fa-thumbs-down"></i>
+                                        </button>
+                                        <div class="course-rate-report mt-16">
+                                            <div class="course-rate-report__container">
+                                                <button type="button" class="course-rate-report__btn btn-restart">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                </button>
+                                                <span class="course-rate-report__text">Report</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="course-rate-reviewer" id="comment-not-found">
+                            No Comment Fond In This Course.
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
@@ -1052,5 +1188,258 @@
             });
         }
 
+
+        // Post Form Comment
+        var submitCommentBtn = document.getElementById("submit-comment-btn");
+        if (submitCommentBtn != null) {
+            submitCommentBtn.addEventListener("click", function () {
+                // Create an XMLHttpRequest object
+                const xhttp = new XMLHttpRequest();
+
+                // Define a callback function
+                xhttp.onload = function () {
+                    if (xhttp.status === 200) {
+                        // What to do when the response is ready
+                        let response = JSON.parse(xhttp.responseText);
+                        if (response != undefined && response != null) {
+                            console.log(response);
+                            document.getElementById("comment-input").value = null;
+                            submitCommentBtn.classList.add("comment-btn-disabled");
+                            let html = `
+                                                                                                                                                                     <div class="course-rate-reviewer">
+                                                                                                                                                                        <div class="course-rate-image">
+                                                                                                                                                                            <span class="reviewer-img">
+                                                                                                                                                                                <img src="/Assets/img/gamedevTV.jpg" class="reviewer-img__profile" alt="Reviewer Image" />
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <div class="course-rate-info">
+                                                                                                                                                                            <span class="course-rate-info__fullname">Codex</span>
+                                                                                                                                                                            <span class="course-rate-info__star">
+                                                                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                                                            </span>
+                                                                                                                                                                            <span class="course-rate-info__content mt-8">
+                                                                                                                                                                                I am totally new to this course
+                                                                                                                                                                                and barely worked on C# and Unity but
+                                                                                                                                                                                the knowledge that I got here helped
+                                                                                                                                                                                channel my thinking with regards to doing
+                                                                                                                                                                                things I haven't done before. I did enjoy the course .
+                                                                                                                                                                                Will have to practice a lot on my own to
+                                                                                                                                                                                make sure the concepts were fully grasped.
+                                                                                                                                                                                Thanks very much guys.
+                                                                                                                                                                            </span>
+                                                                                                                                                                            <div class="course-rate-info__action mt-8">
+                                                                                                                                                                                <button type="button" class="course-rate-reaction btn-restart">
+                                                                                                                                                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                                                                                                                                                </button>
+                                                                                                                                                                                <button type="button" class="course-rate-reaction btn-restart ml-8">
+                                                                                                                                                                                    <i class="fa-regular fa-thumbs-down"></i>
+                                                                                                                                                                                </button>
+                                                                                                                                                                                <div class="course-rate-report mt-16">
+                                                                                                                                                                                    <div class="course-rate-report__container">
+                                                                                                                                                                                        <button type="button" class="course-rate-report__btn btn-restart">
+                                                                                                                                                                                            <i class="fa-regular fa-flag"></i>
+                                                                                                                                                                                        </button>
+                                                                                                                                                                                        <span class="course-rate-report__text">Report</span>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </div>
+                                                                                                                                                                            </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                `;
+                            const parentDiv = document.getElementById("course-comment-container");
+
+                            // Create "div" node
+                            const div = document.createElement("div");
+
+                            // Add Class For "div" node
+                            div.classList.add("course-rate-reviewer");
+                            div.setAttribute("custom-page-course-details", "");
+
+                            for (let i = 1; i <= 2; i++) {
+                                // Create "childDiv" node
+                                const childDiv = document.createElement("div");
+
+                                if (i == 1) {
+                                    // Add Class For "childDiv" node
+                                    childDiv.classList.add("course-rate-image");
+                                    childDiv.setAttribute("custom-page-course-details", "");
+
+                                    // Create "span" node
+                                    const span = document.createElement("span");
+
+                                    // Add Class For "span" node
+                                    span.classList.add("reviewer-img");
+                                    span.setAttribute("custom-page-course-details", "");
+
+                                    // Create "img" node
+                                    const img = document.createElement("img");
+
+                                    // Add Class For "img" node
+                                    img.src = "/Assets/img/gamedevTV.jpg";
+                                    img.alt = "Reviewer Image";
+                                    img.classList.add("reviewer-img__profile");
+                                    img.setAttribute("custom-page-course-details", "");
+
+                                    span.appendChild(img);
+                                    childDiv.appendChild(span);
+                                } else {
+                                    // Add Class For "childDiv" node
+                                    childDiv.classList.add("course-rate-info");
+                                    childDiv.setAttribute("custom-page-course-details", "");
+
+                                    for (let j = 1; j <= 3; j++) {
+                                        // Create "span" node
+                                        const span = document.createElement("span");
+
+                                        if (j == 1) {
+                                            // Add Class For "span" node
+                                            span.classList.add("course-rate-info__fullname");
+                                            span.setAttribute("custom-page-course-details", "");
+        @if (SignInManager.IsSignedIn(User))
+        {
+            UserName = @UserManager.GetUserName(User).ToString();
+        }
+                                                span.innerHTML = "@UserName" + "<strong>(You)</strong>";
+                                        }
+                                        else if (j == 2) {
+                                            // Add Class For "span" node
+                                            span.classList.add("course-rate-info__star");
+                                            span.setAttribute("custom-page-course-details", "");
+
+                                            for (let k = 1; k <= 5; k++) {
+                                                // Create "icon" node
+                                                const icon = document.createElement("i");
+
+                                                // Add Class For "icon" node
+                                                icon.classList.add("fa-solid", "fa-star");
+                                                icon.setAttribute("custom-page-course-details", "");
+                                                span.appendChild(icon);
+                                            }
+                                        } else {
+                                            // Add Class For "span" node
+                                            span.classList.add("course-rate-info__content", "mt-8");
+                                            span.setAttribute("custom-page-course-details", "");
+                                            span.innerHTML = response.commentMessage;
+                                        }
+
+                                        childDiv.appendChild(span);
+                                    }
+
+                                    // Create "childDiv2" node
+                                    const childDiv2 = document.createElement("div");
+
+                                    // Add Class For "childDiv2" node
+                                    childDiv2.classList.add("course-rate-info__action", "mt-8");
+                                    childDiv2.setAttribute("custom-page-course-details", "");
+
+                                    for (let j = 1; j <= 2; j++) {
+                                        // Create "button" node
+                                        const button = document.createElement("button");
+                                        button.type = "button";
+
+                                        // Create "icon" node
+                                        const icon = document.createElement("i");
+
+                                        if (j == 1) {
+                                            // Add Class For "button" node
+                                            button.classList.add("course-rate-reaction", "btn-restart");
+                                            button.setAttribute("custom-page-course-details", "");
+
+                                            // Add Class For "icon" node
+                                            icon.classList.add("fa-regular", "fa-thumbs-up");
+                                            icon.setAttribute("custom-page-course-details", "");
+                                        } else {
+                                            // Add Class For "button" node
+                                            button.classList.add("course-rate-reaction", "btn-restart", "ml-8");
+                                            button.setAttribute("custom-page-course-details", "");
+                                            // Add Class For "icon" node
+                                            icon.classList.add("fa-regular", "fa-thumbs-down");
+                                            icon.setAttribute("custom-page-course-details", "");
+                                        }
+
+                                        button.appendChild(icon);
+                                        childDiv2.appendChild(button);
+                                    }
+
+                                    // Create "childDiv3" node
+                                    const childDiv3 = document.createElement("div");
+
+                                    // Add Class For "childDiv3" node
+                                    childDiv3.classList.add("course-rate-report", "mt-16");
+                                    childDiv3.setAttribute("custom-page-course-details", "");
+
+                                    // Create "childDiv4" node
+                                    const childDiv4 = document.createElement("div");
+
+                                    // Add Class For "childDiv3" node
+                                    childDiv4.classList.add("course-rate-report__container");
+                                    childDiv4.setAttribute("custom-page-course-details", "");
+
+                                    // Create "button" node
+                                    const button = document.createElement("button");
+                                    button.type = "button";
+
+                                    // Add Class For "button" node
+                                    button.classList.add("course-rate-report__btn", "btn-restart");
+                                    button.setAttribute("custom-page-course-details", "");
+
+                                    // Create "icon" node
+                                    const icon = document.createElement("i");
+
+                                    // Add Class For "icon" node
+                                    icon.classList.add("fa-regular", "fa-flag");
+                                    icon.setAttribute("custom-page-course-details", "");
+
+                                    // Create "span" node
+                                    const span = document.createElement("span");
+
+                                    // Add Class For "span" node
+                                    span.classList.add("course-rate-report__text");
+                                    span.setAttribute("custom-page-course-details", "");
+                                    span.innerHTML = "Report";
+
+                                    button.appendChild(icon);
+                                    childDiv4.appendChild(button);
+                                    childDiv4.appendChild(span);
+                                    childDiv3.appendChild(childDiv4);
+                                    childDiv2.appendChild(childDiv3);
+                                    childDiv.appendChild(childDiv2);
+                                }
+
+                                div.appendChild(childDiv);
+                            }
+                            parentDiv.appendChild(div);
+                            if (document.getElementById("comment-not-found") != null) {
+                                parentDiv.removeChild(document.getElementById("comment-not-found"));
+                            }
+                        } else {
+                            alert("Data Not Found.");
+                        }
+                    } else {
+                        //alert(xhttp.status);
+                        if(xhttp.status == 204)
+                        {
+                            alert("Cannot Submit Comment \"You are only allowed to comment once.\"");
+                        } else {
+                            alert("Cannot Submit Comment \"Invalid Request Information.\"");
+                        }
+                        
+                    }
+                }
+
+                //let url = editForm.action;
+                let url = "/course/details?id=" + @Model.Course.CourseId;
+                let data = new FormData(document.getElementById("comment-form"));
+
+                // Send a request
+                xhttp.open("POST", url);
+                xhttp.setRequestHeader("RequestVerificationToken", data.get('__RequestVerificationToken'));
+                xhttp.send(data);
+            });
+        }
     </script>
 }

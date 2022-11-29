@@ -122,6 +122,10 @@
     justify-content: space-between;
 }
 
+.course-lesson-list .course-lesson-list__item.course-lesson-list__item--active {
+    background-color: var(--blue_purple);
+}
+
 .course-lesson-list .course-lesson-list__item .course-lesson-link {
     text-decoration: none;
     padding: 0px 8px;
@@ -136,6 +140,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.course-lesson-list__item .course-lesson-link.course-lesson-link--active {
+    color: var(--white);
+    font-weight: bold;
 }
 
 .course-lesson-list .course-lesson-list__item .course-lesson-link:hover::after {

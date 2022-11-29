@@ -4,6 +4,7 @@ using EasyCodeAcademy.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyCodeAcademy.Web.Migrations
 {
     [DbContext(typeof(EasyCodeContext))]
-    partial class EasyCodeContextModelSnapshot : ModelSnapshot
+    [Migration("20221124112425_CommentTable")]
+    partial class CommentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,40 +94,6 @@ namespace EasyCodeAcademy.Web.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1eb7cb27-23f3-4ebf-930e-5029221c7c5e",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "963633e3-b348-488f-8e74-44a0efb60549",
-                            Email = "aa@aa.aa",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "AA@AA.AA",
-                            NormalizedUserName = "AA@AA.AA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPlVnh3ih+nJZI4GICRxOo7sVqt/aW4RLlKCoJQCxBEuUsbcrgwqd6e1IypBrUAPGg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8dc75e7-a3b7-4acb-993d-98e4db3be4bd",
-                            TwoFactorEnabled = false,
-                            UserName = "aa@aa.aa"
-                        },
-                        new
-                        {
-                            Id = "8b2d3533-0f4c-4c5d-905a-77c60368fb69",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "3af61580-1a76-4ad6-9632-8430d8e548e9",
-                            Email = "mm@mm.mm",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "MM@MM.MM",
-                            NormalizedUserName = "MM@MM.MM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG8q/hFAiu0IezLSkhJTnNbBhyA7lN/k0SmH2jNjifBesw+LhVVYyPMUMjZ15hWbFg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "b7beede0-3c76-4609-9f68-5ab7f0a3303c",
-                            TwoFactorEnabled = false,
-                            UserName = "mm@mm.mm"
-                        });
                 });
 
             modelBuilder.Entity("EasyCodeAcademy.Web.Models.Category", b =>
@@ -467,22 +435,6 @@ namespace EasyCodeAcademy.Web.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "4dd9a048-143f-4b5c-a05a-4c82bb7609b5",
-                            ConcurrencyStamp = "48b12277-d927-4a74-9088-9dd0a53b39e6",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "e25eaf46-c650-4fa8-920d-947a16d384b1",
-                            ConcurrencyStamp = "0a7a0b7e-1974-4462-a2a7-db8a7b0c36e2",
-                            Name = "Member",
-                            NormalizedName = "MEMBER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -570,18 +522,6 @@ namespace EasyCodeAcademy.Web.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "1eb7cb27-23f3-4ebf-930e-5029221c7c5e",
-                            RoleId = "4dd9a048-143f-4b5c-a05a-4c82bb7609b5"
-                        },
-                        new
-                        {
-                            UserId = "8b2d3533-0f4c-4c5d-905a-77c60368fb69",
-                            RoleId = "e25eaf46-c650-4fa8-920d-947a16d384b1"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

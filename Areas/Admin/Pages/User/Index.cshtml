@@ -7,6 +7,11 @@
 <h2>@ViewData["Title"]</h2>
 
 <partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="mb-2">
+    <a asp-page="../Role/Index" class="btn btn-success">Role List</a>
+</div>
+
 <p>Total Users: @Model.totalUsers</p>
 
 <table class="table">
