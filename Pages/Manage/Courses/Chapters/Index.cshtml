@@ -2920,7 +2920,7 @@
                                 iconChild.setAttribute("custom-chapter-index", "");
 
                                 buttonChild.appendChild(iconChild);
-                                buttonChild.innerHTML += "3 Exercises";
+                                buttonChild.innerHTML += "0 Exercise";
 
                                 div.appendChild(buttonChild);
 
@@ -3004,6 +3004,7 @@
 
                                 // Add Class For "buttonChildExercise" node
                                 buttonChildExercise.classList.add("course-exercise-btn", "create-exercise-btn", "btn-restart");
+                                buttonChildExercise.id = "new-exercise-lesson-" + response.lessonId;
                                 buttonChildExercise.setAttribute("custom-chapter-index", "");
                                 buttonChildExercise.type = "button";
 
@@ -3016,6 +3017,14 @@
 
                                 buttonChildExercise.appendChild(iconChildExercise);
                                 buttonChildExercise.innerHTML += "Exercise";
+
+                                        // Show Modal When Click Create Exercise Button
+                                                    buttonChildExercise.addEventListener("click", function () {
+                // Assign LessonId For Exercise
+                const inputExerciseLessonId = document.getElementById("course-exercise-lesson-id");
+                inputExerciseLessonId.value = buttonChildExercise.id.slice(buttonChildExercise.id.lastIndexOf('-') + 1);
+                ShowCreateExerciseModal();
+            });
 
                                 divChildExercise.appendChild(buttonChildExercise);
                             }
